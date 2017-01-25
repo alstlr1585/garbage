@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="1.2dp"
+        android:background="#000000" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:paddingRight="20dp"
+        android:paddingLeft="20dp">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_gravity="center"
+                android:layout_height="300dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/braillepicture"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textColor="#ffffff"
+                    android:textSize="10dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/shapebottomnumber"
+                    android:text=" 1 "/>
+
+                <TextView
+                    android:paddingLeft="6dp"
+                    android:paddingRight="6dp"
+                    android:paddingTop="3dp"
+                    android:paddingBottom="3dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:background="@drawable/shapebottombtn"
+                    android:textSize="13dp"
+                    android:text="점자는 6개의 점이 모여 한 칸이 된다. 이 6개의 점은 세로로 3점, 가로로 2점으로 구성되며, 각 점에 1에서 6까지의 번호를 붙여 사용한다."/>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textColor="#ffffff"
+                    android:textSize="10dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/shapebottomnumber"
+                    android:text=" 2 "/>
+
+                <TextView
+                    android:paddingLeft="6dp"
+                    android:paddingRight="6dp"
+                    android:paddingTop="3dp"
+                    android:paddingBottom="3dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:background="@drawable/shapebottombtn"
+                    android:textSize="13dp"
+                    android:text="6개의 점 중에 어떤 점을 돌출시키는 지에 따라 63개의 각각 다른 점형이 생기며, 이 점형에 의미가 부여된다."/>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textColor="#ffffff"
+                    android:textSize="10dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/shapebottomnumber"
+                    android:text=" 3 "/>
+
+                <TextView
+                    android:paddingLeft="6dp"
+                    android:paddingRight="6dp"
+                    android:paddingTop="3dp"
+                    android:paddingBottom="3dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:background="@drawable/shapebottombtn"
+                    android:textSize="13dp"
+                    android:text="63개의 점형을 초성(첫소리)자음 13자, 종성(받침)자음 14자, 모음 21자, 약자 27자, 약어 7개, 숫자, 문장부호 등에 배정하여 사용한다."/>
+
+
+            </LinearLayout>
+
+
+
+
+
+
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

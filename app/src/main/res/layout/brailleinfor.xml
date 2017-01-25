@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="1.2dp"
+        android:background="#000000" />
+
+    <ScrollView
+        android:layout_marginTop="20dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:gravity="center"
+                android:layout_marginBottom="20dp"
+                android:textSize="15dp"
+                android:text="점자란 시각장애인들이 사용하는 '문자’이다"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textColor="#ffffff"
+                    android:textSize="10dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/shapebottomnumber"
+                    android:text=" 1 "/>
+
+                <TextView
+                    android:paddingLeft="6dp"
+                    android:paddingRight="6dp"
+                    android:paddingTop="3dp"
+                    android:paddingBottom="3dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:background="@drawable/shapebottombtn"
+                    android:textSize="13dp"
+                    android:text="일반적으로 생각하듯이한글의 형태를 선이나 점선으로 나타낸 것이 아니라, 작고 둥근 6개의 점을 볼록하게 돌출되도록 만든 것이다."/>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textColor="#ffffff"
+                    android:textSize="10dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/shapebottomnumber"
+                    android:text=" 2 "/>
+
+                <TextView
+                    android:paddingLeft="6dp"
+                    android:paddingRight="6dp"
+                    android:paddingTop="3dp"
+                    android:paddingBottom="3dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:background="@drawable/shapebottombtn"
+                    android:textSize="13dp"
+                    android:text="점자를 쓸 때는 종이 뒷면에서 점을 찍고, 읽을 때는 종이를 뒤집어 읽는다. 그러므로 점자는 글을 쓰는 방향과 글을 읽는 방향이 다르다."/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textColor="#ffffff"
+                    android:textSize="10dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/shapebottomnumber"
+                    android:text=" 3 "/>
+
+                <TextView
+                    android:paddingLeft="6dp"
+                    android:paddingRight="6dp"
+                    android:paddingTop="3dp"
+                    android:paddingBottom="3dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:background="@drawable/shapebottombtn"
+                    android:textSize="13dp"
+                    android:text="한글의 경우, 초성과 모음, 종성 각각에 점형이 다르게 약속되어 있다. 예를 들어, ‘책’이라는 글자를 점자로 쓰기 위해서는‘ㅊ’ ‘ㅐ’ ‘ㄱ’으로 풀어쓴다."/>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textColor="#ffffff"
+                    android:textSize="10dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/shapebottomnumber"
+                    android:text=" 4 "/>
+
+                <TextView
+                    android:paddingLeft="6dp"
+                    android:paddingRight="6dp"
+                    android:paddingTop="3dp"
+                    android:paddingBottom="3dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:background="@drawable/shapebottombtn"
+                    android:textSize="13dp"
+                    android:text="흔히 지하철 안내도나 엘리베이터 버튼 등에서 점자를 쉽게 찾을 수 있다."/>
+
+
+            </LinearLayout>
+
+
+
+
+
+        </LinearLayout>
+
+
+
+
+
+    </ScrollView>
+
+
+</LinearLayout>

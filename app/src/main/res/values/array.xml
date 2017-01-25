@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="word">
+        <item>자음(초성)</item>
+        <item>자음(종성)</item>
+        <item>모음</item>
+        <item>숫자</item>
+        <item>특수문자</item>
+        <item>약자</item>
+    </string-array>
+
+</resources>

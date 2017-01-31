@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#FFD8D8"
+    android:background="#FFEAEA"
     tools:context="com.example.sinmingu.brailleproject.brailletableActivity">
 
     <LinearLayout
@@ -41,7 +41,7 @@
     <LinearLayout
         android:layout_width="170dp"
         android:layout_gravity="center"
-        android:background="@drawable/tablepicture"
+        android:background="@drawable/tablecenter"
         android:layout_height="170dp"
         android:layout_marginBottom="20dp">
 
@@ -70,7 +70,7 @@
             android:paddingBottom="30dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:background="@drawable/shapebottombtn"
+            android:background="@drawable/shapetableline"
             android:orientation="vertical"
             android:gravity="center">
 
@@ -132,14 +132,7 @@
                 android:visibility="gone"
                 android:background="@drawable/vowel_three"/>
 
-
-
-
         </LinearLayout>
-
-
-
-
 
     </ScrollView>
 

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#ffffff">
 
     <TextView
         android:layout_marginTop="10dp"
@@ -54,7 +55,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#000000"
-                    android:background="@drawable/shapebottombtn"
+                    android:background="@drawable/shapebottomsub"
                     android:textSize="13dp"
                     android:text="점자는 6개의 점이 모여 한 칸이 된다. 이 6개의 점은 세로로 3점, 가로로 2점으로 구성되며, 각 점에 1에서 6까지의 번호를 붙여 사용한다."/>
 
@@ -86,7 +87,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#000000"
-                    android:background="@drawable/shapebottombtn"
+                    android:background="@drawable/shapebottomsub"
                     android:textSize="13dp"
                     android:text="6개의 점 중에 어떤 점을 돌출시키는 지에 따라 63개의 각각 다른 점형이 생기며, 이 점형에 의미가 부여된다."/>
 
@@ -118,7 +119,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#000000"
-                    android:background="@drawable/shapebottombtn"
+                    android:background="@drawable/shapebottomsub"
                     android:textSize="13dp"
                     android:text="63개의 점형을 초성(첫소리)자음 13자, 종성(받침)자음 14자, 모음 21자, 약자 27자, 약어 7개, 숫자, 문장부호 등에 배정하여 사용한다."/>
 

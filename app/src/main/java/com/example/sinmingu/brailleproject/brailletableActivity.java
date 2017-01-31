@@ -48,7 +48,7 @@ public class brailletableActivity extends FragmentActivity {
               //  Toast.makeText(brailletableActivity.this,
               //          adapter.getItem(position) + "을 선택 했습니다.", Toast.LENGTH_SHORT).show();
 
-                if(adapter.getItem(position).equals("자음(초성)")){
+                if(adapter.getItem(position).equals("초성 자음")){
 
                     consonant_initial_one.setVisibility(View.VISIBLE);
                     consonant_initial_two.setVisibility(View.VISIBLE);
@@ -58,11 +58,11 @@ public class brailletableActivity extends FragmentActivity {
                     vowel_two.setVisibility((View.GONE));
                     vowel_three.setVisibility((View.GONE));
 
-                    viewmenu.setText("자음(초성)");
+                    viewmenu.setText("초성 자음");
 
 
                 }
-                else if(adapter.getItem(position).equals("자음(종성)")){
+                else if(adapter.getItem(position).equals("종성 자음")){
 
                     consonant_initial_one.setVisibility(View.GONE);
                     consonant_initial_two.setVisibility(View.GONE);
@@ -72,7 +72,7 @@ public class brailletableActivity extends FragmentActivity {
                     vowel_two.setVisibility((View.GONE));
                     vowel_three.setVisibility((View.GONE));
 
-                    viewmenu.setText("자음(종성)");
+                    viewmenu.setText("종성 자음");
 
                 }
                 else if(adapter.getItem(position).equals("모음")){
@@ -84,7 +84,7 @@ public class brailletableActivity extends FragmentActivity {
                     vowel_two.setVisibility((View.VISIBLE));
                     vowel_three.setVisibility((View.VISIBLE));
 
-                    viewmenu.setText("자음(모음)");
+                    viewmenu.setText("모음");
 
                 }
                 else if(adapter.getItem(position).equals("알파벳")){

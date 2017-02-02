@@ -27,7 +27,6 @@
     </LinearLayout>
 
 
-
     <TabHost
 
         android:id="@+id/tab_host"
@@ -52,15 +51,347 @@
                 android:layout_height="match_parent" >
 
 
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:scrollbars="none"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="20dp"
+                        android:paddingLeft="10dp">
+
+                        <Button
+                            android:layout_width="75dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/shapestudybtn"
+                            android:textColor="#ffffff"
+                            android:id="@+id/study1_consonantinitial_btn"
+                            android:layout_marginRight="10dp"
+                            android:text="초성 자음"/>
+
+                        <Button
+                            android:layout_width="75dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/shapestudybtn"
+                            android:textColor="#ffffff"
+                            android:layout_marginRight="10dp"
+                            android:text="종성 자음"/>
+
+                        <Button
+                            android:layout_width="75dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/shapestudybtn"
+                            android:textColor="#ffffff"
+                            android:layout_marginRight="10dp"
+                            android:text="모음"/>
+
+                        <Button
+                            android:layout_width="75dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/shapestudybtn"
+                            android:textColor="#ffffff"
+                            android:layout_marginRight="10dp"
+                            android:text="알파벳"/>
+
+                        <Button
+                            android:layout_width="75dp"
+                            android:layout_height="wrap_content"
+                            android:textColor="#ffffff"
+                            android:background="@drawable/shapestudybtn"
+                            android:layout_marginRight="10dp"
+                            android:text="약어"/>
+
+                        <Button
+                            android:layout_width="75dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="10dp"
+                            android:textColor="#ffffff"
+                            android:background="@drawable/shapestudybtn"
+                            android:text="숫자"/>
+
+
+                    </LinearLayout>
+
+
+                </HorizontalScrollView>
+
+
+
+
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="gdgdgd"/>
+                    android:layout_height="1dp"
+                    android:background="#000000"/>
 
-                <Button
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="시 작"/>
+                    android:background="#FFEAEA">
+
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginTop="5dp"
+                        android:id="@+id/btn_before"
+                        android:layout_marginLeft="20dp"
+
+                        android:text="이전"
+                        android:textColor="#FF0000"
+                        android:textSize="13dp"
+                        android:gravity="center"
+
+                        android:layout_height="wrap_content"
+                        android:background="#00ff0000"
+                        android:layout_weight="1.5"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="미선택"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginTop="5dp"
+                        android:textStyle="bold"
+                        android:textSize="15dp"
+                        android:textColor="#000000"
+
+
+                        android:gravity="center"
+                        android:layout_weight="0.75"/>
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginTop="5dp"
+                        android:id="@+id/btn_next"
+                        android:textColor="#FF0000"
+                        android:text="다음"
+                        android:textSize="13dp"
+
+                        android:gravity="center"
+                        android:layout_height="wrap_content"
+                        android:background="#00ff0000"
+                        android:layout_weight="1.5"/>
+
+
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#000000"/>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="30dp"
+                        android:layout_marginTop="40dp"
+                        android:id="@+id/consonant_initial1"
+                        android:layout_marginBottom="50dp"
+                        android:layout_weight="1"/>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_gravity="center"
+                        android:orientation="vertical">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="30dp"
+                            android:paddingRight="40dp"
+                            android:layout_marginBottom="40dp"
+                            android:orientation="horizontal">
+
+                            <ImageButton
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:layout_marginRight="5dp"
+                                android:background="#ffffff"
+                                android:id="@+id/braillebtn1"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"/>
+
+                            <ImageButton
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:layout_marginLeft="5dp"
+                                android:id="@+id/braillebtn4"
+                                android:background="#ffffff"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"/>
+
+
+
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="30dp"
+                            android:layout_marginBottom="40dp"
+                            android:paddingRight="40dp"
+                            android:orientation="horizontal">
+
+                            <ImageButton
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:layout_marginRight="5dp"
+                                android:id="@+id/braillebtn2"
+                                android:background="#ffffff"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"/>
+
+                            <ImageButton
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:layout_marginLeft="5dp"
+                                android:background="#ffffff"
+                                android:id="@+id/braillebtn5"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"/>
+
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="30dp"
+                            android:paddingRight="40dp"
+                            android:orientation="horizontal">
+
+                            <ImageButton
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:background="#ffffff"
+                                android:layout_marginRight="5dp"
+                                android:id="@+id/braillebtn3"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"/>
+
+                            <ImageButton
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:layout_marginLeft="5dp"
+                                android:background="#ffffff"
+                                android:id="@+id/braillebtn6"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"/>
+
+
+                        </LinearLayout>
+
+                        <Button
+                            android:layout_marginTop="30dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="확 인"
+                            android:layout_marginRight="20dp"
+                            android:textColor="#000000"
+                            android:id="@+id/result_send"
+                            android:background="@drawable/shapebottomsub"
+                            android:textStyle="bold"
+                            android:textSize="15dp"
+                            />
+
+
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="30dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"/>
+
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:text="정 답 : "
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="10dp"
+                        android:textSize="18dp"
+
+                        android:id="@+id/studyresult"
+                        android:textColor="#000000"
+                        android:layout_weight="1"
+                        android:textStyle="bold"/>
+
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="10dp"
+
+                        android:id="@+id/studyresultpicture"
+                        android:layout_height="match_parent" />
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"/>
+
+
+
+                </LinearLayout>
+
+
+
+
 
             </LinearLayout>
 
@@ -71,10 +402,78 @@
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent" >
 
-                <TextView
+                <HorizontalScrollView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="hihi"/>
+                    android:scrollbars="none"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:orientation="horizontal"
+                        android:paddingLeft="10dp">
+
+                        <Button
+                            android:layout_width="75dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/shapestudybtn"
+                            android:textColor="#ffffff"
+                            android:layout_marginRight="10dp"
+                            android:text="초성 자음"/>
+
+                        <Button
+                            android:layout_width="75dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/shapestudybtn"
+                            android:textColor="#ffffff"
+                            android:layout_marginRight="10dp"
+                            android:text="종성 자음"/>
+
+                        <Button
+                            android:layout_width="75dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/shapestudybtn"
+                            android:textColor="#ffffff"
+                            android:layout_marginRight="10dp"
+                            android:text="모음"/>
+
+                        <Button
+                            android:layout_width="75dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/shapestudybtn"
+                            android:textColor="#ffffff"
+                            android:layout_marginRight="10dp"
+                            android:text="알파벳"/>
+
+                        <Button
+                            android:layout_width="75dp"
+                            android:layout_height="wrap_content"
+                            android:textColor="#ffffff"
+                            android:background="@drawable/shapestudybtn"
+                            android:layout_marginRight="10dp"
+                            android:text="약어"/>
+
+                        <Button
+                            android:layout_width="75dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="10dp"
+                            android:textColor="#ffffff"
+                            android:background="@drawable/shapestudybtn"
+                            android:text="숫자"
+                            />
+
+
+
+
+
+
+                    </LinearLayout>
+
+
+
+
+
+                </HorizontalScrollView>
 
 
             </LinearLayout>
@@ -88,10 +487,71 @@
 
 
 
-                <TextView
+                <HorizontalScrollView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="hihi2"/>
+                    android:scrollbars="none"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:orientation="horizontal"
+                        android:paddingLeft="10dp">
+
+                        <Button
+                            android:layout_width="75dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/shapestudybtn"
+                            android:textColor="#ffffff"
+                            android:layout_marginRight="10dp"
+                            android:text="초성 자음"/>
+
+                        <Button
+                            android:layout_width="75dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/shapestudybtn"
+                            android:textColor="#ffffff"
+                            android:layout_marginRight="10dp"
+                            android:text="종성 자음"/>
+
+                        <Button
+                            android:layout_width="75dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/shapestudybtn"
+                            android:textColor="#ffffff"
+                            android:layout_marginRight="10dp"
+                            android:text="모음"/>
+
+                        <Button
+                            android:layout_width="75dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/shapestudybtn"
+                            android:textColor="#ffffff"
+                            android:layout_marginRight="10dp"
+                            android:text="알파벳"/>
+
+                        <Button
+                            android:layout_width="75dp"
+                            android:layout_height="wrap_content"
+                            android:textColor="#ffffff"
+                            android:background="@drawable/shapestudybtn"
+                            android:layout_marginRight="10dp"
+                            android:text="약어"/>
+
+                        <Button
+                            android:layout_width="75dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="10dp"
+                            android:textColor="#ffffff"
+                            android:background="@drawable/shapestudybtn"
+                            android:text="숫자"/>
+
+                    </LinearLayout>
+
+
+
+                </HorizontalScrollView>
+
 
 
             </LinearLayout>

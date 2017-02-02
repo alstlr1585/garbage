@@ -55,7 +55,7 @@ public class MainActivity extends FragmentActivity {
 
         Glide.with(this).load(R.drawable.mainbailleinfor).fitCenter().into(btn_Brailleinfor);
         Glide.with(this).load(R.drawable.mainbraillesite).fitCenter().into(btn_Braillesite);
-        Glide.with(this).load(R.drawable.mainbrailletable).fitCenter().into(btn_Brailletable);
+        Glide.with(this).load(R.drawable.mainbraille_table).fitCenter().into(btn_Brailletable);
         Glide.with(this).load(R.drawable.mainbraillehistory).fitCenter().into(btn_Brraillehistory);
 
 

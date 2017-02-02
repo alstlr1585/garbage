@@ -8,6 +8,7 @@
     android:background="#FFEAEA"
     tools:context="com.example.sinmingu.brailleproject.brailletableActivity">
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:background="#F15F5F"
@@ -28,6 +29,8 @@
         <Spinner
             android:gravity="center"
             android:layout_weight="2"
+
+            android:layout_gravity="right"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:textDirection="anyRtl"
@@ -45,19 +48,22 @@
         android:layout_height="170dp"
         android:layout_marginBottom="20dp">
 
-      <TextView
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:gravity="center"
-          android:paddingTop="70dp"
-          android:id="@+id/view_menu"
-          android:textColor="#000000"
-          android:textStyle="bold"
-          android:textSize="14dp"
-          android:layout_gravity="center"
-          android:text="자음(초성)"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="70dp"
+            android:id="@+id/view_menu"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:textSize="14dp"
+            android:layout_gravity="center"
+            android:text="자음(초성)"/>
+
+
 
     </LinearLayout>
+
 
     <ScrollView
         android:layout_width="match_parent"
@@ -68,8 +74,8 @@
             android:layout_height="wrap_content"
             android:paddingTop="30dp"
             android:paddingBottom="30dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:background="@drawable/shapetableline"
             android:orientation="vertical"
             android:gravity="center">
@@ -81,63 +87,53 @@
                 android:layout_height="270dp"
                 android:id="@+id/consonant_initial_one"
                 android:layout_marginBottom="10dp"
-                android:visibility="visible"
-                android:background="@drawable/consonant_initial_one"/>
+                android:visibility="visible" />
 
             <ImageView
                 android:layout_width="250dp"
                 android:layout_height="180dp"
                 android:layout_marginBottom="10dp"
                 android:id="@+id/consonant_initial_two"
-                android:visibility="visible"
-                android:background="@drawable/consonant_initial_two"/>
+                android:visibility="visible" />
 
             <ImageView
                 android:layout_width="250dp"
                 android:layout_height="270dp"
                 android:layout_marginBottom="10dp"
                 android:id="@+id/finalconsonant_ini_one"
-                android:visibility="gone"
-                android:background="@drawable/finalconsonant_ini_one"/>
+                android:visibility="gone" />
 
             <ImageView
                 android:layout_width="250dp"
                 android:layout_height="180dp"
                 android:visibility="gone"
                 android:id="@+id/finalconsonant_ini_two"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/finalconsonant_ini_two"/>
+                android:layout_marginBottom="10dp" />
 
             <ImageView
                 android:layout_width="250dp"
                 android:layout_height="270dp"
                 android:layout_marginBottom="10dp"
                 android:id="@+id/vowel_one"
-                android:visibility="gone"
-                android:background="@drawable/vowel_one"/>
+                android:visibility="gone" />
 
             <ImageView
                 android:layout_width="250dp"
                 android:layout_height="270dp"
                 android:layout_marginBottom="10dp"
                 android:id="@+id/vowel_two"
-                android:visibility="gone"
-                android:background="@drawable/vowel_two"/>
+                android:visibility="gone" />
 
             <ImageView
                 android:layout_width="250dp"
                 android:layout_height="270dp"
                 android:layout_marginBottom="10dp"
                 android:id="@+id/vowel_three"
-                android:visibility="gone"
-                android:background="@drawable/vowel_three"/>
+                android:visibility="gone" />
 
         </LinearLayout>
 
     </ScrollView>
-
-
-
 
 
 

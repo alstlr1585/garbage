@@ -1,7 +1,7 @@
 package com.example.sinmingu.brailleproject;
 
+
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.widget.TextViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,18 +12,19 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+
 public class brailletableActivity extends FragmentActivity {
 
     Spinner wordmenu;
     ImageView consonant_initial_one, consonant_initial_two, finalconsonant_initial_one,finalconsonant_initial_two,
-    vowel_one, vowel_two,vowel_three;
+            vowel_one, vowel_two,vowel_three;
     TextView viewmenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_brailletable);
-
 
         wordmenu=(Spinner)findViewById(R.id.wordmenu);
 
@@ -36,6 +37,15 @@ public class brailletableActivity extends FragmentActivity {
         vowel_three=(ImageView)findViewById(R.id.vowel_three);
         viewmenu=(TextView)findViewById(R.id.view_menu);
 
+        Glide.with(this).load(R.drawable.consonant_initial_one).into(consonant_initial_one);
+        Glide.with(this).load(R.drawable.consonant_initial_two).into(consonant_initial_two);
+        Glide.with(this).load(R.drawable.finalconsonant_ini_one).into(finalconsonant_initial_one);
+        Glide.with(this).load(R.drawable.finalconsonant_ini_two).into(finalconsonant_initial_two);
+        Glide.with(this).load(R.drawable.vowel_one).into(vowel_one);
+        Glide.with(this).load(R.drawable.vowel_two).into(vowel_two);
+        Glide.with(this).load(R.drawable.vowel_three).into(vowel_three);
+
+
         final ArrayAdapter adapter=ArrayAdapter.createFromResource(this,R.array.word,android.R.layout.simple_spinner_item);
 
         adapter.setDropDownViewResource(android.R.layout.simple_list_item_single_choice);
@@ -45,8 +55,8 @@ public class brailletableActivity extends FragmentActivity {
         wordmenu.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?>  parent, View view, int position, long id) {
 
-              //  Toast.makeText(brailletableActivity.this,
-              //          adapter.getItem(position) + "을 선택 했습니다.", Toast.LENGTH_SHORT).show();
+                //  Toast.makeText(brailletableActivity.this,
+                //          adapter.getItem(position) + "을 선택 했습니다.", Toast.LENGTH_SHORT).show();
 
                 if(adapter.getItem(position).equals("초성 자음")){
 
@@ -105,4 +115,8 @@ public class brailletableActivity extends FragmentActivity {
 
     }
 }
+
+
+
+
 

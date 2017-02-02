@@ -21,7 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/study_high"/>
+            android:id="@+id/studyimagetop"/>
 
 
         <LinearLayout
@@ -88,8 +88,8 @@
                 android:layout_width="70dp"
                 android:layout_gravity="center"
                 android:layout_height="45dp"
-                android:layout_weight="1"
-                android:background="@drawable/brailletable"/>
+                android:id="@+id/studyimage1"
+                android:layout_weight="1" />
 
             <Button
                 android:layout_width="match_parent"
@@ -132,7 +132,8 @@
                 android:layout_gravity="center"
                 android:layout_height="45dp"
                 android:layout_weight="1"
-                android:background="@drawable/braillewrite"/>
+                android:id="@+id/studyimage2"
+                />
 
             <Button
 

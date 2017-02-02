@@ -130,12 +130,14 @@
             android:paddingLeft="25dp"
             android:layout_height="match_parent">
 
-            <Button
+            <ImageButton
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:layout_gravity="center"
+                android:background="#ffffff"
                 android:id="@+id/btn_Brabilleinfo"
-                android:background="@drawable/main_bailleinfor"/>
+                />
 
             <TextView
                 android:layout_width="match_parent"
@@ -159,12 +161,12 @@
             android:paddingLeft="25dp"
             android:layout_height="match_parent">
 
-            <Button
+            <ImageButton
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:id="@+id/btn_Brailltable"
-                android:background="@drawable/main_brailletable"/>
+                android:background="#ffffff"
+                android:id="@+id/btn_Brailltable"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -185,12 +187,12 @@
             android:paddingRight="25dp"
             android:layout_weight="1"
             android:layout_height="match_parent">
-            <Button
+            <ImageButton
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:id="@+id/btn_Braillehistory"
-                android:background="@drawable/main_braillehistory"/>
+                android:background="#ffffff"
+                android:id="@+id/btn_Braillehistory" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -215,12 +217,12 @@
             android:paddingRight="25dp"
             android:layout_height="match_parent">
 
-            <Button
+            <ImageButton
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:id="@+id/btn_Braillesite"
-                android:background="@drawable/main_braillesite"/>
+                android:background="#ffffff"
+                android:id="@+id/btn_Braillesite" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -238,6 +240,7 @@
 
 
     </LinearLayout>
+
 
 
 

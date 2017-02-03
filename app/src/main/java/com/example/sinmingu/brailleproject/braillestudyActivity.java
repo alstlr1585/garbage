@@ -17,7 +17,7 @@ import com.bumptech.glide.Glide;
 
 import static java.lang.System.exit;
 
-public class braillestudyActivity extends FragmentActivity {
+public class braillestudyActivity extends BaseActivity {
 
     Button study1_consonantinitial_btn,btn_before, btn_next,result_send;
     ImageButton braillebtn1,braillebtn2,braillebtn3,braillebtn4,braillebtn5,braillebtn6;

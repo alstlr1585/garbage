@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TabHost;
 
-public class QuizActivity extends FragmentActivity {
+public class QuizActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

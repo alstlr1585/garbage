@@ -13,7 +13,7 @@ import android.widget.LinearLayout;
 
 import com.bumptech.glide.Glide;
 
-public class StudyActivity extends FragmentActivity {
+public class StudyActivity extends BaseActivity {
 
     Button btntable, btnstudy;
     ImageView studyimage1, studyimage2,studyimagetop;

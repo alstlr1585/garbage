@@ -21,6 +21,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
             android:textColor="#CC3D3D"
+            android:typeface="sans"
             android:textSize="15dp"
             android:textStyle="bold"
             android:text="점자세상"/>
@@ -29,6 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#000000"
+            android:typeface="sans"
             android:textSize="15dp"
             android:text=" 사이트로 이동 하시겠습니까?"/>
 

@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
-public class brailletableActivity extends FragmentActivity {
+public class brailletableActivity extends BaseActivity {
 
     Spinner wordmenu;
     ImageView consonant_initial_one, consonant_initial_two, finalconsonant_initial_one,finalconsonant_initial_two,

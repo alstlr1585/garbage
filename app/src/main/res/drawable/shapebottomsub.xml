@@ -6,10 +6,11 @@
     <stroke
         android:color="#000000"
         android:width="4px"
-        />
-
+        android:dashWidth="20px"
+        android:dashGap="5px"/>
 
     <gradient
+
         android:endColor="#ffffff"
         android:startColor="#ffffff"/>
 

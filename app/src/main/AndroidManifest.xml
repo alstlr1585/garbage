@@ -9,18 +9,24 @@
         android:largeHeap="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".backtranslationActivity" />
-        <activity android:name=".braillestudyActivity" />
-        <activity android:name=".brailletableActivity" />
-        <activity android:name=".QuizActivity" />
-        <activity android:name=".StudyActivity" />
+        <activity android:name=".backtranslationActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".braillestudyActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".brailletableActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".QuizActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".StudyActivity"
+            android:screenOrientation="portrait"/>
         <activity android:name=".translationActivity"></activity>
     </application>
 

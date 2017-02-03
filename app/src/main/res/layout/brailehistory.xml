@@ -58,6 +58,7 @@
                         android:paddingTop="3dp"
                         android:paddingBottom="3dp"
                         android:layout_width="wrap_content"
+                        android:typeface="sans"
                         android:layout_height="wrap_content"
                         android:textColor="#000000"
                         android:background="@drawable/shapebottombtn"
@@ -92,6 +93,7 @@
                         android:paddingBottom="3dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:typeface="sans"
                         android:textColor="#000000"
                         android:background="@drawable/shapebottombtn"
                         android:textSize="13dp"
@@ -124,6 +126,7 @@
                         android:paddingTop="3dp"
                         android:paddingBottom="3dp"
                         android:layout_width="wrap_content"
+                        android:typeface="sans"
                         android:layout_height="wrap_content"
                         android:textColor="#000000"
                         android:background="@drawable/shapebottombtn"
@@ -158,6 +161,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="#000000"
+                        android:typeface="sans"
                         android:background="@drawable/shapebottombtn"
                         android:textSize="13dp"
                         android:text="영국은 Braille 점자를 받아들였고, 1905년에 3단계의 개정 점자를 공포했다. 1단계는 문자를 그대로 철자화하는 것이며, 2단계는 약간의 약자를 사용한 것이고, 3단계는 매우 축약된 것이다. 미국에서는 뉴욕 맹학교의 교장이었던 William Bell Wait가 세로로 2점, 가로로 2점인 총 4점으로 구성된 뉴욕 점자를 고안하였고, 퍼킨스 맹학교 음악 교사 Joel Smith는 Braille 미국 점자를 개발하였다."/>
@@ -188,6 +192,7 @@
                         android:paddingTop="3dp"
                         android:paddingBottom="3dp"
                         android:layout_width="wrap_content"
+                        android:typeface="sans"
                         android:layout_height="wrap_content"
                         android:textColor="#000000"
                         android:background="@drawable/shapebottombtn"
@@ -222,6 +227,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:textStyle="bold"
+                    android:typeface="sans"
+                    android:textColor="#000000"
                     android:textSize="12dp"
                     android:text="(Louis Braille. 1809 - 1852)"/>
 
@@ -251,7 +258,9 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:typeface="sans"
                     android:layout_gravity="center"
+                    android:textColor="#000000"
                     android:textStyle="bold"
                     android:textSize="12dp"
                     android:text="(1888 - 1963)"/>

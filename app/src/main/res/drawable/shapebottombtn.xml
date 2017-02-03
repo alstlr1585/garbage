@@ -7,7 +7,7 @@
         android:color="#9CAF72"
         android:width="4px"
         android:dashWidth="20px"
-        android:dashGap="10px"/>
+        android:dashGap="5px"/>
 
     <gradient
 

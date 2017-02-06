@@ -4,7 +4,7 @@
     <corners android:radius="7dp"/>
 
     <stroke
-        android:color="#000000"
+        android:color="#FFA7A7"
         android:width="4px"
         />
 
@@ -12,9 +12,6 @@
     <gradient
         android:endColor="#ffffff"
         android:startColor="#ffffff"/>
-
-
-
 
 
 </shape>

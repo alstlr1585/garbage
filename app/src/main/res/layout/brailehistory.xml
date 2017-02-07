@@ -22,15 +22,15 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:paddingRight="20dp"
-        android:paddingLeft="20dp">
+        android:layout_marginTop="20dp">
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingRight="20dp"
+            android:paddingLeft="20dp">
 
 
             <LinearLayout
@@ -72,7 +72,7 @@
                         android:id="@+id/history1"
                         android:layout_height="wrap_content"
                         android:textColor="#000000"
-                        android:background="@drawable/shapebottombtn"
+                        android:background="@drawable/shapebottomsub"
                         android:textSize="13dp"
                         android:text="초기에는 왁스로 만든 판 위에 쓰기, 나무에 글자 새기기, 철사로 글자 모양 만들기, 다른 두께의 실에 간격을 두어 매듭 짓기 등의 방법을 사용하였다. 그 뒤 프랑스의 Valentin Hauy가 로마체를 양각으로 인쇄하는 최초의 양각 선문자를 창안하였고, 미국의Samuel Gridley Howe는 로마체의 각도를 수정한 보스톤 선문자를 개발하였다."/>
 
@@ -107,7 +107,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="#000000"
-                        android:background="@drawable/shapebottombtn"
+                        android:background="@drawable/shapebottomsub"
                         android:textSize="13dp"
                         android:text="초기 점자에서 가장 성공적인 것은 William Moon이 개발한 것으로, 로마체 대문자를 핀포인트로 테두리만 사용하여 영국의 여러 기관에서 공식적인 문체로 사용되었다. 미국에서도 1940년대까지 시각장애인들에게 사용되었다."/>
 
@@ -142,7 +142,7 @@
                         android:id="@+id/history3"
                         android:layout_height="wrap_content"
                         android:textColor="#000000"
-                        android:background="@drawable/shapebottombtn"
+                        android:background="@drawable/shapebottomsub"
                         android:textSize="13dp"
                         android:text="프랑스의 Charles Barbier는 세로로 6점, 가로로 2점인 12점의 칸을 창모양에 홈이 파인 쓰기 판을 개발하여, 군대에서 야간 문자의 신호 코드로 활용하였다. Barbier가 파리 맹학교에 이것을 소개했을 때, 학생이었던 Louis Braille는 감명을 받고 이 체계를 받아들여, 세로로 3점, 가로로 2점으로 된 6점이 한 칸인 점자를 개발하였다. 1834년 25세의 나이에 Braille 점자를 발표했으나, 자신의 학교에서도 그가 죽은지 2년 뒤인 1854년이 되어서야 공식적으로 받아들여졌다."/>
 
@@ -176,7 +176,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="#000000"
-                        android:background="@drawable/shapebottombtn"
+                        android:background="@drawable/shapebottomsub"
                         android:textSize="13dp"
                         android:text="영국은 Braille 점자를 받아들였고, 1905년에 3단계의 개정 점자를 공포했다. 1단계는 문자를 그대로 철자화하는 것이며, 2단계는 약간의 약자를 사용한 것이고, 3단계는 매우 축약된 것이다. 미국에서는 뉴욕 맹학교의 교장이었던 William Bell Wait가 세로로 2점, 가로로 2점인 총 4점으로 구성된 뉴욕 점자를 고안하였고, 퍼킨스 맹학교 음악 교사 Joel Smith는 Braille 미국 점자를 개발하였다."/>
 
@@ -210,7 +210,7 @@
                         android:id="@+id/history5"
                         android:layout_height="wrap_content"
                         android:textColor="#000000"
-                        android:background="@drawable/shapebottombtn"
+                        android:background="@drawable/shapebottomsub"
                         android:textSize="13dp"
                         android:text="미국에서는 거의 같은 수의 맹학생들이 뉴욕 점자, 미국 점자, Braille 점자, 보스턴 선문자 등을 사용하였고, 이렇게 다른 점 체계가 충돌함에 따라 이른바 “점 전쟁”이라는 전문적인 논쟁을 불러일으켰다. 그리고 미국과 영국이 서로 다른 점자를 사용한 데에서“약자 전쟁”이라는 양국간의 논쟁을 거쳐 1932년 영국의 2종 점자를 표준 영어 점자로 채택하는 통일된 점자 체계를 이루게 되었다."/>
 

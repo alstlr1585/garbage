@@ -70,7 +70,7 @@
                             android:layout_height="wrap_content"
                             android:background="@drawable/shapestudybtn"
                             android:textColor="#ffffff"
-                            android:textSize="13dp"
+                            android:textSize="12dp"
                             android:id="@+id/study1_consonantinitial_btn"
                             android:layout_marginRight="10dp"
                             android:text="초성 자음"/>
@@ -80,7 +80,7 @@
                             android:layout_height="wrap_content"
                             android:background="@drawable/shapestudybtn"
                             android:textColor="#ffffff"
-                            android:textSize="13dp"
+                            android:textSize="12dp"
                             android:layout_marginRight="10dp"
                             android:text="종성 자음"/>
 
@@ -89,7 +89,7 @@
                             android:layout_height="wrap_content"
                             android:background="@drawable/shapestudybtn"
                             android:textColor="#ffffff"
-                            android:textSize="13dp"
+                            android:textSize="12dp"
                             android:layout_marginRight="10dp"
                             android:text="모음"/>
 
@@ -97,7 +97,7 @@
                             android:layout_width="75dp"
                             android:layout_height="wrap_content"
                             android:background="@drawable/shapestudybtn"
-                            android:textSize="13dp"
+                            android:textSize="12dp"
                             android:textColor="#ffffff"
                             android:layout_marginRight="10dp"
                             android:text="알파벳"/>
@@ -106,7 +106,7 @@
                             android:layout_width="75dp"
                             android:layout_height="wrap_content"
                             android:textColor="#ffffff"
-                            android:textSize="13dp"
+                            android:textSize="12dp"
                             android:background="@drawable/shapestudybtn"
                             android:layout_marginRight="10dp"
                             android:text="약어"/>
@@ -115,7 +115,7 @@
                             android:layout_width="75dp"
                             android:layout_height="wrap_content"
                             android:layout_marginRight="10dp"
-                            android:textSize="13dp"
+                            android:textSize="12dp"
                             android:textColor="#ffffff"
                             android:background="@drawable/shapestudybtn"
                             android:text="숫자"/>
@@ -422,6 +422,7 @@
 
                         <Button
                             android:layout_width="75dp"
+                            android:textSize="12dp"
                             android:layout_height="wrap_content"
                             android:background="@drawable/shapestudybtn"
                             android:textColor="#ffffff"
@@ -430,6 +431,7 @@
 
                         <Button
                             android:layout_width="75dp"
+                            android:textSize="12dp"
                             android:layout_height="wrap_content"
                             android:background="@drawable/shapestudybtn"
                             android:textColor="#ffffff"
@@ -438,6 +440,7 @@
 
                         <Button
                             android:layout_width="75dp"
+                            android:textSize="12dp"
                             android:layout_height="wrap_content"
                             android:background="@drawable/shapestudybtn"
                             android:textColor="#ffffff"
@@ -446,6 +449,7 @@
 
                         <Button
                             android:layout_width="75dp"
+                            android:textSize="12dp"
                             android:layout_height="wrap_content"
                             android:background="@drawable/shapestudybtn"
                             android:textColor="#ffffff"
@@ -454,6 +458,7 @@
 
                         <Button
                             android:layout_width="75dp"
+                            android:textSize="12dp"
                             android:layout_height="wrap_content"
                             android:textColor="#ffffff"
                             android:background="@drawable/shapestudybtn"
@@ -463,6 +468,7 @@
                         <Button
                             android:layout_width="75dp"
                             android:layout_height="wrap_content"
+                            android:textSize="12dp"
                             android:layout_marginRight="10dp"
                             android:textColor="#ffffff"
                             android:background="@drawable/shapestudybtn"
@@ -510,6 +516,7 @@
                             android:layout_height="wrap_content"
                             android:background="@drawable/shapestudybtn"
                             android:textColor="#ffffff"
+                            android:textSize="12dp"
                             android:layout_marginRight="10dp"
                             android:text="초성 자음"/>
 
@@ -518,6 +525,7 @@
                             android:layout_height="wrap_content"
                             android:background="@drawable/shapestudybtn"
                             android:textColor="#ffffff"
+                            android:textSize="12dp"
                             android:layout_marginRight="10dp"
                             android:text="종성 자음"/>
 
@@ -526,6 +534,7 @@
                             android:layout_height="wrap_content"
                             android:background="@drawable/shapestudybtn"
                             android:textColor="#ffffff"
+                            android:textSize="12dp"
                             android:layout_marginRight="10dp"
                             android:text="모음"/>
 
@@ -535,6 +544,7 @@
                             android:background="@drawable/shapestudybtn"
                             android:textColor="#ffffff"
                             android:layout_marginRight="10dp"
+                            android:textSize="12dp"
                             android:text="알파벳"/>
 
                         <Button
@@ -542,6 +552,7 @@
                             android:layout_height="wrap_content"
                             android:textColor="#ffffff"
                             android:background="@drawable/shapestudybtn"
+                            android:textSize="12dp"
                             android:layout_marginRight="10dp"
                             android:text="약어"/>
 
@@ -550,6 +561,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginRight="10dp"
                             android:textColor="#ffffff"
+                            android:textSize="12dp"
                             android:background="@drawable/shapestudybtn"
                             android:text="숫자"/>
 

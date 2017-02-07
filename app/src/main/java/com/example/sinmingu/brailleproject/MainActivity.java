@@ -30,10 +30,7 @@ public class MainActivity extends BaseActivity {
 
     View dialogView;
     TextView text_brailleinfor;
-    Button btn_Translation, btn_BackTranslation, btn_Study, btn_Quiz;
-
-
-
+    ImageButton btn_Translation, btn_BackTranslation, btn_Study, btn_Quiz;
     ImageButton btn_Brailleinfor,btn_Braillesite, btn_Brailletable, btn_Brraillehistory;
 
     @Override
@@ -50,10 +47,10 @@ public class MainActivity extends BaseActivity {
         */
 
         //번역, 역번역, 학습, 퀴즈 버튼
-        btn_Translation=(Button)findViewById(R.id.btn_Translation);
-        btn_BackTranslation=(Button)findViewById(R.id.btn_BackTranslation);
-        btn_Study=(Button)findViewById(R.id.btn_Study);
-        btn_Quiz=(Button)findViewById(R.id.btn_Quiz);
+        btn_Translation=(ImageButton)findViewById(R.id.btn_Translation);
+        btn_BackTranslation=(ImageButton)findViewById(R.id.btn_BackTranslation);
+        btn_Study=(ImageButton)findViewById(R.id.btn_Study);
+        btn_Quiz=(ImageButton)findViewById(R.id.btn_Quiz);
 
 
         //점자란, 점자역사, 점자세상, 점자표 버튼
@@ -66,11 +63,10 @@ public class MainActivity extends BaseActivity {
         Glide.with(this).load(R.drawable.mainbraillesite).fitCenter().into(btn_Braillesite);
         Glide.with(this).load(R.drawable.mainbraille_table).fitCenter().into(btn_Brailletable);
         Glide.with(this).load(R.drawable.mainbraillehistory).fitCenter().into(btn_Brraillehistory);
-
-
-
-
-
+        Glide.with(this).load(R.drawable.main_translation).fitCenter().into(btn_Translation);
+        Glide.with(this).load(R.drawable.main_backtranslation).fitCenter().into(btn_BackTranslation);
+        Glide.with(this).load(R.drawable.main_study).fitCenter().into(btn_Study);
+        Glide.with(this).load(R.drawable.main_quiz).fitCenter().into(btn_Quiz);
 
         //번역기능
         btn_Translation.setOnClickListener(new View.OnClickListener() {

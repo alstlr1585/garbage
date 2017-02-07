@@ -5,6 +5,8 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
     tools:context="com.example.sinmingu.brailleproject.backtranslationActivity">
 
     <LinearLayout
@@ -131,8 +133,6 @@
                 android:id="@+id/translation_text"
                 android:textColor="#FF0000"
                 android:layout_height="wrap_content" />
-            
-
 
         </LinearLayout>
 

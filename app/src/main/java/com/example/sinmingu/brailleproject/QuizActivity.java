@@ -1,9 +1,11 @@
 package com.example.sinmingu.brailleproject;
 
+
 import android.os.Build;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.os.Message;
+import android.speech.tts.TextToSpeech;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.ActionBar;
@@ -21,7 +23,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
-public class QuizActivity extends BaseActivity {
+public class QuizActivity extends BaseActivity implements TextToSpeech.OnInitListener{
 
     int value=10;
     TextView count_text;
@@ -35,6 +37,8 @@ public class QuizActivity extends BaseActivity {
     int quiz_picturenum;
 
     TabHost quiz_tab_host;
+
+    private TextToSpeech ttsClient;
 
 
 
@@ -51,7 +55,6 @@ public class QuizActivity extends BaseActivity {
         quiz_tab_host= (TabHost) findViewById(R.id.quiz_tab_host);
 
         TabHost tabHost = (TabHost)findViewById(R.id.quiz_tab_host);
-
 
         Glide.with(this).load(R.drawable.quiz_clock).into(quiz_clock);
 
@@ -140,13 +143,25 @@ public class QuizActivity extends BaseActivity {
                 quiz_CountDown=new CountDownTimer(11000,1000) {
                     @Override
                     public void onTick(long millisUntilFinished) {
+
+                        if(value!=0)
+                            quiz_startbtn.setEnabled(false);
+
                         value--;
                         count_text.setText("남은시간 : "+value);
-                        if(value==0)
-                            value=10;
+                        if(value==0) {
+                            Glide.with(QuizActivity.this).load(R.drawable.resultno).into(quiz_resultpicture);
+                            value = 10;
+                            quiz_startbtn.setEnabled(true);
+                        }
+
+
+
+
                     }
                     @Override
                     public void onFinish() {
+
                     }
                 }.start();
 
@@ -246,9 +261,11 @@ public class QuizActivity extends BaseActivity {
 
 
 
-
-
     }
 
 
+    @Override
+    public void onInit(int status) {
+
+    }
 }

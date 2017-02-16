@@ -9,6 +9,7 @@
     tools:context="com.example.sinmingu.brailleproject.braillestudyActivity">
 
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:background="#F15F5F"
@@ -71,7 +72,7 @@
                             android:background="@drawable/shapestudybtn"
                             android:textColor="#ffffff"
                             android:textSize="12dp"
-                            android:id="@+id/study1_consonantinitial_btn"
+                            android:id="@+id/study_consonantinitial_btn"
                             android:layout_marginRight="10dp"
                             android:text="초성 자음"/>
 
@@ -80,6 +81,7 @@
                             android:layout_height="wrap_content"
                             android:background="@drawable/shapestudybtn"
                             android:textColor="#ffffff"
+                            android:id="@+id/study_finalconsonantinitial_btn"
                             android:textSize="12dp"
                             android:layout_marginRight="10dp"
                             android:text="종성 자음"/>
@@ -88,8 +90,9 @@
                             android:layout_width="75dp"
                             android:layout_height="wrap_content"
                             android:background="@drawable/shapestudybtn"
-                            android:textColor="#ffffff"
                             android:textSize="12dp"
+                            android:id="@+id/study_vowel_btn"
+                            android:textColor="#ffffff"
                             android:layout_marginRight="10dp"
                             android:text="모음"/>
 
@@ -105,8 +108,8 @@
                         <Button
                             android:layout_width="75dp"
                             android:layout_height="wrap_content"
-                            android:textColor="#ffffff"
                             android:textSize="12dp"
+                            android:textColor="#ffffff"
                             android:background="@drawable/shapestudybtn"
                             android:layout_marginRight="10dp"
                             android:text="약어"/>
@@ -114,8 +117,8 @@
                         <Button
                             android:layout_width="75dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginRight="10dp"
                             android:textSize="12dp"
+                            android:layout_marginRight="10dp"
                             android:textColor="#ffffff"
                             android:background="@drawable/shapestudybtn"
                             android:text="숫자"/>
@@ -161,13 +164,12 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="미선택"
+                        android:id="@+id/stduy_part"
                         android:layout_marginBottom="5dp"
                         android:layout_marginTop="5dp"
                         android:textStyle="bold"
                         android:textSize="15dp"
                         android:textColor="#000000"
-
-
                         android:gravity="center"
                         android:layout_weight="0.75"/>
 
@@ -200,11 +202,11 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:layout_weight="1"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:layout_marginTop="30dp"
                     android:background="@drawable/shapebottomsub"
-                    android:layout_weight="1"
                     android:orientation="horizontal">
 
 
@@ -346,7 +348,6 @@
                 </LinearLayout>
 
 
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_gravity="center"
@@ -434,8 +435,8 @@
 
                         <Button
                             android:layout_width="75dp"
-                            android:textSize="12dp"
                             android:layout_height="wrap_content"
+                            android:textSize="12dp"
                             android:background="@drawable/shapestudybtn"
                             android:textColor="#ffffff"
                             android:layout_marginRight="10dp"
@@ -443,8 +444,8 @@
 
                         <Button
                             android:layout_width="75dp"
-                            android:textSize="12dp"
                             android:layout_height="wrap_content"
+                            android:textSize="12dp"
                             android:background="@drawable/shapestudybtn"
                             android:textColor="#ffffff"
                             android:layout_marginRight="10dp"
@@ -452,8 +453,8 @@
 
                         <Button
                             android:layout_width="75dp"
-                            android:textSize="12dp"
                             android:layout_height="wrap_content"
+                            android:textSize="12dp"
                             android:background="@drawable/shapestudybtn"
                             android:textColor="#ffffff"
                             android:layout_marginRight="10dp"
@@ -461,9 +462,9 @@
 
                         <Button
                             android:layout_width="75dp"
-                            android:textSize="12dp"
                             android:layout_height="wrap_content"
                             android:textColor="#ffffff"
+                            android:textSize="12dp"
                             android:background="@drawable/shapestudybtn"
                             android:layout_marginRight="10dp"
                             android:text="약어"/>
@@ -517,27 +518,27 @@
                         <Button
                             android:layout_width="75dp"
                             android:layout_height="wrap_content"
+                            android:textSize="12dp"
                             android:background="@drawable/shapestudybtn"
                             android:textColor="#ffffff"
-                            android:textSize="12dp"
                             android:layout_marginRight="10dp"
                             android:text="초성 자음"/>
 
                         <Button
                             android:layout_width="75dp"
                             android:layout_height="wrap_content"
+                            android:textSize="12dp"
                             android:background="@drawable/shapestudybtn"
                             android:textColor="#ffffff"
-                            android:textSize="12dp"
                             android:layout_marginRight="10dp"
                             android:text="종성 자음"/>
 
                         <Button
                             android:layout_width="75dp"
                             android:layout_height="wrap_content"
+                            android:textSize="12dp"
                             android:background="@drawable/shapestudybtn"
                             android:textColor="#ffffff"
-                            android:textSize="12dp"
                             android:layout_marginRight="10dp"
                             android:text="모음"/>
 
@@ -546,16 +547,16 @@
                             android:layout_height="wrap_content"
                             android:background="@drawable/shapestudybtn"
                             android:textColor="#ffffff"
-                            android:layout_marginRight="10dp"
                             android:textSize="12dp"
+                            android:layout_marginRight="10dp"
                             android:text="알파벳"/>
 
                         <Button
                             android:layout_width="75dp"
                             android:layout_height="wrap_content"
                             android:textColor="#ffffff"
-                            android:background="@drawable/shapestudybtn"
                             android:textSize="12dp"
+                            android:background="@drawable/shapestudybtn"
                             android:layout_marginRight="10dp"
                             android:text="약어"/>
 
@@ -563,8 +564,8 @@
                             android:layout_width="75dp"
                             android:layout_height="wrap_content"
                             android:layout_marginRight="10dp"
-                            android:textColor="#ffffff"
                             android:textSize="12dp"
+                            android:textColor="#ffffff"
                             android:background="@drawable/shapestudybtn"
                             android:text="숫자"/>
 
@@ -582,7 +583,6 @@
         </FrameLayout>
 
     </TabHost>
-
 
 
 

@@ -14,7 +14,7 @@ public class translationActivity extends BaseActivity {
 
     ImageButton translation_braillebtn1, translation_braillebtn2, translation_braillebtn3, translation_braillebtn4,
             translation_braillebtn5,translation_braillebtn6;
-
+    //이미지뷰
     ImageView pencil_picture;
 
     int translation_btnstatus1, translation_btnstatus2, translation_btnstatus3, translation_btnstatus4, translation_btnstatus5, translation_btnstatus6;

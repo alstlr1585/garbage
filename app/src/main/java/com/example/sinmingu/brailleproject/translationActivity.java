@@ -47,7 +47,7 @@ public class translationActivity extends BaseActivity {
 
     ImageButton translation_braillebtn1, translation_braillebtn2, translation_braillebtn3, translation_braillebtn4,
             translation_braillebtn5,translation_braillebtn6;
-
+    //이미지뷰
     ImageView pencil_picture;
     Button quiz_result_back, quiz_result_send;
 

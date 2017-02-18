@@ -122,9 +122,9 @@ public class translationActivity extends BaseActivity {
                 String braille_point = String.valueOf(translation_btnstatus1) + valueOf(translation_btnstatus2) + valueOf(translation_btnstatus3)
                         + valueOf(translation_btnstatus4) + valueOf(translation_btnstatus5) + valueOf(translation_btnstatus6);
 
-                temp_trans = Trans_Matching(braille_point);
+                temp_trans = TransMatching(braille_point);
 
-                result_trans = Trans_Fusion(temp_trans, temp_flag);
+                result_trans = TransFusion(temp_trans, temp_flag);
 
                 text_braille.setText(result_trans);
 
@@ -246,7 +246,7 @@ public class translationActivity extends BaseActivity {
     }
 
     // 해당 점자에 대응되는 문자 구성요소를 문자열로 반환
-    public String Trans_Matching(String braille_point){
+    public String TransMatching(String braille_point){
         String result="";
         Cursor cursor = db.rawQuery("SELECT keyword, flag FROM braille WHERE point = '" + braille_point + "';", null);
 
@@ -259,7 +259,7 @@ public class translationActivity extends BaseActivity {
     }
 
     // 기존 문자와 최근 입력 문자 합성
-    public String Trans_Fusion(String recent_trans, int flag){
+    public String TransFusion(String recent_trans, int flag){
 
         int number_cho = 0;
         int number_jun = 0;

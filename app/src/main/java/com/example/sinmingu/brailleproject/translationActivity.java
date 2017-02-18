@@ -111,25 +111,7 @@ public class translationActivity extends BaseActivity {
         quiz_result_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                text_braille.setText("");
-                result_trans = "";
-                start = 0;
-                prev_flag = 0;
-                index = 0;
-
-                Glide.with(translationActivity.this).load(R.drawable.braillebtn_false).into(translation_braillebtn1);
-                Glide.with(translationActivity.this).load(R.drawable.braillebtn_false).into(translation_braillebtn2);
-                Glide.with(translationActivity.this).load(R.drawable.braillebtn_false).into(translation_braillebtn3);
-                Glide.with(translationActivity.this).load(R.drawable.braillebtn_false).into(translation_braillebtn4);
-                Glide.with(translationActivity.this).load(R.drawable.braillebtn_false).into(translation_braillebtn5);
-                Glide.with(translationActivity.this).load(R.drawable.braillebtn_false).into(translation_braillebtn6);
-
-                translation_btnstatus1=0;
-                translation_btnstatus2=0;
-                translation_btnstatus3=0;
-                translation_btnstatus4=0;
-                translation_btnstatus5=0;
-                translation_btnstatus6=0;
+                Refresh();
             }
         });
 
@@ -140,7 +122,7 @@ public class translationActivity extends BaseActivity {
                 String braille_point = String.valueOf(translation_btnstatus1) + valueOf(translation_btnstatus2) + valueOf(translation_btnstatus3)
                         + valueOf(translation_btnstatus4) + valueOf(translation_btnstatus5) + valueOf(translation_btnstatus6);
 
-                temp_trans = Trans(braille_point);
+                temp_trans = Trans_Matching(braille_point);
 
                 result_trans = Trans_Fusion(temp_trans, temp_flag);
 
@@ -264,7 +246,7 @@ public class translationActivity extends BaseActivity {
     }
 
     // 해당 점자에 대응되는 문자 구성요소를 문자열로 반환
-    public String Trans(String braille_point){
+    public String Trans_Matching(String braille_point){
         String result="";
         Cursor cursor = db.rawQuery("SELECT keyword, flag FROM braille WHERE point = '" + braille_point + "';", null);
 
@@ -348,6 +330,28 @@ public class translationActivity extends BaseActivity {
         }
         start++;
         return result_trans;
+    }
+
+    public void Refresh(){
+        text_braille.setText("");
+        result_trans = "";
+        start = 0;
+        prev_flag = 0;
+        index = 0;
+
+        Glide.with(translationActivity.this).load(R.drawable.braillebtn_false).into(translation_braillebtn1);
+        Glide.with(translationActivity.this).load(R.drawable.braillebtn_false).into(translation_braillebtn2);
+        Glide.with(translationActivity.this).load(R.drawable.braillebtn_false).into(translation_braillebtn3);
+        Glide.with(translationActivity.this).load(R.drawable.braillebtn_false).into(translation_braillebtn4);
+        Glide.with(translationActivity.this).load(R.drawable.braillebtn_false).into(translation_braillebtn5);
+        Glide.with(translationActivity.this).load(R.drawable.braillebtn_false).into(translation_braillebtn6);
+
+        translation_btnstatus1=0;
+        translation_btnstatus2=0;
+        translation_btnstatus3=0;
+        translation_btnstatus4=0;
+        translation_btnstatus5=0;
+        translation_btnstatus6=0;
     }
 
 }

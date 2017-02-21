@@ -268,4 +268,21 @@ public class QuizActivity extends BaseActivity implements TextToSpeech.OnInitLis
     public void onInit(int status) {
 
     }
+
+
+    @Override
+    public void onBackPressed() {
+        if(value!=10){
+            Toast.makeText(QuizActivity.this,"타이머 작동중 입니다.",Toast.LENGTH_SHORT).show();
+
+        }
+
+        if(value==10) {
+            finish();
+            overridePendingTransition(R.anim.not_move_activit, R.anim.rightout_activity);
+        }
+
+    }
+
+
 }

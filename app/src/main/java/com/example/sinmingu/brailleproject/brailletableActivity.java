@@ -18,7 +18,7 @@ public class brailletableActivity extends BaseActivity {
 
     Spinner wordmenu;
     ImageView consonant_initial_one, consonant_initial_two, finalconsonant_initial_one,finalconsonant_initial_two,
-            vowel_one, vowel_two,vowel_three;
+            vowel_one, vowel_two,vowel_three,number_one,number_two;
     TextView viewmenu;
 
     @Override
@@ -35,7 +35,11 @@ public class brailletableActivity extends BaseActivity {
         vowel_one=(ImageView)findViewById(R.id.vowel_one);
         vowel_two=(ImageView)findViewById(R.id.vowel_two);
         vowel_three=(ImageView)findViewById(R.id.vowel_three);
+        number_one=(ImageView)findViewById(R.id.number_one);
+        number_two=(ImageView)findViewById(R.id.number_two);
         viewmenu=(TextView)findViewById(R.id.view_menu);
+
+        /////////////////////////////////////////////////////////////////////////////////////
 
         Glide.with(this).load(R.drawable.consonant_initial_one).into(consonant_initial_one);
         Glide.with(this).load(R.drawable.consonant_initial_two).into(consonant_initial_two);
@@ -44,6 +48,9 @@ public class brailletableActivity extends BaseActivity {
         Glide.with(this).load(R.drawable.vowel_one).into(vowel_one);
         Glide.with(this).load(R.drawable.vowel_two).into(vowel_two);
         Glide.with(this).load(R.drawable.vowel_three).into(vowel_three);
+        Glide.with(this).load(R.drawable.number_1).into(number_one);
+        Glide.with(this).load(R.drawable.number_2).into(number_two);
+
 
 
         final ArrayAdapter adapter=ArrayAdapter.createFromResource(this,R.array.word,android.R.layout.simple_spinner_item);
@@ -60,13 +67,16 @@ public class brailletableActivity extends BaseActivity {
 
                 if(adapter.getItem(position).equals("초성 자음")){
 
-                    consonant_initial_one.setVisibility(View.VISIBLE);
-                    consonant_initial_two.setVisibility(View.VISIBLE);
-                    finalconsonant_initial_one.setVisibility(View.GONE);
-                    finalconsonant_initial_two.setVisibility(View.GONE);
+                    consonant_initial_one.setVisibility((View.VISIBLE));
+                    consonant_initial_two.setVisibility((View.VISIBLE));
+                    finalconsonant_initial_one.setVisibility((View.GONE));
+                    finalconsonant_initial_two.setVisibility((View.GONE));
                     vowel_one.setVisibility((View.GONE));
                     vowel_two.setVisibility((View.GONE));
                     vowel_three.setVisibility((View.GONE));
+                    number_one.setVisibility(View.GONE);
+                    number_two.setVisibility(View.GONE);
+
 
                     viewmenu.setText("초성 자음");
 
@@ -74,25 +84,32 @@ public class brailletableActivity extends BaseActivity {
                 }
                 else if(adapter.getItem(position).equals("종성 자음")){
 
-                    consonant_initial_one.setVisibility(View.GONE);
-                    consonant_initial_two.setVisibility(View.GONE);
-                    finalconsonant_initial_one.setVisibility(View.VISIBLE);
-                    finalconsonant_initial_two.setVisibility(View.VISIBLE);
+                    consonant_initial_one.setVisibility((View.GONE));
+                    consonant_initial_two.setVisibility((View.GONE));
+                    finalconsonant_initial_one.setVisibility((View.VISIBLE));
+                    finalconsonant_initial_two.setVisibility((View.VISIBLE));
                     vowel_one.setVisibility((View.GONE));
                     vowel_two.setVisibility((View.GONE));
                     vowel_three.setVisibility((View.GONE));
+                    number_one.setVisibility(View.GONE);
+                    number_two.setVisibility(View.GONE);
+
 
                     viewmenu.setText("종성 자음");
 
                 }
                 else if(adapter.getItem(position).equals("모음")){
-                    consonant_initial_one.setVisibility(View.GONE);
-                    consonant_initial_two.setVisibility(View.GONE);
-                    finalconsonant_initial_one.setVisibility(View.GONE);
-                    finalconsonant_initial_two.setVisibility(View.GONE);
+
+                    consonant_initial_one.setVisibility((View.GONE));
+                    consonant_initial_two.setVisibility((View.GONE));
+                    finalconsonant_initial_one.setVisibility((View.GONE));
+                    finalconsonant_initial_two.setVisibility((View.GONE));
                     vowel_one.setVisibility((View.VISIBLE));
                     vowel_two.setVisibility((View.VISIBLE));
                     vowel_three.setVisibility((View.VISIBLE));
+                    number_one.setVisibility(View.GONE);
+                    number_two.setVisibility(View.GONE);
+
 
                     viewmenu.setText("모음");
 
@@ -101,6 +118,20 @@ public class brailletableActivity extends BaseActivity {
 
                 }
                 else if(adapter.getItem(position).equals("숫자")){
+
+                    consonant_initial_one.setVisibility((View.GONE));
+                    consonant_initial_two.setVisibility((View.GONE));
+                    finalconsonant_initial_one.setVisibility((View.GONE));
+                    finalconsonant_initial_two.setVisibility((View.GONE));
+                    vowel_one.setVisibility((View.GONE));
+                    vowel_two.setVisibility((View.GONE));
+                    vowel_three.setVisibility((View.GONE));
+                    number_one.setVisibility(View.VISIBLE);
+                    number_two.setVisibility(View.VISIBLE);
+
+
+
+                    viewmenu.setText("숫자");
 
                 }
                 else if(adapter.getItem(position).equals("약자")){
@@ -112,6 +143,13 @@ public class brailletableActivity extends BaseActivity {
 
             }
         });
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        finish();
+        overridePendingTransition(R.anim.not_move_activit,R.anim.leftout_activity);
 
     }
 }

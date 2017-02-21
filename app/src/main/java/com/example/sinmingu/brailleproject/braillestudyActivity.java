@@ -318,4 +318,12 @@ public class braillestudyActivity extends BaseActivity implements TextToSpeech.O
     public void onInit(int status) {
 
     }
+
+    @Override
+    public void onBackPressed() {
+        finish();
+        overridePendingTransition(R.anim.not_move_activit,R.anim.leftout_activity);
+
+    }
+
 }

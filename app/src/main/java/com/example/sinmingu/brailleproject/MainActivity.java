@@ -76,6 +76,9 @@ public class MainActivity extends BaseActivity {
                 Intent intent=new Intent(MainActivity.this,translationActivity.class);
                 startActivity(intent);
 
+                overridePendingTransition(R.anim.leftin_activity,R.anim.not_move_activit);
+
+
             }
         });
 
@@ -86,6 +89,8 @@ public class MainActivity extends BaseActivity {
 
                 Intent intent=new Intent(MainActivity.this,backtranslationActivity.class);
                 startActivity(intent);
+
+                overridePendingTransition(R.anim.rightin_activity,R.anim.not_move_activit);
 
             }
         });
@@ -98,6 +103,8 @@ public class MainActivity extends BaseActivity {
                 Intent intent=new Intent(MainActivity.this,StudyActivity.class);
                 startActivity(intent);
 
+                overridePendingTransition(R.anim.leftin_activity,R.anim.not_move_activit);
+
             }
         });
 
@@ -109,6 +116,8 @@ public class MainActivity extends BaseActivity {
 
                 Intent intent=new Intent(MainActivity.this,QuizActivity.class);
                 startActivity(intent);
+
+                overridePendingTransition(R.anim.rightin_activity,R.anim.not_move_activit);
 
             }
         });

@@ -22,6 +22,7 @@ public class DB extends SQLiteOpenHelper {
         // flag 자음 초성 = 1, 자음 종성 = 3, 모음 = 2.
         insertData(db);
     }
+
 //dd
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {

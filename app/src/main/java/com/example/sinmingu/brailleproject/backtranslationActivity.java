@@ -49,4 +49,11 @@ public class backtranslationActivity extends BaseActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        finish();
+        overridePendingTransition(R.anim.not_move_activit,R.anim.rightout_activity);
+
+    }
+
 }

@@ -47,6 +47,8 @@ public class StudyActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent=new Intent(StudyActivity.this,brailletableActivity.class);
                 startActivity(intent);
+
+                overridePendingTransition(R.anim.leftin_activity,R.anim.not_move_activit);
             }
         });
 
@@ -55,11 +57,20 @@ public class StudyActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent=new Intent(StudyActivity.this, braillestudyActivity.class);
                 startActivity(intent);
+
+                overridePendingTransition(R.anim.leftin_activity,R.anim.not_move_activit);
             }
         });
 
 
 
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        finish();
+        overridePendingTransition(R.anim.not_move_activit,R.anim.leftout_activity);
 
     }
 }

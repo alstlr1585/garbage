@@ -61,6 +61,7 @@ public class translationActivity extends BaseActivity {
     int    prev_flag = 0;
     int    start = 0;       // 맨 처음 쓴건지 아닌지
     int    index = 0;       // 최종 글자에서 맨 마지막 인덱스가 몇인지 알기 위해
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -158,8 +159,6 @@ public class translationActivity extends BaseActivity {
                     Glide.with(translationActivity.this).load(R.drawable.braillebtn_false).into(translation_braillebtn1);
                     translation_btnstatus1 = 0;
                 }
-
-
             }
         });
 
@@ -258,29 +257,82 @@ public class translationActivity extends BaseActivity {
         return result;
     }
 
+    //모음일경우 index ++ 됨
+
     // 기존 문자와 최근 입력 문자 합성
     public String TransFusion(String recent_trans, int flag){
 
         int number_cho = 0;
         int number_jun = 0;
         int number_jon = 0;
+        char key = 0;
 
         if(start == 0){
-            result_trans = recent_trans;
-            if(flag != 1)
-                index++;
+            if(flag == 3){
+                Toast.makeText(getApplicationContext(), "다시 입력", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                if (flag == 2) {
+                    for (int i = 0; i < 21; i++) {
+                        if (recent_trans.equals(JUN[i] + "")) {
+                            number_jun = i;
+                            break;
+                        }
+                    }
+                    key = (char) (0xAC00 + 28 * 21 * (11) + 28 * (number_jun));
+                    result_trans = result_trans.concat(String.valueOf(key));
+                } else if (flag == 1) {
+                    for (int i = 0; i < 19; i++) {
+                        if (recent_trans.charAt(index) == CHOHAN[i]) {
+                            number_cho = i;
+                            break;
+                        }
+                    }
+                    result_trans = recent_trans;
+                }
+
+                prev_flag = flag;
+                if (flag == 2)
+                    index++;
+            }
+            start++;
         }
         else{
             // 자음 초성
             if(flag == 1){
-                result_trans = result_trans + recent_trans;
+                if(prev_flag == 1){
+                    for (int i = 0; i < 19; i++) {
+
+                        if (result_trans.charAt(index) == CHOHAN[i]) {
+                            number_cho = i;
+                            break;
+                        }
+                    }
+                    key = (char)(0xAC00 + 28*21*(number_cho));
+                    result_trans = result_trans.substring(0, result_trans.length()-1);
+                    result_trans = result_trans.concat(String.valueOf(key));
+                    result_trans = result_trans.concat(recent_trans);
+
+                    index++;
+                }
+                else {
+                    result_trans = result_trans + recent_trans;
+                }
                 prev_flag = 1;
             }
             // 모음
             else if(flag == 2){
-                // 모음이기 때문에 마지막에 온 글자가 모음이거나 자음 종성일경우 바로 이어줌
+                // 모음이기 때문에 마지막에 온 글자가 모음이거나 자음 종성일경우 ㅇ과함께 바로 이어줌
                 if(prev_flag == 2 || prev_flag == 3){
-                    result_trans = result_trans + recent_trans;
+                    for (int i = 0; i < 21; i++) {
+                        if (recent_trans.equals(JUN[i] + "")) {
+                            number_jun = i;
+                            break;
+                        }
+                    }
+
+                    key = (char)(0xAC00 + 28*21*(11)+28*(number_jun));
+                    result_trans = result_trans.concat(String.valueOf(key));
                 }
                 else {
                     for (int i = 0; i < 19; i++) {
@@ -297,7 +349,7 @@ public class translationActivity extends BaseActivity {
                         }
                     }
 
-                    char key = (char)(0xAC00 + 28*21*(number_cho)+28*(number_jun));
+                    key = (char)(0xAC00 + 28*21*(number_cho)+28*(number_jun));
                     result_trans = result_trans.substring(0,result_trans.length()-1);
                     result_trans = result_trans.concat(String.valueOf(key));
                 }
@@ -307,31 +359,51 @@ public class translationActivity extends BaseActivity {
             }
             // 자음 종성
             else if(flag == 3){
-                index--;
-
-                number_cho = ((((result_trans.charAt(index) - 0xAC00) - (result_trans.charAt(index) - 0xAC00) % 28 ) ) / 28 ) / 21;
-                number_jun = ((((result_trans.charAt(index) - 0xAC00) - (result_trans.charAt(index) - 0xAC00) % 28 ) ) / 28 ) % 21;
-
-                for (int i = 0; i < 28; i++) {
-                    if (recent_trans.equals(JON[i] + "")) {
-                        number_jon = i;
-                        break;
-                    }
+                if(prev_flag == 3){
+                    Toast.makeText(getApplicationContext(), "다시 입력", Toast.LENGTH_SHORT).show();
                 }
+                else {
+                    if (prev_flag == 1) {
+                        for (int i = 0; i < 19; i++) {
+                            if (result_trans.charAt(index) == CHOHAN[i]) {
+                                number_cho = i;
+                                break;
+                            }
+                        }
+                        for (int i = 0; i < 28; i++) {
+                            if (recent_trans.equals(JON[i] + "")) {
+                                number_jon = i;
+                                break;
+                            }
+                        }
+                    } else if (prev_flag == 2) {
+                        index--;
+                        number_cho = ((((result_trans.charAt(index) - 0xAC00) - (result_trans.charAt(index) - 0xAC00) % 28)) / 28) / 21;
+                        number_jun = ((((result_trans.charAt(index) - 0xAC00) - (result_trans.charAt(index) - 0xAC00) % 28)) / 28) % 21;
 
-                char key = (char)(0xAC00 + 28*21*(number_cho)+28*(number_jun) + (number_jon));
+                        for (int i = 0; i < 28; i++) {
+                            if (recent_trans.equals(JON[i] + "")) {
+                                number_jon = i;
+                                break;
+                            }
+                        }
+                    }
 
-                result_trans = result_trans.substring(0,result_trans.length()-1);
-                result_trans = result_trans.concat(String.valueOf(key));
+                    index++;
+                    key = (char) (0xAC00 + 28 * 21 * (number_cho) + 28 * (number_jun) + (number_jon));
 
-                prev_flag = 3;
-                index++;
+                    result_trans = result_trans.substring(0, result_trans.length() - 1);
+                    result_trans = result_trans.concat(String.valueOf(key));
+
+                    prev_flag = 3;
+                }
             }
+
         }
-        start++;
         return result_trans;
     }
 
+    // 초기화
     public void Refresh(){
         text_braille.setText("");
         result_trans = "";
@@ -353,5 +425,4 @@ public class translationActivity extends BaseActivity {
         translation_btnstatus5=0;
         translation_btnstatus6=0;
     }
-
 }

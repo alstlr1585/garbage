@@ -131,15 +131,12 @@ public class QuizActivity extends BaseActivity implements TextToSpeech.OnInitLis
         tabHost.setCurrentTab(0);
 
         //tab글꼴 변경
-
         for (int i=0; i<tabHost.getTabWidget().getChildCount(); i++) {
-
             LinearLayout relLayout = (LinearLayout) tabHost.getTabWidget().getChildAt(i);
             TextView tv = (TextView)relLayout.getChildAt(1);
             tv.setTypeface(font);
             tv.setTextColor(Color.parseColor("#000000"));
             tv.setTextSize(16);
-
         }
 
 

@@ -130,6 +130,8 @@ public class QuizActivity extends BaseActivity implements TextToSpeech.OnInitLis
         // show First Tab Content
         tabHost.setCurrentTab(0);
 
+        //tab글꼴 변경
+
         for (int i=0; i<tabHost.getTabWidget().getChildCount(); i++) {
 
             LinearLayout relLayout = (LinearLayout) tabHost.getTabWidget().getChildAt(i);

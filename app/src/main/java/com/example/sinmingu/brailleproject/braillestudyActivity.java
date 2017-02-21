@@ -1,5 +1,7 @@
 package com.example.sinmingu.brailleproject;
 
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Handler;
 import android.os.Message;
 import android.speech.tts.TextToSpeech;
@@ -10,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.TabHost;
 import android.widget.TextView;
@@ -81,7 +84,7 @@ public class braillestudyActivity extends BaseActivity implements TextToSpeech.O
         Glide.with(this).load(R.drawable.braillebtn_false).into(braillebtn6);
 
 
-
+        Typeface font = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/BMJUA_ttf.ttf");
 
         final TabHost tabHost = (TabHost)findViewById(R.id.tab_host);
 
@@ -105,6 +108,14 @@ public class braillestudyActivity extends BaseActivity implements TextToSpeech.O
         // show First Tab Content
         tabHost.setCurrentTab(0);
 
+        for (int i=0; i<tabHost.getTabWidget().getChildCount(); i++) {
+            LinearLayout relLayout = (LinearLayout) tabHost.getTabWidget().getChildAt(i);
+            TextView tv = (TextView)relLayout.getChildAt(1);
+            tv.setTypeface(font);
+            tv.setTextColor(Color.parseColor("#000000"));
+            tv.setTextSize(16);
+        }
+
 
         study_consonantinitial_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -114,9 +125,11 @@ public class braillestudyActivity extends BaseActivity implements TextToSpeech.O
                 study_part.setText("초성자음");
                 menu_type="초성자음";
 
-
             }
         });
+
+
+
 
 
 

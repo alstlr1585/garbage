@@ -17,6 +17,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.animation.GlideAnimation;
@@ -46,6 +47,7 @@ public class MainActivity extends BaseActivity {
         text_brailleinfor.setTypeface(font);
         */
 
+
         //번역, 역번역, 학습, 퀴즈 버튼
         btn_Translation=(ImageButton)findViewById(R.id.btn_Translation);
         btn_BackTranslation=(ImageButton)findViewById(R.id.btn_BackTranslation);
@@ -67,6 +69,7 @@ public class MainActivity extends BaseActivity {
         Glide.with(this).load(R.drawable.main_backtranslation).fitCenter().into(btn_BackTranslation);
         Glide.with(this).load(R.drawable.main_study).fitCenter().into(btn_Study);
         Glide.with(this).load(R.drawable.main_quiz).fitCenter().into(btn_Quiz);
+
 
         //번역기능
         btn_Translation.setOnClickListener(new View.OnClickListener() {

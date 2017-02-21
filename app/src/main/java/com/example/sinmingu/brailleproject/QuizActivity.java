@@ -1,6 +1,8 @@
 package com.example.sinmingu.brailleproject;
 
 
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Build;
 import android.os.CountDownTimer;
 import android.os.Handler;
@@ -16,6 +18,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TabHost;
 import android.widget.TabWidget;
 import android.widget.TextView;
@@ -39,9 +42,6 @@ public class QuizActivity extends BaseActivity implements TextToSpeech.OnInitLis
     TabHost quiz_tab_host;
 
     private TextToSpeech ttsClient;
-
-
-
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -91,7 +91,6 @@ public class QuizActivity extends BaseActivity implements TextToSpeech.OnInitLis
         soundon=(ImageView)findViewById(R.id.soundon);
         soundoff=(ImageView)findViewById(R.id.soundoff);
 
-
         // 이미지 자동할당
         Glide.with(this).load(R.drawable.braillebtn_false).into(quiz_braillebtn1);
         Glide.with(this).load(R.drawable.braillebtn_false).into(quiz_braillebtn2);
@@ -105,7 +104,7 @@ public class QuizActivity extends BaseActivity implements TextToSpeech.OnInitLis
         Glide.with(this).load(R.drawable.consonant_initial_1).into(quiz_consonant_initial1);
         Glide.with(this).load(R.drawable.resultok).into(quiz_resultpicture);
 
-
+        Typeface font = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/BMJUA_ttf.ttf");
 
         tabHost.setup();
 
@@ -122,7 +121,6 @@ public class QuizActivity extends BaseActivity implements TextToSpeech.OnInitLis
         tabSpec2.setContent(R.id.quiz_tab_view2); // Tab Content
         tabHost.addTab(tabSpec2);
 
-
         // Tab3 Setting
         TabHost.TabSpec tabSpec3 = tabHost.newTabSpec("Tab3");
         tabSpec3.setIndicator("고급"); // Tab Subject
@@ -131,6 +129,16 @@ public class QuizActivity extends BaseActivity implements TextToSpeech.OnInitLis
 
         // show First Tab Content
         tabHost.setCurrentTab(0);
+
+        for (int i=0; i<tabHost.getTabWidget().getChildCount(); i++) {
+
+            LinearLayout relLayout = (LinearLayout) tabHost.getTabWidget().getChildAt(i);
+            TextView tv = (TextView)relLayout.getChildAt(1);
+            tv.setTypeface(font);
+            tv.setTextColor(Color.parseColor("#000000"));
+            tv.setTextSize(16);
+
+        }
 
 
 

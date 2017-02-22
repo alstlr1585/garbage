@@ -6,8 +6,9 @@
         <item>종성 자음</item>
         <item>모음</item>
         <item>숫자</item>
-        <item>특수문자</item>
+        <item>접속사</item>
         <item>약자</item>
+        <item>알파벳</item>
     </string-array>
 
 </resources>

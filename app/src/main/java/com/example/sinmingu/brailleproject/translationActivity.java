@@ -354,4 +354,11 @@ public class translationActivity extends BaseActivity {
         translation_btnstatus6=0;
     }
 
+    @Override
+    public void onBackPressed() {
+        finish();
+        overridePendingTransition(R.anim.not_move_activit,R.anim.leftout_activity);
+
+    }
+
 }

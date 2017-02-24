@@ -501,7 +501,7 @@ public class braillestudyActivity extends BaseActivity implements TextToSpeech.O
             }
         });
 
-        
+        //확인
         result_send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

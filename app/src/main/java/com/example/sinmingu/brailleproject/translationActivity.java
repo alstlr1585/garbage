@@ -111,25 +111,7 @@ public class translationActivity extends BaseActivity {
         quiz_result_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                text_braille.setText("");
-                result_trans = "";
-                start = 0;
-                prev_flag = 0;
-                index = 0;
-
-                Glide.with(translationActivity.this).load(R.drawable.braillebtn_false).into(translation_braillebtn1);
-                Glide.with(translationActivity.this).load(R.drawable.braillebtn_false).into(translation_braillebtn2);
-                Glide.with(translationActivity.this).load(R.drawable.braillebtn_false).into(translation_braillebtn3);
-                Glide.with(translationActivity.this).load(R.drawable.braillebtn_false).into(translation_braillebtn4);
-                Glide.with(translationActivity.this).load(R.drawable.braillebtn_false).into(translation_braillebtn5);
-                Glide.with(translationActivity.this).load(R.drawable.braillebtn_false).into(translation_braillebtn6);
-
-                translation_btnstatus1=0;
-                translation_btnstatus2=0;
-                translation_btnstatus3=0;
-                translation_btnstatus4=0;
-                translation_btnstatus5=0;
-                translation_btnstatus6=0;
+                Refresh();
             }
         });
 
@@ -140,9 +122,9 @@ public class translationActivity extends BaseActivity {
                 String braille_point = String.valueOf(translation_btnstatus1) + valueOf(translation_btnstatus2) + valueOf(translation_btnstatus3)
                         + valueOf(translation_btnstatus4) + valueOf(translation_btnstatus5) + valueOf(translation_btnstatus6);
 
-                temp_trans = Trans(braille_point);
+                temp_trans = TransMatching(braille_point);
 
-                result_trans = Trans_Fusion(temp_trans, temp_flag);
+                result_trans = TransFusion(temp_trans, temp_flag);
 
                 text_braille.setText(result_trans);
 
@@ -264,7 +246,7 @@ public class translationActivity extends BaseActivity {
     }
 
     // 해당 점자에 대응되는 문자 구성요소를 문자열로 반환
-    public String Trans(String braille_point){
+    public String TransMatching(String braille_point){
         String result="";
         Cursor cursor = db.rawQuery("SELECT keyword, flag FROM braille WHERE point = '" + braille_point + "';", null);
 
@@ -277,7 +259,7 @@ public class translationActivity extends BaseActivity {
     }
 
     // 기존 문자와 최근 입력 문자 합성
-    public String Trans_Fusion(String recent_trans, int flag){
+    public String TransFusion(String recent_trans, int flag){
 
         int number_cho = 0;
         int number_jun = 0;
@@ -350,11 +332,26 @@ public class translationActivity extends BaseActivity {
         return result_trans;
     }
 
-    @Override
-    public void onBackPressed() {
-        finish();
-        overridePendingTransition(R.anim.not_move_activit,R.anim.leftout_activity);
+    public void Refresh(){
+        text_braille.setText("");
+        result_trans = "";
+        start = 0;
+        prev_flag = 0;
+        index = 0;
 
+        Glide.with(translationActivity.this).load(R.drawable.braillebtn_false).into(translation_braillebtn1);
+        Glide.with(translationActivity.this).load(R.drawable.braillebtn_false).into(translation_braillebtn2);
+        Glide.with(translationActivity.this).load(R.drawable.braillebtn_false).into(translation_braillebtn3);
+        Glide.with(translationActivity.this).load(R.drawable.braillebtn_false).into(translation_braillebtn4);
+        Glide.with(translationActivity.this).load(R.drawable.braillebtn_false).into(translation_braillebtn5);
+        Glide.with(translationActivity.this).load(R.drawable.braillebtn_false).into(translation_braillebtn6);
+
+        translation_btnstatus1=0;
+        translation_btnstatus2=0;
+        translation_btnstatus3=0;
+        translation_btnstatus4=0;
+        translation_btnstatus5=0;
+        translation_btnstatus6=0;
     }
 
 }

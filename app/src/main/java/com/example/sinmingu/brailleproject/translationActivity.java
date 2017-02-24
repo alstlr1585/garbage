@@ -421,9 +421,9 @@ public class translationActivity extends BaseActivity {
         return result_trans;
     }
 
-<<<<<<<<< Temporary merge branch 1
+
     // 초기화
-    public void Refresh(){
+    public void Refresh() {
         text_braille.setText("");
         result_trans = "";
         start = 0;
@@ -436,12 +436,12 @@ public class translationActivity extends BaseActivity {
         Glide.with(translationActivity.this).load(R.drawable.braillebtn_false).into(translation_braillebtn4);
         Glide.with(translationActivity.this).load(R.drawable.braillebtn_false).into(translation_braillebtn5);
         Glide.with(translationActivity.this).load(R.drawable.braillebtn_false).into(translation_braillebtn6);
-=========
+    }
     @Override
     public void onBackPressed() {
         finish();
         overridePendingTransition(R.anim.not_move_activit,R.anim.leftout_activity);
->>>>>>>>> Temporary merge branch 2
+
 
     }
 }

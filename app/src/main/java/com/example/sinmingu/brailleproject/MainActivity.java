@@ -291,9 +291,6 @@ public class MainActivity extends BaseActivity {
                 site1.setTypeface(font);
                 site2.setTypeface(font);
 
-
-
-
             }
         });
 

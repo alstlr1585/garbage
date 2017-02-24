@@ -112,7 +112,16 @@
                             android:textColor="#ffffff"
                             android:background="@drawable/shapestudybtn"
                             android:layout_marginRight="10dp"
-                            android:text="약어"/>
+                            android:text="약자"/>
+
+                        <Button
+                            android:layout_width="75dp"
+                            android:textSize="12dp"
+                            android:layout_height="wrap_content"
+                            android:textColor="#ffffff"
+                            android:background="@drawable/shapestudybtn"
+                            android:layout_marginRight="10dp"
+                            android:text="접속사"/>
 
                         <Button
                             android:layout_width="75dp"

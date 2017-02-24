@@ -30,6 +30,19 @@ public class brailletableActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_brailletable);
 
+
+     /* 입체감 xml 코드
+        <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/myCv"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:cardUseCompatPadding="true"
+        app:cardElevation="2dp"
+        app:cardBackgroundColor="@color/cardview_light_background"
+        app:cardCornerRadius="2dp"></android.support.v7.widget.CardView>
+      */
+
         wordmenu=(Spinner)findViewById(R.id.wordmenu);
 
         consonant_initial_one=(ImageView)findViewById(R.id.consonant_initial_one);
@@ -52,8 +65,7 @@ public class brailletableActivity extends BaseActivity {
         alphabet_three=(ImageView)findViewById(R.id.alphabet_three);
         alphabet_four=(ImageView)findViewById(R.id.alphabet_four);
 
-        /////////////////////////////////////////////////////////////////////////////////////
-
+        // 점자 이미지 자동할당
         Glide.with(this).load(R.drawable.consonant_initial_one).into(consonant_initial_one);
         Glide.with(this).load(R.drawable.consonant_initial_two).into(consonant_initial_two);
         Glide.with(this).load(R.drawable.finalconsonant_ini_one).into(finalconsonant_initial_one);
@@ -73,14 +85,11 @@ public class brailletableActivity extends BaseActivity {
         Glide.with(this).load(R.drawable.alphabet_3).into(alphabet_three);
         Glide.with(this).load(R.drawable.alphabet_4).into(alphabet_four);
 
-
         final ArrayAdapter adapter=ArrayAdapter.createFromResource(this,R.array.word,android.R.layout.simple_spinner_item);
-
         adapter.setDropDownViewResource(android.R.layout.simple_list_item_single_choice);
-
         wordmenu.setAdapter(adapter);
 
-
+        //초성 자음 선택
         wordmenu.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?>  parent, View view, int position, long id) {
 
@@ -112,6 +121,7 @@ public class brailletableActivity extends BaseActivity {
 
 
                 }
+                //종성 자음 선택
                 else if(adapter.getItem(position).equals("종성 자음")){
 
                     consonant_initial_one.setVisibility((View.GONE));
@@ -136,6 +146,7 @@ public class brailletableActivity extends BaseActivity {
                     viewmenu.setText("종성 자음");
 
                 }
+                //모음 선택
                 else if(adapter.getItem(position).equals("모음")){
 
                     consonant_initial_one.setVisibility((View.GONE));
@@ -160,6 +171,7 @@ public class brailletableActivity extends BaseActivity {
                     viewmenu.setText("모음");
 
                 }
+                //알파벳 선택
                 else if(adapter.getItem(position).equals("알파벳")){
 
                     consonant_initial_one.setVisibility((View.GONE));

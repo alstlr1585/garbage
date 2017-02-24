@@ -50,9 +50,7 @@ public class brailletableActivity extends BaseActivity {
         Glide.with(this).load(R.drawable.vowel_three).into(vowel_three);
         Glide.with(this).load(R.drawable.number_1).into(number_one);
         Glide.with(this).load(R.drawable.number_2).into(number_two);
-
-
-
+        //앙
         final ArrayAdapter adapter=ArrayAdapter.createFromResource(this,R.array.word,android.R.layout.simple_spinner_item);
 
         adapter.setDropDownViewResource(android.R.layout.simple_list_item_single_choice);

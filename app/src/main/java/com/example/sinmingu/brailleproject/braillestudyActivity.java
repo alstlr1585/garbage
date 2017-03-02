@@ -515,10 +515,12 @@ public class braillestudyActivity extends BaseActivity implements TextToSpeech.O
                                 if(braille[0]==0&&braille[1]==0&&braille[2]==0&&braille[3]==1&&braille[4]==0&&braille[5]==0) {
                                     Glide.with(braillestudyActivity.this).load(R.drawable.resultok).into(studyresultpicture);
                                     ttsClient.speak("정답", TextToSpeech.QUEUE_FLUSH, null);
+                                    braillebtn_false();
                                 }
                                 else {
                                     Glide.with(braillestudyActivity.this).load(R.drawable.resultno).into(studyresultpicture);
                                     ttsClient.speak("오답", TextToSpeech.QUEUE_FLUSH, null);
+                                    braillebtn_false();
                                 }
                                 break;
 
@@ -579,6 +581,24 @@ public class braillestudyActivity extends BaseActivity implements TextToSpeech.O
     public void BtnEnableTrue(){
         btn_before.setEnabled(true);
         btn_next.setEnabled(true);
+    }
+
+    public void braillebtn_false(){
+
+        Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_false).into(braillebtn1);
+        Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_false).into(braillebtn2);
+        Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_false).into(braillebtn3);
+        Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_false).into(braillebtn4);
+        Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_false).into(braillebtn5);
+        Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_false).into(braillebtn6);
+
+        braille[0]=0;
+        braille[1]=0;
+        braille[2]=0;
+        braille[3]=0;
+        braille[4]=0;
+        braille[5]=0;
+
     }
 
 }

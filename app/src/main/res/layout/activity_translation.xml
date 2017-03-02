@@ -240,6 +240,8 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:id="@+id/text_braille"
+            android:textColor="#ffffff"
+            android:textSize="20dp"
             android:layout_weight="0.94" />
     </LinearLayout>
 

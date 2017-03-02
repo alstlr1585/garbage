@@ -51,10 +51,10 @@ public class brailletableActivity extends BaseActivity {
 
         /////////////////////////////////////////////////////////////////////////////////////
 
-        Glide.with(this).load(R.drawable.consonant_initial_one).into(consonant_initial_one);
-        Glide.with(this).load(R.drawable.consonant_initial_two).into(consonant_initial_two);
-        Glide.with(this).load(R.drawable.finalconsonant_ini_one).into(finalconsonant_initial_one);
-        Glide.with(this).load(R.drawable.finalconsonant_ini_two).into(finalconsonant_initial_two);
+        Glide.with(this).load(R.drawable.table_consonant_initial_1).into(consonant_initial_one);
+        Glide.with(this).load(R.drawable.table_consonant_initial_2).into(consonant_initial_two);
+        Glide.with(this).load(R.drawable.table_finalconsonant_ini_1).into(finalconsonant_initial_one);
+        Glide.with(this).load(R.drawable.table_finalconsonant_ini_2).into(finalconsonant_initial_two);
         Glide.with(this).load(R.drawable.vowel_one).into(vowel_one);
         Glide.with(this).load(R.drawable.vowel_two).into(vowel_two);
         Glide.with(this).load(R.drawable.vowel_three).into(vowel_three);

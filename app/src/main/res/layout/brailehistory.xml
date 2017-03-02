@@ -243,6 +243,7 @@
                     android:typeface="sans"
                     android:id="@+id/history6"
                     android:textSize="12dp"
+                    android:textColor="#000000"
                     android:text="(Louis Braille. 1809 - 1852)"/>
 
 
@@ -267,6 +268,7 @@
                     android:layout_gravity="center"
                     android:typeface="sans"
                     android:textStyle="bold"
+                    android:textColor="#000000"
                     android:id="@+id/history7"
                     android:textSize="12dp"
                     android:text="(1888 - 1963)"/>

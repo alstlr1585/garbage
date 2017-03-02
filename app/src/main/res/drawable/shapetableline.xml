@@ -5,9 +5,7 @@
 
     <stroke
         android:color="#F15F5F"
-        android:width="4px"
-        android:dashWidth="20px"
-        android:dashGap="10px"/>
+        android:width="5px" />
 
 
     <gradient

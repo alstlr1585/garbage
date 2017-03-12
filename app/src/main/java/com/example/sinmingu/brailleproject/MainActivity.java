@@ -39,6 +39,7 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        
         backPressCloseHandler = new BackPressCloseHandler(this);
 
         /* 특정 텍스트뷰 글씨 바꾸기
@@ -58,21 +59,22 @@ public class MainActivity extends BaseActivity {
         btn_Brailletable=(ImageButton)findViewById(R.id.btn_Brailltable);
         btn_Brraillehistory=(ImageButton)findViewById(R.id.btn_Braillehistory);
 
-        Glide.with(this).load(R.drawable.pic_infor2).into(btn_Brailleinfor);
-        Glide.with(this).load(R.drawable.pic_site2).into(btn_Braillesite);
-        Glide.with(this).load(R.drawable.pic_table2).into(btn_Brailletable);
-        Glide.with(this).load(R.drawable.pic_history2).into(btn_Brraillehistory);
-        Glide.with(this).load(R.drawable.main_translation).fitCenter().into(btn_Translation);
-        Glide.with(this).load(R.drawable.main_backtranslation).fitCenter().into(btn_BackTranslation);
-        Glide.with(this).load(R.drawable.main_study).fitCenter().into(btn_Study);
-        Glide.with(this).load(R.drawable.main_quiz).fitCenter().into(btn_Quiz);
+        Glide.with(this).load(R.drawable.main_infor).fitCenter().into(btn_Brailleinfor);
+        Glide.with(this).load(R.drawable.main_site).fitCenter().into(btn_Braillesite);
+        Glide.with(this).load(R.drawable.main_table).fitCenter().into(btn_Brailletable);
+        Glide.with(this).load(R.drawable.main_history).fitCenter().into(btn_Brraillehistory);
+
+        Glide.with(this).load(R.drawable.main_move_1).fitCenter().into(btn_Translation);
+        Glide.with(this).load(R.drawable.main_move_2).fitCenter().into(btn_BackTranslation);
+        Glide.with(this).load(R.drawable.main_move_3).fitCenter().into(btn_Study);
+        Glide.with(this).load(R.drawable.main_move_4).fitCenter().into(btn_Quiz);
 
         //번역기능
         btn_Translation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Intent intent=new Intent(MainActivity.this,translationActivity.class);
+                Intent intent=new Intent(MainActivity.this,StudyActivity.class);
                 startActivity(intent);
 
                 overridePendingTransition(R.anim.leftin_activity,R.anim.not_move_activit);
@@ -107,20 +109,18 @@ public class MainActivity extends BaseActivity {
             }
         });
 
-
         //퀴즈기능
         btn_Quiz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Intent intent=new Intent(MainActivity.this,QuizActivity.class);
+                Intent intent=new Intent(MainActivity.this,QuizSelect.class);
                 startActivity(intent);
 
                 overridePendingTransition(R.anim.rightin_activity,R.anim.not_move_activit);
 
             }
         });
-
 
         //점자란
         btn_Brailleinfor.setOnClickListener(new View.OnClickListener() {

@@ -9,7 +9,8 @@
         android:largeHeap="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,17 +18,28 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".backtranslationActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".braillestudyActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".brailletableActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".QuizActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".StudyActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".translationActivity"></activity>
+        <activity
+            android:name=".backtranslationActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".braillestudyActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".brailletableActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".QuizActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".StudyActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".translationActivity" />
+        <activity android:name=".QuizSelect" />
+        <activity android:name=".Quiz_word" />
+        <activity android:name=".Quiz_sentence" />
+        <activity android:name=".Quiz_grammar" />
+        <activity android:name=".Quiz_test" />
+        <activity android:name=".Quiz_character"></activity>
     </application>
 
 </manifest>

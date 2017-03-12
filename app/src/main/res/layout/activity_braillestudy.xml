@@ -196,13 +196,10 @@
                         android:textColor="#FF0000"
                         android:text="다음"
                         android:textSize="13dp"
-
                         android:gravity="center"
                         android:layout_height="wrap_content"
                         android:background="#00ff0000"
                         android:layout_weight="1.5"/>
-
-
 
                 </LinearLayout>
 

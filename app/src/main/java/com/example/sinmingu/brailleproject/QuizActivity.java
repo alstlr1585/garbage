@@ -139,8 +139,6 @@ public class QuizActivity extends BaseActivity implements TextToSpeech.OnInitLis
             tv.setTextSize(16);
         }
 
-
-
         quiz_startbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -161,9 +159,6 @@ public class QuizActivity extends BaseActivity implements TextToSpeech.OnInitLis
                             value = 10;
                             quiz_startbtn.setEnabled(true);
                         }
-
-
-
 
                     }
                     @Override

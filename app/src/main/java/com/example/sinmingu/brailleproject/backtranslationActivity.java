@@ -97,7 +97,13 @@ public class backtranslationActivity extends BaseActivity {
                         continue;
 
                     }
+
                     cho = ((((choice_translationtext.charAt(j) - 0xAC00) - (choice_translationtext.charAt(j) - 0xAC00) % 28)) / 28) / 21;
+                    if (cho < 0) {              // 완성형 글자가 아닌 경우 Toast를 출력하고 번역중지
+                        Toast.makeText(backtranslationActivity.this, "완성형 글자를 입력하세요.", Toast.LENGTH_SHORT).show();
+                        resultNumberText.setText("");
+                        break;
+                    }
                     key[0] = CHO[cho];
 
                     jun = ((((choice_translationtext.charAt(j) - 0xAC00) - (choice_translationtext.charAt(j) - 0xAC00) % 28)) / 28) % 21;
@@ -135,6 +141,7 @@ public class backtranslationActivity extends BaseActivity {
                     resultNumberText.setText(resultTemp);
                 }
                 resultNumberText.setText(AddrLongProc(resultNumberText.getText().toString()));
+
             }
             ////////////////////////////////////////////
 
@@ -142,6 +149,7 @@ public class backtranslationActivity extends BaseActivity {
 
 
         });
+
 
 
 

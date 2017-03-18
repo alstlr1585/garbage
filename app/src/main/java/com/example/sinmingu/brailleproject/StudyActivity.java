@@ -32,9 +32,9 @@ public class StudyActivity extends BaseActivity {
         studyimagetop=(ImageView)findViewById(R.id.studyimagetop);
 
 
-        Glide.with(this).load(R.drawable.brailletable).into(studyimage1);
-        Glide.with(this).load(R.drawable.braillewrite).into(studyimage2);
-        Glide.with(this).load(R.drawable.study_high).into(studyimagetop);
+        Glide.with(this).load(R.drawable.study_brailleview).into(studyimage1);
+        Glide.with(this).load(R.drawable.study_write).into(studyimage2);
+        Glide.with(this).load(R.drawable.study_top).into(studyimagetop);
 
 
 

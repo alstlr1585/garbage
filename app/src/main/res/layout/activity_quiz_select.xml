@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_quiz_select"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.sinmingu.brailleproject.QuizSelect">
+
+    <LinearLayout
+        android:background="#ffffff"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/vp"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/ll">
+        </android.support.v4.view.ViewPager>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="- 위쪽에 원하는 퀴즈메뉴를 선택하세요 -"
+            android:textSize="16dp"
+            android:gravity="center"
+
+            android:textColor="#000000"/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:textSize="13dp"
+            android:paddingLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/text_selelt_char"
+            android:textColor="#D2D2D2"
+            android:text="1. 글자 맞추기 : 각종 자음, 모음, 영어 등에 대한 한글자 맞추기 "
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:textSize="13dp"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="15dp"
+            android:textColor="#D2D2D2"
+            android:id="@+id/text_selelt_word"
+            android:text="2. 단어 맞추기 : 랜덤으로 나오는 문제에 대한 답 맞추기 "
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:textSize="13dp"
+            android:textColor="#D2D2D2"
+            android:paddingLeft="15dp"
+            android:id="@+id/text_selelt_test"
+            android:layout_marginTop="10dp"
+            android:text="3. 규칙 맞추기 : 점자를 읽거나 쓰는데 쓰이는 규칙 맞추기"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

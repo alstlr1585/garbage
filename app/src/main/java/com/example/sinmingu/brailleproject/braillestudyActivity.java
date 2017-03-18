@@ -1,5 +1,7 @@
 package com.example.sinmingu.brailleproject;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Handler;
@@ -69,6 +71,35 @@ public class braillestudyActivity extends BaseActivity implements TextToSpeech.O
             R.drawable.braille_alphabet_12,R.drawable.braille_alphabet_13,R.drawable.braille_alphabet_14,R.drawable.braille_alphabet_15,R.drawable.braille_alphabet_16,R.drawable.braille_alphabet_17,
             R.drawable.braille_alphabet_18,R.drawable.braille_alphabet_19,R.drawable.braille_alphabet_20,R.drawable.braille_alphabet_21,R.drawable.braille_alphabet_22,R.drawable.braille_alphabet_23,
             R.drawable.braille_alphabet_24,R.drawable.braille_alphabet_25,R.drawable.braille_alphabet_26};
+
+    private static final char[] CHOHAN =
+		/*ㄱ ㄲ ㄴ ㄷ ㄸ ㄹ ㅁ ㅂ ㅃ ㅅ ㅆ ㅇ ㅈ ㅉ ㅊ ㅋ ㅌ ㅍ ㅎ */
+            {'ㄱ', 'ㄲ', 'ㄴ', 'ㄷ', 'ㄸ', 'ㄹ', 'ㅁ', 'ㅂ', 'ㅃ', 'ㅅ', 'ㅆ', 'ㅇ',
+                    'ㅈ', 'ㅉ', 'ㅊ', 'ㅋ', 'ㅌ', 'ㅍ', 'ㅎ'};
+
+    ///////////////////////////////////////////////////////////////////////
+    private static final char[] CHO =
+		/*ㄱ ㄲ ㄴ ㄷ ㄸ ㄹ ㅁ ㅂ ㅃ ㅅ ㅆ ㅇ ㅈ ㅉ ㅊ ㅋ ㅌ ㅍ ㅎ */
+            {0x3131, 0x3132, 0x3134, 0x3137, 0x3138, 0x3139, 0x3141, 0x3142, 0x3143, 0x3145,
+                    0x3146, 0x3147, 0x3148, 0x3149, 0x314a, 0x314b, 0x314c, 0x314d, 0x314e};
+
+    private static final char[] JUN =
+		/*ㅏㅐㅑㅒㅓㅔㅕㅖㅗㅘㅙㅚㅛㅜㅝㅞㅟㅠㅡㅢㅣ*/
+            {0x314f, 0x3150, 0x3151, 0x3152, 0x3153, 0x3154, 0x3155, 0x3156, 0x3157, 0x3158,
+                    0x3159, 0x315a, 0x315b, 0x315c, 0x315d, 0x315e, 0x315f, 0x3160,	0x3161,	0x3162,
+                    0x3163};
+
+    /*X ㄱㄲㄳㄴㄵㄶㄷㄹㄺㄻㄼㄽㄾㄿㅀㅁㅂㅄㅅㅆㅇㅈㅊㅋㅌㅍㅎ*/
+    private static final char[] JON =
+            {0x0000, 0x3131, 0x3132, 0x3133, 0x3134, 0x3135, 0x3136, 0x3137, 0x3139, 0x313a,
+                    0x313b, 0x313c, 0x313d, 0x313e, 0x313f, 0x3140, 0x3141, 0x3142, 0x3144, 0x3145,
+                    0x3146, 0x3147, 0x3148, 0x314a, 0x314b, 0x314c, 0x314d, 0x314e};
+    //private static final String[] CHO = {"ㄱ" ,"ㄲ" ,"ㄴ" ,"ㄷ" ,"ㄸ" ,"ㄹ" ,"ㅁ" ,"ㅂ" ,"ㅃ" ,"ㅅ" ,"ㅆ" ,"ㅇ" ,"ㅈ" ,"ㅉ" ,"ㅊ" ,"ㅋ" ,"ㅌ" ,"ㅍ" ,"ㅎ"};
+    ////////////////////////////////////////////////////////////////////
+
+    DB StudyBraille;
+    SQLiteDatabase db;
+
 
     int braille[];
     String menu_type;
@@ -501,7 +532,7 @@ public class braillestudyActivity extends BaseActivity implements TextToSpeech.O
             }
         });
 
-        
+        //확인
         result_send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -515,10 +546,12 @@ public class braillestudyActivity extends BaseActivity implements TextToSpeech.O
                                 if(braille[0]==0&&braille[1]==0&&braille[2]==0&&braille[3]==1&&braille[4]==0&&braille[5]==0) {
                                     Glide.with(braillestudyActivity.this).load(R.drawable.resultok).into(studyresultpicture);
                                     ttsClient.speak("정답", TextToSpeech.QUEUE_FLUSH, null);
+                                    braillebtn_false();
                                 }
                                 else {
                                     Glide.with(braillestudyActivity.this).load(R.drawable.resultno).into(studyresultpicture);
                                     ttsClient.speak("오답", TextToSpeech.QUEUE_FLUSH, null);
+                                    braillebtn_false();
                                 }
                                 break;
 
@@ -581,4 +614,34 @@ public class braillestudyActivity extends BaseActivity implements TextToSpeech.O
         btn_next.setEnabled(true);
     }
 
+    public void braillebtn_false(){
+
+        Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_false).into(braillebtn1);
+        Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_false).into(braillebtn2);
+        Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_false).into(braillebtn3);
+        Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_false).into(braillebtn4);
+        Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_false).into(braillebtn5);
+        Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_false).into(braillebtn6);
+
+        braille[0]=0;
+        braille[1]=0;
+        braille[2]=0;
+        braille[3]=0;
+        braille[4]=0;
+        braille[5]=0;
+
+    }
+/*
+    public Boolean ischecked(){
+
+        Cursor cursor = db.rawQuery("SELECT keyword, flag FROM braille WHERE point = '" + braille_point + "';", null);
+
+        while(cursor.moveToNext()){
+            result = cursor.getString(0);
+            temp_flag = cursor.getInt(1);
+        }
+
+        return result;
+    }
+*/
 }

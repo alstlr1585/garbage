@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_quiz_character"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FAF4C0"
+
+    tools:context="com.example.sinmingu.brailleproject.Quiz_character">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:layout_weight="1">
+
+        <ImageView
+
+            android:paddingTop="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/move_test"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_weight="1.5">
+
+        <Button
+            android:layout_width="150dp"
+            android:id="@+id/btn_test"
+            android:background="@drawable/shapebraille"
+            android:text="규칙 맞추기"
+            android:layout_height="wrap_content" />
+
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_weight="2">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:layout_weight="0.025"
+            android:background="#ffffff"/>
+
+        <ImageView
+            android:layout_weight="0.9"
+            android:layout_width="40dp"
+            android:layout_height="10dp"
+            android:id="@+id/quiz_state_test"/>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

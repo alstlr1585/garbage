@@ -90,57 +90,91 @@ public class backtranslationActivity extends BaseActivity {
 
                 // 완성형 문자가 아닌 경우 팅기는 문제 해결 필요!/////////////////////////////////////////////////////
 
-                for(int j=0;j<choice_translationtext.length();j++) {
-                    if (choice_translationtext.charAt(j) == ' ') {
-                        resultTemp += " ";
-                        resultNumberText.setText(resultTemp);
-                        continue;
-
-                    }
-
-                    cho = ((((choice_translationtext.charAt(j) - 0xAC00) - (choice_translationtext.charAt(j) - 0xAC00) % 28)) / 28) / 21;
-                    if (cho < 0) {              // 완성형 글자가 아닌 경우 Toast를 출력하고 번역중지
-                        Toast.makeText(backtranslationActivity.this, "완성형 글자를 입력하세요.", Toast.LENGTH_SHORT).show();
-                        resultNumberText.setText("");
-                        break;
-                    }
-                    key[0] = CHO[cho];
-
-                    jun = ((((choice_translationtext.charAt(j) - 0xAC00) - (choice_translationtext.charAt(j) - 0xAC00) % 28)) / 28) % 21;
-                    key[1] = JUN[jun];
-
-                    jon = (choice_translationtext.charAt(j) - 0xAC00) % 28;
-                    key[2] = JON[jon];
-
-                    if (key[0] == 0x3132 || key[0] == 0x3138 || key[0] == 0x3143 || key[0] == 0x3146 || key[0] == 0x3149)     // 된소리 전처리
-                        key[0] -= 0x0001;
-                    if (key[1]==0x3153 && key[2]==0x3147 && (key[0]==0x3145 || key[0]==0x3146 || key[0]==0x3148 || key[0]==0x3149 || key[0]==0x314a))   // 엉 -> 영 처리
-                        key[1] += 0x0002;
+                if ((choice_translationtext.charAt(0) > 64 && choice_translationtext.charAt(0) <= 90) || (choice_translationtext.charAt(0) > 96 && choice_translationtext.charAt(0) <= 122)){
+                    Toast.makeText(backtranslationActivity.this, "영어당", Toast.LENGTH_SHORT).show();
+                    char tmp;
+                    for (int j = 0; j < choice_translationtext.length(); j++) {
 
 
+                        tmp = choice_translationtext.charAt(j);
+                        if (tmp != ' ' &&!((tmp > 64 && tmp <= 90) || (tmp > 96 && tmp <= 122))) {
+                            Toast.makeText(backtranslationActivity.this, "종류가 다른 문자끼리 혼합할 수 없습니다.", Toast.LENGTH_SHORT).show();
+                            resultTemp = "";
+                            break;
+                        }
+                        if (tmp > 64 && tmp <= 90) {    // 이번건 대문자군!
+                            if (j == 0 || !(choice_translationtext.charAt(j-1) > 64 && choice_translationtext.charAt(j-1) <= 90)) {   // 전에는 대문자가 아니였나요?
+                                resultTemp += " 000001";
+                                if (j < choice_translationtext.length()-1 && (choice_translationtext.charAt(j + 1) > 64 && choice_translationtext.charAt(j + 1) <= 90))  // 이번 글자에 이은 다음 글자도 대문자인가요?
+                                    resultTemp += " 000001";
+                            }
 
-                    for (int k = 1; (k < 4 && key[k-1] != 0x0000); k++) {
-                        cursor = db.rawQuery("SELECT keyword, point, flag FROM braille WHERE keyword='" + key[k - 1] + "' and flag=" + k + ";", null);
+
+                            tmp += 32;
+                        }
+                        Toast.makeText(backtranslationActivity.this, "tmp : " + tmp, Toast.LENGTH_SHORT).show();
+                        cursor = db.rawQuery("SELECT keyword, point, flag FROM braille WHERE keyword='" + tmp + "' and flag=" + 4 + ";", null);
                         while (cursor.moveToNext()) {
                             result = cursor.getString(1);
 
-                            if ((k==1)&&(CHO[cho] == 0x3132 || CHO[cho] == 0x3138 || CHO[cho] == 0x3143 || CHO[cho] == 0x3146 || CHO[cho] == 0x3149))   // 된소리 후처리
-                                resultTemp = resultTemp + " " + "000001";
-
-                            if ((k==2) && j+1<choice_translationtext.length() && key[2]==0x0000 && (key[1]==0x3151 || key[1]==0x3158 || key[1]==0x315c || key[1]==0x315d)) {   // 붙임표 2번 파트
-                                if (    CHO[(((((choice_translationtext.charAt(j+1) - 0xAC00) - (choice_translationtext.charAt(j+1) - 0xAC00) % 28)) / 28) / 21)]==0x3147 &&
-                                        JUN[(((((choice_translationtext.charAt(j+1) - 0xAC00) - (choice_translationtext.charAt(j+1) - 0xAC00) % 28)) / 28) % 21)]==0x3150)
-                                    result = result + " " + "001001";
-
-                            }
-
-                            resultTemp = resultTemp + " " +result;
+                            resultTemp = resultTemp + " " + result;
                         }
+                        // 영어의 경우
                     }
-                    resultTemp = AbbrShortProc(resultTemp);
                     resultNumberText.setText(resultTemp);
                 }
-                resultNumberText.setText(AddrLongProc(resultNumberText.getText().toString()));
+
+                else {      // 그 외의 경우 (한글)
+                    for (int j = 0; j < choice_translationtext.length(); j++) {
+                        if (choice_translationtext.charAt(j) == ' ') {
+                            resultTemp += " ";
+                            resultNumberText.setText(resultTemp);
+                            continue;
+                        }
+
+                        cho = ((((choice_translationtext.charAt(j) - 0xAC00) - (choice_translationtext.charAt(j) - 0xAC00) % 28)) / 28) / 21;
+                        if (cho < 0) {              // 완성형 글자가 아닌 경우 Toast를 출력하고 번역중지
+                            Toast.makeText(backtranslationActivity.this, "완성형 글자를 입력하세요.", Toast.LENGTH_SHORT).show();
+                            resultNumberText.setText("");
+                            break;
+                        }
+                        key[0] = CHO[cho];
+
+                        jun = ((((choice_translationtext.charAt(j) - 0xAC00) - (choice_translationtext.charAt(j) - 0xAC00) % 28)) / 28) % 21;
+                        key[1] = JUN[jun];
+
+                        jon = (choice_translationtext.charAt(j) - 0xAC00) % 28;
+                        key[2] = JON[jon];
+
+                        if (key[0] == 0x3132 || key[0] == 0x3138 || key[0] == 0x3143 || key[0] == 0x3146 || key[0] == 0x3149)     // 된소리 전처리
+                            key[0] -= 0x0001;
+                        if (key[1] == 0x3153 && key[2] == 0x3147 && (key[0] == 0x3145 || key[0] == 0x3146 || key[0] == 0x3148 || key[0] == 0x3149 || key[0] == 0x314a))   // 엉 -> 영 처리
+                            key[1] += 0x0002;
+
+
+                        for (int k = 1; (k < 4 && key[k - 1] != 0x0000); k++) {
+                            cursor = db.rawQuery("SELECT keyword, point, flag FROM braille WHERE keyword='" + key[k - 1] + "' and flag=" + k + ";", null);
+                            while (cursor.moveToNext()) {
+                                result = cursor.getString(1);
+
+                                if ((k == 1) && (CHO[cho] == 0x3132 || CHO[cho] == 0x3138 || CHO[cho] == 0x3143 || CHO[cho] == 0x3146 || CHO[cho] == 0x3149))   // 된소리 후처리
+                                    resultTemp = resultTemp + " " + "000001";
+
+                                if ((k == 2) && j + 1 < choice_translationtext.length() && key[2] == 0x0000 && (key[1] == 0x3151 || key[1] == 0x3158 || key[1] == 0x315c || key[1] == 0x315d)) {   // 붙임표 2번 파트
+                                    if (CHO[(((((choice_translationtext.charAt(j + 1) - 0xAC00) - (choice_translationtext.charAt(j + 1) - 0xAC00) % 28)) / 28) / 21)] == 0x3147 &&
+                                            JUN[(((((choice_translationtext.charAt(j + 1) - 0xAC00) - (choice_translationtext.charAt(j + 1) - 0xAC00) % 28)) / 28) % 21)] == 0x3150)
+                                        result = result + " " + "001001";
+
+                                }
+
+                                resultTemp = resultTemp + " " + result;
+                            }
+                        }
+                        resultTemp = AbbrShortProc(resultTemp);
+                        resultNumberText.setText(resultTemp);
+                    }
+                    resultNumberText.setText(AddrLongProc(resultNumberText.getText().toString()));
+                }
 
             }
             ////////////////////////////////////////////

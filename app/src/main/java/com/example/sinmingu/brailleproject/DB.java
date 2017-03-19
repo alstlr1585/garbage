@@ -71,7 +71,7 @@ public class DB extends SQLiteOpenHelper {
                 "110010", "010100", "010110", "101000", "111000", "101100", "101110", "101010",
                 "111100", "111110", "111010", "011100", "011110", "101001", "111001", "010111",
                 "101101", "101111", "101011"};
-        for(int i=0; i<Mo.length; i++){
+        for(int i=0; i<Eng.length; i++){
             db.execSQL("INSERT INTO braille VALUES (null, '" + Eng[i] + "', '" + EngPoint[i] + "', 4);");
         }
 
@@ -80,13 +80,13 @@ public class DB extends SQLiteOpenHelper {
         String NumPoint[] = {"100000", "110000", "100100", "100110", "100010", "110100", "110110",
                 "110010", "010100", "010110", "001000", "010000", "010001", "001010", "100001",
                 "001100 001100", "010010 010010"};
-        for(int i=0; i<Mo.length; i++){
+        for(int i=0; i<Num.length; i++){
             db.execSQL("INSERT INTO braille VALUES (null, '" + Num[i] + "', '" + NumPoint[i] + "', 5);");
         }
 
         String Other[] = {"~", "(", ")", "!", ".", ",", "?", ":", ";", "-", "※"};
         String OtherPoint[] = {"001001 001001", "001001", "001001", "011010", "010011", "000010", "011001", "000010 010000", "000011 011000", "001001", "001010 001010"};
-        for(int i=0; i<Mo.length; i++){
+        for(int i=0; i<Other.length; i++){
             db.execSQL("INSERT INTO braille VALUES (null, '" + Other[i] + "', '" + OtherPoint[i] + "', 6);");
         }
 

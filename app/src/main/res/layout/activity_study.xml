@@ -72,9 +72,9 @@
             android:layout_height="match_parent"
             android:paddingLeft="30dp"
             android:paddingRight="30dp"
-            android:paddingBottom="10dp"
+            android:paddingBottom="15dp"
             android:background="#ffffff"
-            android:paddingTop="10dp"
+            android:paddingTop="15dp"
             android:orientation="horizontal"
             android:layout_weight="1">
 
@@ -83,7 +83,7 @@
                 android:layout_gravity="center"
                 android:layout_height="match_parent"
                 android:id="@+id/studyimage1"
-                android:layout_weight="1.5" />
+                android:layout_weight="1.7" />
 
             <Button
                 android:layout_width="match_parent"
@@ -97,34 +97,21 @@
                 android:textSize="20dp"
                 android:text="점자표 보기"/>
 
-
-
         </LinearLayout>
-
-
-
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
                 android:layout_weight="1.98"
                 android:background="#000000"/>
-
-
-
-
-
-
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:paddingLeft="30dp"
             android:paddingRight="30dp"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
             android:background="#ffffff"
             android:orientation="horizontal"
             android:layout_weight="1">
@@ -133,7 +120,7 @@
                 android:layout_width="match_parent"
                 android:layout_gravity="center"
                 android:layout_height="match_parent"
-                android:layout_weight="1.5"
+                android:layout_weight="1.7"
                 android:id="@+id/studyimage2" />
 
             <Button

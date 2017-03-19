@@ -39,7 +39,7 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        
+
         backPressCloseHandler = new BackPressCloseHandler(this);
 
         /* 특정 텍스트뷰 글씨 바꾸기
@@ -101,7 +101,7 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent=new Intent(MainActivity.this,StudyActivity.class);
+                Intent intent=new Intent(MainActivity.this,deepen_study_screen.class);
                 startActivity(intent);
 
                 overridePendingTransition(R.anim.leftin_activity,R.anim.not_move_activit);

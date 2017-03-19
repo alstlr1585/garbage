@@ -3,6 +3,8 @@ package com.example.sinmingu.brailleproject;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
+import android.graphics.Color;
+import android.media.Image;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,6 +16,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+
+import static android.view.KeyCharacterMap.load;
+import static com.example.sinmingu.brailleproject.R.id.btn_Translation;
+import static com.example.sinmingu.brailleproject.R.id.translation_edit;
 
 public class backtranslationActivity extends BaseActivity {
 
@@ -35,20 +41,27 @@ public class backtranslationActivity extends BaseActivity {
     //private static final String[] CHO = {"ㄱ" ,"ㄲ" ,"ㄴ" ,"ㄷ" ,"ㄸ" ,"ㄹ" ,"ㅁ" ,"ㅂ" ,"ㅃ" ,"ㅅ" ,"ㅆ" ,"ㅇ" ,"ㅈ" ,"ㅉ" ,"ㅊ" ,"ㅋ" ,"ㅌ" ,"ㅍ" ,"ㅎ"};
     ////////////////////////////////////////////////////////////////////
 
+    ImageView[] point;
+    int[] point_id = {R.id.p1_1, R.id.p1_2, R.id.p1_3, R.id.p1_4, R.id.p1_5, R.id.p1_6,
+            R.id.p2_1, R.id.p2_2, R.id.p2_3, R.id.p2_4, R.id.p2_5, R.id.p2_6,
+            R.id.p3_1, R.id.p3_2, R.id.p3_3, R.id.p3_4, R.id.p3_5, R.id.p3_6,
+            R.id.p4_1, R.id.p4_2, R.id.p4_3, R.id.p4_4, R.id.p4_5, R.id.p4_6,
+            R.id.p5_1, R.id.p5_2, R.id.p5_3, R.id.p5_4, R.id.p5_5, R.id.p5_6,
+    };
 
     ImageButton serchpicture;
     ImageView serchpicture1,serchpicture2;
-    TextView translation_text,
-    ////
-    resultNumberText;
+    TextView translation_text;
     DB braille;
     SQLiteDatabase db;
     Cursor cursor;
     String result="";
     String resultTemp="";
+    String br_result="";
     ////
     EditText translation_edit;
     String choice_translationtext;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,8 +73,14 @@ public class backtranslationActivity extends BaseActivity {
         serchpicture2=(ImageView) findViewById(R.id.serchpicture2);
         translation_text=(TextView)findViewById(R.id.translation_text);
         translation_edit=(EditText)findViewById(R.id.translation_edit);
-        ////
-        resultNumberText=(TextView)findViewById(R.id.textTest);
+
+        point = new ImageView[point_id.length];
+
+        for(int i=0; i<point_id.length; i++){
+            point[i] = (ImageView) findViewById(point_id[i]);
+
+        }
+
         braille = new DB(this);    // DB 객체
 
         try {
@@ -83,59 +102,75 @@ public class backtranslationActivity extends BaseActivity {
 
                 result = "";
                 resultTemp = "";    // 초기화
-                resultNumberText.setText("");
 
                 choice_translationtext=translation_edit.getText().toString();
                 translation_text.setText(choice_translationtext);
+                if (choice_translationtext.equals("")) {
+                    Toast.makeText(backtranslationActivity.this, "내용을 입력하세요.", Toast.LENGTH_SHORT).show();
+                }
 
                 // 완성형 문자가 아닌 경우 팅기는 문제 해결 필요!/////////////////////////////////////////////////////
 
-                if ((choice_translationtext.charAt(0) > 64 && choice_translationtext.charAt(0) <= 90) || (choice_translationtext.charAt(0) > 96 && choice_translationtext.charAt(0) <= 122)){
-                    Toast.makeText(backtranslationActivity.this, "영어당", Toast.LENGTH_SHORT).show();
+                else if ((choice_translationtext.charAt(0) > 64 && choice_translationtext.charAt(0) <= 90) || (choice_translationtext.charAt(0) > 96 && choice_translationtext.charAt(0) <= 122)){
                     char tmp;
                     for (int j = 0; j < choice_translationtext.length(); j++) {
 
-
+                        if (choice_translationtext.charAt(j) == ' ') {
+                            resultTemp += " ";
+                            continue;
+                        }
                         tmp = choice_translationtext.charAt(j);
                         if (tmp != ' ' &&!((tmp > 64 && tmp <= 90) || (tmp > 96 && tmp <= 122))) {
                             Toast.makeText(backtranslationActivity.this, "종류가 다른 문자끼리 혼합할 수 없습니다.", Toast.LENGTH_SHORT).show();
                             resultTemp = "";
                             break;
                         }
-                        if (tmp > 64 && tmp <= 90) {    // 이번건 대문자군!
+                        if (tmp > 64 && tmp <= 90) {    // 이번건 대문자!
                             if (j == 0 || !(choice_translationtext.charAt(j-1) > 64 && choice_translationtext.charAt(j-1) <= 90)) {   // 전에는 대문자가 아니였나요?
-                                resultTemp += " 000001";
+                                resultTemp += "000001";
                                 if (j < choice_translationtext.length()-1 && (choice_translationtext.charAt(j + 1) > 64 && choice_translationtext.charAt(j + 1) <= 90))  // 이번 글자에 이은 다음 글자도 대문자인가요?
-                                    resultTemp += " 000001";
+                                    resultTemp += "000001";
                             }
 
 
                             tmp += 32;
                         }
-                        Toast.makeText(backtranslationActivity.this, "tmp : " + tmp, Toast.LENGTH_SHORT).show();
                         cursor = db.rawQuery("SELECT keyword, point, flag FROM braille WHERE keyword='" + tmp + "' and flag=" + 4 + ";", null);
                         while (cursor.moveToNext()) {
                             result = cursor.getString(1);
-
-                            resultTemp = resultTemp + " " + result;
+                            resultTemp = resultTemp + result;
                         }
                         // 영어의 경우
                     }
-                    resultNumberText.setText(resultTemp);
+                    br_result = resultTemp;
+
+                    int j = 0;  // 띄워쓰기 횟수
+
+                    for(int i=0; i<br_result.length(); i++){
+
+                        if(br_result.charAt(i) == ' ') {
+                            j += 5;
+                        }
+                        else if(br_result.charAt(i) == '0'){
+                            point[i+j].setImageResource(R.drawable.braille_zero);
+                        }
+                        else if(br_result.charAt(i) == '1'){
+                            point[i+j].setImageResource(R.drawable.braille_one);
+                        }
+                    }
+
                 }
 
                 else {      // 그 외의 경우 (한글)
                     for (int j = 0; j < choice_translationtext.length(); j++) {
                         if (choice_translationtext.charAt(j) == ' ') {
                             resultTemp += " ";
-                            resultNumberText.setText(resultTemp);
                             continue;
                         }
 
                         cho = ((((choice_translationtext.charAt(j) - 0xAC00) - (choice_translationtext.charAt(j) - 0xAC00) % 28)) / 28) / 21;
                         if (cho < 0) {              // 완성형 글자가 아닌 경우 Toast를 출력하고 번역중지
                             Toast.makeText(backtranslationActivity.this, "완성형 글자를 입력하세요.", Toast.LENGTH_SHORT).show();
-                            resultNumberText.setText("");
                             break;
                         }
                         key[0] = CHO[cho];
@@ -171,9 +206,25 @@ public class backtranslationActivity extends BaseActivity {
                             }
                         }
                         resultTemp = AbbrShortProc(resultTemp);
-                        resultNumberText.setText(resultTemp);
+                        br_result = resultTemp;
                     }
-                    resultNumberText.setText(AddrLongProc(resultNumberText.getText().toString()));
+                    br_result = AddrLongProc(br_result);
+
+                    int j = 0;  // 띄워쓰기 횟수
+
+                    for(int i=0; i<br_result.length(); i++){
+
+                        if(br_result.charAt(i) == ' ') {
+                            j += 5;
+                        }
+                        else if(br_result.charAt(i) == '0'){
+                            point[i+j].setImageResource(R.drawable.braille_zero);
+                        }
+                        else if(br_result.charAt(i) == '1'){
+                            point[i+j].setImageResource(R.drawable.braille_one);
+                        }
+                    }
+
                 }
 
             }
@@ -183,9 +234,6 @@ public class backtranslationActivity extends BaseActivity {
 
 
         });
-
-
-
 
     }
 
@@ -308,6 +356,10 @@ public class backtranslationActivity extends BaseActivity {
 
         past = past.replaceAll("2", "1");
 
+        past = past.replaceAll("  ", "◆");
+        past = past.replaceAll(" ", "");
+
+        past = past.replaceAll("◆", " ");
         return past;
     }
 

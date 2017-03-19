@@ -39,7 +39,9 @@
         <activity android:name=".Quiz_sentence" />
         <activity android:name=".Quiz_grammar" />
         <activity android:name=".Quiz_test" />
-        <activity android:name=".Quiz_character"></activity>
+        <activity android:name=".Quiz_character" />
+        <activity android:name=".deepen_study_screen" />
+        <activity android:name=".deepen_study"></activity>
     </application>
 
 </manifest>

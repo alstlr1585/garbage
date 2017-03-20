@@ -19,7 +19,9 @@ public class BaseActivity extends FragmentActivity {
     public void setContentView(int layoutResID) {
         super.setContentView(layoutResID);
         if(mtypeface == null) {
+
             mtypeface = Typeface.createFromAsset(this.getAssets(), "fonts/BMJUA_ttf.ttf");
+
         }
         setGlobalFont(getWindow().getDecorView());
     }

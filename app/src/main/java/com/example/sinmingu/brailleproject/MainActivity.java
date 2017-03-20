@@ -38,8 +38,7 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
+        
         backPressCloseHandler = new BackPressCloseHandler(this);
 
         /* 특정 텍스트뷰 글씨 바꾸기

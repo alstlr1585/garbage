@@ -47,6 +47,31 @@ public class backtranslationActivity extends BaseActivity {
             R.id.p3_1, R.id.p3_2, R.id.p3_3, R.id.p3_4, R.id.p3_5, R.id.p3_6,
             R.id.p4_1, R.id.p4_2, R.id.p4_3, R.id.p4_4, R.id.p4_5, R.id.p4_6,
             R.id.p5_1, R.id.p5_2, R.id.p5_3, R.id.p5_4, R.id.p5_5, R.id.p5_6,
+            R.id.p6_1, R.id.p6_2, R.id.p6_3, R.id.p6_4, R.id.p6_5, R.id.p6_6,
+            R.id.p7_1, R.id.p7_2, R.id.p7_3, R.id.p7_4, R.id.p7_5, R.id.p7_6,
+            R.id.p8_1, R.id.p8_2, R.id.p8_3, R.id.p8_4, R.id.p8_5, R.id.p8_6,
+            R.id.p9_1, R.id.p9_2, R.id.p9_3, R.id.p9_4, R.id.p9_5, R.id.p9_6,
+            R.id.p10_1, R.id.p10_2, R.id.p10_3, R.id.p10_4, R.id.p10_5, R.id.p10_6,
+            R.id.p11_1, R.id.p11_2, R.id.p11_3, R.id.p11_4, R.id.p11_5, R.id.p11_6,
+            R.id.p12_1, R.id.p12_2, R.id.p12_3, R.id.p12_4, R.id.p12_5, R.id.p12_6,
+            R.id.p13_1, R.id.p13_2, R.id.p13_3, R.id.p13_4, R.id.p13_5, R.id.p13_6,
+            R.id.p14_1, R.id.p14_2, R.id.p14_3, R.id.p14_4, R.id.p14_5, R.id.p14_6,
+            R.id.p15_1, R.id.p15_2, R.id.p15_3, R.id.p15_4, R.id.p15_5, R.id.p15_6,
+            R.id.p16_1, R.id.p16_2, R.id.p16_3, R.id.p16_4, R.id.p16_5, R.id.p16_6,
+            R.id.p17_1, R.id.p17_2, R.id.p17_3, R.id.p17_4, R.id.p17_5, R.id.p17_6,
+            R.id.p18_1, R.id.p18_2, R.id.p18_3, R.id.p18_4, R.id.p18_5, R.id.p18_6,
+            R.id.p19_1, R.id.p19_2, R.id.p19_3, R.id.p19_4, R.id.p19_5, R.id.p19_6,
+            R.id.p20_1, R.id.p20_2, R.id.p20_3, R.id.p20_4, R.id.p20_5, R.id.p20_6,
+            R.id.p21_1, R.id.p21_2, R.id.p21_3, R.id.p21_4, R.id.p21_5, R.id.p21_6,
+            R.id.p22_1, R.id.p22_2, R.id.p22_3, R.id.p22_4, R.id.p22_5, R.id.p22_6,
+            R.id.p23_1, R.id.p23_2, R.id.p23_3, R.id.p23_4, R.id.p23_5, R.id.p23_6,
+            R.id.p24_1, R.id.p24_2, R.id.p24_3, R.id.p24_4, R.id.p24_5, R.id.p24_6,
+            R.id.p25_1, R.id.p25_2, R.id.p25_3, R.id.p25_4, R.id.p25_5, R.id.p25_6,
+            R.id.p26_1, R.id.p26_2, R.id.p26_3, R.id.p26_4, R.id.p26_5, R.id.p26_6,
+            R.id.p27_1, R.id.p27_2, R.id.p27_3, R.id.p27_4, R.id.p27_5, R.id.p27_6,
+            R.id.p28_1, R.id.p28_2, R.id.p28_3, R.id.p28_4, R.id.p28_5, R.id.p28_6,
+            R.id.p29_1, R.id.p29_2, R.id.p29_3, R.id.p29_4, R.id.p29_5, R.id.p29_6,
+            R.id.p30_1, R.id.p30_2, R.id.p30_3, R.id.p30_4, R.id.p30_5, R.id.p30_6
     };
 
     ImageButton serchpicture;
@@ -78,7 +103,6 @@ public class backtranslationActivity extends BaseActivity {
 
         for(int i=0; i<point_id.length; i++){
             point[i] = (ImageView) findViewById(point_id[i]);
-
         }
 
         braille = new DB(this);    // DB 객체
@@ -88,8 +112,8 @@ public class backtranslationActivity extends BaseActivity {
         } catch (SQLiteException ex){
             db = braille.getReadableDatabase();
         }
-        ////
 
+        ////
         Glide.with(this).load(R.drawable.serch).into(serchpicture);
         Glide.with(this).load(R.drawable.serchpicture).into(serchpicture1);
         Glide.with(this).load(R.drawable.serchpicture2).into(serchpicture2);
@@ -103,6 +127,8 @@ public class backtranslationActivity extends BaseActivity {
                 result = "";
                 resultTemp = "";    // 초기화
 
+                reflash();
+
                 choice_translationtext=translation_edit.getText().toString();
                 translation_text.setText(choice_translationtext);
                 if (choice_translationtext.equals("")) {
@@ -114,7 +140,6 @@ public class backtranslationActivity extends BaseActivity {
                 else if ((choice_translationtext.charAt(0) > 64 && choice_translationtext.charAt(0) <= 90) || (choice_translationtext.charAt(0) > 96 && choice_translationtext.charAt(0) <= 122)){
                     char tmp;
                     for (int j = 0; j < choice_translationtext.length(); j++) {
-
                         if (choice_translationtext.charAt(j) == ' ') {
                             resultTemp += " ";
                             continue;
@@ -132,11 +157,17 @@ public class backtranslationActivity extends BaseActivity {
                                     resultTemp += "000001";
                             }
 
-
+                            Toast.makeText(getApplicationContext(),"대문자"+resultTemp.length(),Toast.LENGTH_SHORT).show();
                             tmp += 32;
                         }
+/////////////////////////////
+                        ////////////////////////////
                         cursor = db.rawQuery("SELECT keyword, point, flag FROM braille WHERE keyword='" + tmp + "' and flag=" + 4 + ";", null);
+                        //cursor = db.rawQuery("SELECT keyword, point, flag FROM braille WHERE flag=" + 4 + ";", null);
+                        //Toast.makeText(backtranslationActivity.this, ""+cursor.getCount(), Toast.LENGTH_SHORT).show();
+
                         while (cursor.moveToNext()) {
+
                             result = cursor.getString(1);
                             resultTemp = resultTemp + result;
                         }
@@ -147,7 +178,6 @@ public class backtranslationActivity extends BaseActivity {
                     int j = 0;  // 띄워쓰기 횟수
 
                     for(int i=0; i<br_result.length(); i++){
-
                         if(br_result.charAt(i) == ' ') {
                             j += 5;
                         }
@@ -158,7 +188,6 @@ public class backtranslationActivity extends BaseActivity {
                             point[i+j].setImageResource(R.drawable.braille_one);
                         }
                     }
-
                 }
 
                 else {      // 그 외의 경우 (한글)
@@ -208,6 +237,7 @@ public class backtranslationActivity extends BaseActivity {
                         resultTemp = AbbrShortProc(resultTemp);
                         br_result = resultTemp;
                     }
+
                     br_result = AddrLongProc(br_result);
 
                     int j = 0;  // 띄워쓰기 횟수
@@ -361,6 +391,16 @@ public class backtranslationActivity extends BaseActivity {
 
         past = past.replaceAll("◆", " ");
         return past;
+    }
+
+    //초기화 함수
+    public void reflash(){
+
+        for(int i=0;i<180;i++){
+            point[i].setImageResource(R.drawable.braille_zero);
+        }
+
+
     }
 
 

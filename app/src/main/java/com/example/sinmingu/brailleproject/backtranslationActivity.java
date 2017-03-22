@@ -183,9 +183,11 @@ public class backtranslationActivity extends BaseActivity {
                         }
                         else if(br_result.charAt(i) == '0'){
                             point[i+j].setImageResource(R.drawable.braille_zero);
+                            point[i+j].setVisibility(View.INVISIBLE);
                         }
                         else if(br_result.charAt(i) == '1'){
                             point[i+j].setImageResource(R.drawable.braille_one);
+                            point[i+j].setVisibility(View.VISIBLE);
                         }
                     }
                 }
@@ -249,9 +251,11 @@ public class backtranslationActivity extends BaseActivity {
                         }
                         else if(br_result.charAt(i) == '0'){
                             point[i+j].setImageResource(R.drawable.braille_zero);
+                            point[i+j].setVisibility(View.INVISIBLE);
                         }
                         else if(br_result.charAt(i) == '1'){
                             point[i+j].setImageResource(R.drawable.braille_one);
+                            point[i+j].setVisibility(View.VISIBLE);
                         }
                     }
 
@@ -397,7 +401,7 @@ public class backtranslationActivity extends BaseActivity {
     public void reflash(){
 
         for(int i=0;i<180;i++){
-            point[i].setImageResource(R.drawable.braille_zero);
+            point[i].setVisibility(View.INVISIBLE);
         }
 
 

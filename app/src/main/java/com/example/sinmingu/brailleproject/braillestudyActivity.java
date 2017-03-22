@@ -32,7 +32,7 @@ public class braillestudyActivity extends BaseActivity implements TextToSpeech.O
     TextView studyresult,study_part;
     ImageView brailleImage,studyresultpicture;
     Button study_consonantinitial_btn, study_finalconsonantinitial_btn, study_vowel_btn, study_alphabet_btn, study_number_btn,
-            study_conjunction_btn, study_abbreviation_btn;
+             study_abbreviation_btn;
     int consonantinitial_picturenum,finalconsonantinitial_picturenum,vowel_picturenum,braillenumber_picturenum,braille_conjunction_picturenum,braille_abbreviation_picturenum,braille_alphabet_picturenum;
 
     int[] consonant_initial_imgs = {R.drawable.consonant_initial_1,R.drawable.consonant_initial_2,R.drawable.consonant_initial_3,
@@ -53,12 +53,6 @@ public class braillestudyActivity extends BaseActivity implements TextToSpeech.O
     int[] braillenumber_imgs={R.drawable.braillnumber_1,R.drawable.braillnumber_2,R.drawable.braillnumber_3,R.drawable.braillnumber_4,
             R.drawable.braillnumber_5,R.drawable.braillnumber_6,R.drawable.braillnumber_7,R.drawable.braillnumber_8,R.drawable.braillnumber_9,
             R.drawable.braillnumber_10};
-
-    int[] brailleconjunction_imgs={R.drawable.braille_conjunction_1,R.drawable.braille_conjunction_2,R.drawable.braille_conjunction_3,R.drawable.braille_conjunction_4,
-            R.drawable.braille_conjunction_5,R.drawable.braille_conjunction_6,R.drawable.braille_conjunction_7,R.drawable.braille_conjunction_8,R.drawable.braille_conjunction_9,
-            R.drawable.braille_conjunction_10,R.drawable.braille_conjunction_11,R.drawable.braille_conjunction_12,R.drawable.braille_conjunction_13,R.drawable.braille_conjunction_14,
-            R.drawable.braille_conjunction_15,R.drawable.braille_conjunction_16,R.drawable.braille_conjunction_17,R.drawable.braille_conjunction_18};
-
     int [] braille_abbreviation_imgs={R.drawable.braille_abbreviation_1,R.drawable.braille_abbreviation_2,R.drawable.braille_abbreviation_3,R.drawable.braille_abbreviation_4,
             R.drawable.braille_abbreviation_5,R.drawable.braille_abbreviation_6,R.drawable.braille_abbreviation_7,R.drawable.braille_abbreviation_8,R.drawable.braille_abbreviation_9,
             R.drawable.braille_abbreviation_10,R.drawable.braille_abbreviation_11,R.drawable.braille_abbreviation_12,R.drawable.braille_abbreviation_13,R.drawable.braille_abbreviation_14,
@@ -71,31 +65,6 @@ public class braillestudyActivity extends BaseActivity implements TextToSpeech.O
             R.drawable.braille_alphabet_12,R.drawable.braille_alphabet_13,R.drawable.braille_alphabet_14,R.drawable.braille_alphabet_15,R.drawable.braille_alphabet_16,R.drawable.braille_alphabet_17,
             R.drawable.braille_alphabet_18,R.drawable.braille_alphabet_19,R.drawable.braille_alphabet_20,R.drawable.braille_alphabet_21,R.drawable.braille_alphabet_22,R.drawable.braille_alphabet_23,
             R.drawable.braille_alphabet_24,R.drawable.braille_alphabet_25,R.drawable.braille_alphabet_26};
-
-    private static final char[] CHOHAN =
-		/*ㄱ ㄲ ㄴ ㄷ ㄸ ㄹ ㅁ ㅂ ㅃ ㅅ ㅆ ㅇ ㅈ ㅉ ㅊ ㅋ ㅌ ㅍ ㅎ */
-            {'ㄱ', 'ㄲ', 'ㄴ', 'ㄷ', 'ㄸ', 'ㄹ', 'ㅁ', 'ㅂ', 'ㅃ', 'ㅅ', 'ㅆ', 'ㅇ',
-                    'ㅈ', 'ㅉ', 'ㅊ', 'ㅋ', 'ㅌ', 'ㅍ', 'ㅎ'};
-
-    ///////////////////////////////////////////////////////////////////////
-    private static final char[] CHO =
-		/*ㄱ ㄲ ㄴ ㄷ ㄸ ㄹ ㅁ ㅂ ㅃ ㅅ ㅆ ㅇ ㅈ ㅉ ㅊ ㅋ ㅌ ㅍ ㅎ */
-            {0x3131, 0x3132, 0x3134, 0x3137, 0x3138, 0x3139, 0x3141, 0x3142, 0x3143, 0x3145,
-                    0x3146, 0x3147, 0x3148, 0x3149, 0x314a, 0x314b, 0x314c, 0x314d, 0x314e};
-
-    private static final char[] JUN =
-		/*ㅏㅐㅑㅒㅓㅔㅕㅖㅗㅘㅙㅚㅛㅜㅝㅞㅟㅠㅡㅢㅣ*/
-            {0x314f, 0x3150, 0x3151, 0x3152, 0x3153, 0x3154, 0x3155, 0x3156, 0x3157, 0x3158,
-                    0x3159, 0x315a, 0x315b, 0x315c, 0x315d, 0x315e, 0x315f, 0x3160,	0x3161,	0x3162,
-                    0x3163};
-
-    /*X ㄱㄲㄳㄴㄵㄶㄷㄹㄺㄻㄼㄽㄾㄿㅀㅁㅂㅄㅅㅆㅇㅈㅊㅋㅌㅍㅎ*/
-    private static final char[] JON =
-            {0x0000, 0x3131, 0x3132, 0x3133, 0x3134, 0x3135, 0x3136, 0x3137, 0x3139, 0x313a,
-                    0x313b, 0x313c, 0x313d, 0x313e, 0x313f, 0x3140, 0x3141, 0x3142, 0x3144, 0x3145,
-                    0x3146, 0x3147, 0x3148, 0x314a, 0x314b, 0x314c, 0x314d, 0x314e};
-    //private static final String[] CHO = {"ㄱ" ,"ㄲ" ,"ㄴ" ,"ㄷ" ,"ㄸ" ,"ㄹ" ,"ㅁ" ,"ㅂ" ,"ㅃ" ,"ㅅ" ,"ㅆ" ,"ㅇ" ,"ㅈ" ,"ㅉ" ,"ㅊ" ,"ㅋ" ,"ㅌ" ,"ㅍ" ,"ㅎ"};
-    ////////////////////////////////////////////////////////////////////
 
     DB StudyBraille;
     SQLiteDatabase db;
@@ -126,7 +95,6 @@ public class braillestudyActivity extends BaseActivity implements TextToSpeech.O
         finalconsonantinitial_picturenum=0;
         vowel_picturenum=0;
         braillenumber_picturenum=0;
-        braille_conjunction_picturenum=0;
         braille_abbreviation_picturenum=0;
         braille_alphabet_picturenum=0;
         braille=new int[6];
@@ -144,7 +112,7 @@ public class braillestudyActivity extends BaseActivity implements TextToSpeech.O
         study_vowel_btn=(Button)findViewById(R.id.study_vowel_btn);
         study_abbreviation_btn=(Button)findViewById(R.id.study_abbreviation_btn);
         study_alphabet_btn=(Button)findViewById(R.id.study_alphabet_btn);
-        study_conjunction_btn=(Button)findViewById(R.id.study_conjunction_btn);
+
         study_number_btn=(Button)findViewById(R.id.study_number_btn);
 
         btn_before=(Button)findViewById(R.id.btn_before);
@@ -258,18 +226,7 @@ public class braillestudyActivity extends BaseActivity implements TextToSpeech.O
             }
         });
 
-        study_conjunction_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                Glide.with(braillestudyActivity.this).load(brailleconjunction_imgs[braille_conjunction_picturenum]).into(brailleImage);
-                study_part.setText("접속사");
-                menu_type="접속사";
-
-                BtnEnableTrue();
-
-            }
-        });
 
         study_abbreviation_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -430,12 +387,6 @@ public class braillestudyActivity extends BaseActivity implements TextToSpeech.O
                         Glide.with(braillestudyActivity.this).load(braillenumber_imgs[braillenumber_picturenum]).into(brailleImage);
                         break;
 
-                    case "접속사":
-
-                        if(braille_conjunction_picturenum!=0)
-                            braille_conjunction_picturenum--;
-                        Glide.with(braillestudyActivity.this).load(brailleconjunction_imgs[braille_conjunction_picturenum]).into(brailleImage);
-                        break;
 
                     case "약자":
 
@@ -486,7 +437,7 @@ public class braillestudyActivity extends BaseActivity implements TextToSpeech.O
 
                     case "모음":
 
-                        if(vowel_picturenum!=24)
+                        if(vowel_picturenum!=16)
                             vowel_picturenum++;
                         Glide.with(braillestudyActivity.this).load(vowel_imgs[vowel_picturenum]).into(brailleImage);
                         break;
@@ -498,12 +449,6 @@ public class braillestudyActivity extends BaseActivity implements TextToSpeech.O
                         Glide.with(braillestudyActivity.this).load(braillenumber_imgs[braillenumber_picturenum]).into(brailleImage);
                         break;
 
-                    case "접속사":
-
-                        if(braille_conjunction_picturenum!=17)
-                            braille_conjunction_picturenum++;
-                        Glide.with(braillestudyActivity.this).load(brailleconjunction_imgs[braille_conjunction_picturenum]).into(brailleImage);
-                        break;
 
                     case "약자":
 
@@ -537,18 +482,97 @@ public class braillestudyActivity extends BaseActivity implements TextToSpeech.O
                     case "초성자음":
 
                         switch (consonantinitial_picturenum){
-
+                            //ㄱ
                             case 0:
-                                if(braille[0]==0&&braille[1]==0&&braille[2]==0&&braille[3]==1&&braille[4]==0&&braille[5]==0) {
-                                    Glide.with(braillestudyActivity.this).load(R.drawable.resultok).into(studyresultpicture);
-                                    ttsClient.speak("정답", TextToSpeech.QUEUE_FLUSH, null);
-                                    braillebtn_false();
-                                }
-                                else {
-                                    Glide.with(braillestudyActivity.this).load(R.drawable.resultno).into(studyresultpicture);
-                                    ttsClient.speak("오답", TextToSpeech.QUEUE_FLUSH, null);
-                                    braillebtn_false();
-                                }
+
+                                if(braille[0]==0&&braille[1]==0&&braille[2]==0&&braille[3]==1&&braille[4]==0&&braille[5]==0)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //ㄴ
+                            case 1:
+                                if(braille[0]==1&&braille[1]==0&&braille[2]==0&&braille[3]==1&&braille[4]==0&&braille[5]==0)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //ㄷ
+                            case 2:
+                                if(braille[0]==0&&braille[1]==1&&braille[2]==0&&braille[3]==1&&braille[4]==0&&braille[5]==0)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //ㄹ
+                            case 3:
+                                if(braille[0]==0&&braille[1]==0&&braille[2]==0&&braille[3]==0&&braille[4]==1&&braille[5]==0)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //ㅁ
+                            case 4:
+                                if(braille[0]==1&&braille[1]==0&&braille[2]==0&&braille[3]==0&&braille[4]==1&&braille[5]==0)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //ㅂ
+                            case 5:
+                                if(braille[0]==0&&braille[1]==0&&braille[2]==0&&braille[3]==1&&braille[4]==1&&braille[5]==0)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //ㅅ
+                            case 6:
+                                if(braille[0]==0&&braille[1]==0&&braille[2]==0&&braille[3]==0&&braille[4]==0&&braille[5]==1)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //ㅈ
+                            case 7:
+                                if(braille[0]==0&&braille[1]==0&&braille[2]==0&&braille[3]==1&&braille[4]==0&&braille[5]==1)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //ㅊ
+                            case 8:
+                                if(braille[0]==0&&braille[1]==0&&braille[2]==0&&braille[3]==0&&braille[4]==1&&braille[5]==1)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //ㅋ
+                            case 9:
+                                if(braille[0]==1&&braille[1]==1&&braille[2]==0&&braille[3]==1&&braille[4]==1&&braille[5]==1)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //ㅌ
+                            case 10:
+                                if(braille[0]==1&&braille[1]==1&&braille[2]==0&&braille[3]==0&&braille[4]==1&&braille[5]==0)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //ㅍ
+                            case 11:
+                                if(braille[0]==1&&braille[1]==1&&braille[2]==0&&braille[3]==1&&braille[4]==1&&braille[5]==0)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //ㅎ
+                            case 12:
+                                if(braille[0]==0&&braille[1]==1&&braille[2]==0&&braille[3]==1&&braille[4]==1&&braille[5]==0)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
                                 break;
 
                             default:
@@ -558,25 +582,686 @@ public class braillestudyActivity extends BaseActivity implements TextToSpeech.O
 
                     case "종성자음":
 
+                        switch (finalconsonantinitial_picturenum){
+                            //ㄱ
+                            case 0:
+                                if(braille[0]==1&&braille[1]==0&&braille[2]==0&&braille[3]==0&&braille[4]==0&&braille[5]==0)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //ㄴ
+                            case 1:
+                                if(braille[0]==0&&braille[1]==1&&braille[2]==0&&braille[3]==0&&braille[4]==1&&braille[5]==0)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //ㄷ
+                            case 2:
+                                if(braille[0]==0&&braille[1]==0&&braille[2]==1&&braille[3]==0&&braille[4]==1&&braille[5]==0)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //ㄹ
+                            case 3:
+                                if(braille[0]==0&&braille[1]==1&&braille[2]==0&&braille[3]==0&&braille[4]==0&&braille[5]==0)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //ㅁ
+                            case 4:
+                                if(braille[0]==0&&braille[1]==1&&braille[2]==0&&braille[3]==0&&braille[4]==0&&braille[5]==1)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //ㅂ
+                            case 5:
+                                if(braille[0]==1&&braille[1]==1&&braille[2]==0&&braille[3]==0&&braille[4]==0&&braille[5]==0)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //ㅅ
+                            case 6:
+                                if(braille[0]==0&&braille[1]==0&&braille[2]==1&&braille[3]==0&&braille[4]==0&&braille[5]==0)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //ㅇ
+                            case 7:
+                                if(braille[0]==0&&braille[1]==1&&braille[2]==1&&braille[3]==0&&braille[4]==1&&braille[5]==1)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //ㅈ
+                            case 8:
+                                if(braille[0]==1&&braille[1]==0&&braille[2]==1&&braille[3]==0&&braille[4]==0&&braille[5]==0)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //ㅊ
+                            case 9:
+                                if(braille[0]==0&&braille[1]==1&&braille[2]==1&&braille[3]==0&&braille[4]==0&&braille[5]==0)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //ㅋ
+                            case 10:
+                                if(braille[0]==0&&braille[1]==1&&braille[2]==1&&braille[3]==0&&braille[4]==1&&braille[5]==0)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //ㅌ
+                            case 11:
+                                if(braille[0]==0&&braille[1]==1&&braille[2]==1&&braille[3]==0&&braille[4]==0&&braille[5]==1)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //ㅍ
+                            case 12:
+                                if(braille[0]==0&&braille[1]==1&&braille[2]==0&&braille[3]==0&&braille[4]==1&&braille[5]==1)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //ㅎ
+                            case 13:
+                                if(braille[0]==0&&braille[1]==0&&braille[2]==1&&braille[3]==0&&braille[4]==1&&braille[5]==1)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+
+                        }
+
                         break;
 
                     case "모음":
+                        switch (vowel_picturenum){
+                            //ㅏ
+                            case 0:
+                                if(braille[0]==1&&braille[1]==1&&braille[2]==0&&braille[3]==0&&braille[4]==0&&braille[5]==1)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //ㅑ
+                            case 1:
+                                if(braille[0]==0&&braille[1]==0&&braille[2]==1&&braille[3]==1&&braille[4]==1&&braille[5]==0)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //ㅓ
+                            case 2:
+                                if(braille[0]==0&&braille[1]==1&&braille[2]==1&&braille[3]==1&&braille[4]==0&&braille[5]==0)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //ㅕ
+                            case 3:
+                                if(braille[0]==1&&braille[1]==0&&braille[2]==0&&braille[3]==0&&braille[4]==1&&braille[5]==1)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //ㅗ
+                            case 4:
+                                if(braille[0]==1&&braille[1]==0&&braille[2]==1&&braille[3]==0&&braille[4]==0&&braille[5]==1)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //ㅛ
+                            case 5:
+                                if(braille[0]==0&&braille[1]==0&&braille[2]==1&&braille[3]==1&&braille[4]==0&&braille[5]==1)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //ㅜ
+                            case 6:
+                                if(braille[0]==1&&braille[1]==0&&braille[2]==1&&braille[3]==1&&braille[4]==0&&braille[5]==0)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //ㅠ
+                            case 7:
+                                if(braille[0]==1&&braille[1]==0&&braille[2]==0&&braille[3]==1&&braille[4]==0&&braille[5]==1)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //ㅡ
+                            case 8:
+                                if(braille[0]==0&&braille[1]==1&&braille[2]==0&&braille[3]==1&&braille[4]==0&&braille[5]==5)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //ㅣ
+                            case 9:
+                                if(braille[0]==1&&braille[1]==0&&braille[2]==1&&braille[3]==0&&braille[4]==1&&braille[5]==0)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //ㅐ
+                            case 10:
+                                if(braille[0]==1&&braille[1]==1&&braille[2]==1&&braille[3]==0&&braille[4]==1&&braille[5]==0)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //ㅔ
+                            case 11:
+                                if(braille[0]==1&&braille[1]==0&&braille[2]==1&&braille[3]==1&&braille[4]==1&&braille[5]==0)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //ㅚ
+                            case 12:
+                                if(braille[0]==1&&braille[1]==0&&braille[2]==1&&braille[3]==1&&braille[4]==1&&braille[5]==1)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //ㅘ
+                            case 13:
+                                if(braille[0]==1&&braille[1]==1&&braille[2]==1&&braille[3]==0&&braille[4]==0&&braille[5]==1)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //ㅝ
+                            case 14:
+                                if(braille[0]==1&&braille[1]==1&&braille[2]==1&&braille[3]==1&&braille[4]==0&&braille[5]==0)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //ㅢ
+                            case 15:
+                                if(braille[0]==0&&braille[1]==1&&braille[2]==0&&braille[3]==1&&braille[4]==1&&braille[5]==1)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //ㅖ
+                            case 16:
+                                if(braille[0]==0&&braille[1]==0&&braille[2]==1&&braille[3]==1&&braille[4]==0&&braille[5]==0)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                        }
 
                         break;
 
                     case "알파벳":
+                        switch (braille_alphabet_picturenum){
+                            //a
+                            case 0:
+                                if(braille[0]==1&&braille[1]==0&&braille[2]==0&&braille[3]==0&&braille[4]==0&&braille[5]==0)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //b
+                            case 1:
+                                if(braille[0]==1&&braille[1]==1&&braille[2]==0&&braille[3]==0&&braille[4]==0&&braille[5]==0)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //c
+                            case 2:
+                                if(braille[0]==1&&braille[1]==0&&braille[2]==0&&braille[3]==1&&braille[4]==0&&braille[5]==0)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //d
+                            case 3:
+                                if(braille[0]==1&&braille[1]==0&&braille[2]==0&&braille[3]==1&&braille[4]==1&&braille[5]==0)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //e
+                            case 4:
+                                if(braille[0]==1&&braille[1]==0&&braille[2]==0&&braille[3]==0&&braille[4]==1&&braille[5]==0)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //f
+                            case 5:
+                                if(braille[0]==1&&braille[1]==1&&braille[2]==0&&braille[3]==1&&braille[4]==0&&braille[5]==0)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //g
+                            case 6:
+                                if(braille[0]==1&&braille[1]==1&&braille[2]==0&&braille[3]==1&&braille[4]==1&&braille[5]==0)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //h
+                            case 7:
+                                if(braille[0]==1&&braille[1]==1&&braille[2]==0&&braille[3]==0&&braille[4]==1&&braille[5]==0)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //i
+                            case 8:
+                                if(braille[0]==0&&braille[1]==1&&braille[2]==0&&braille[3]==1&&braille[4]==0&&braille[5]==0)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //j
+                            case 9:
+                                if(braille[0]==0&&braille[1]==1&&braille[2]==0&&braille[3]==1&&braille[4]==1&&braille[5]==0)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //k
+                            case 10:
+                                if(braille[0]==1&&braille[1]==0&&braille[2]==1&&braille[3]==0&&braille[4]==0&&braille[5]==0)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //l
+                            case 11:
+                                if(braille[0]==1&&braille[1]==1&&braille[2]==1&&braille[3]==0&&braille[4]==0&&braille[5]==0)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //m
+                            case 12:
+                                if(braille[0]==1&&braille[1]==0&&braille[2]==1&&braille[3]==1&&braille[4]==0&&braille[5]==0)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //n
+                            case 13:
+                                if(braille[0]==1&&braille[1]==0&&braille[2]==1&&braille[3]==1&&braille[4]==1&&braille[5]==0)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //o
+                            case 14:
+                                if(braille[0]==1&&braille[1]==0&&braille[2]==1&&braille[3]==0&&braille[4]==1&&braille[5]==0)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //p
+                            case 15:
+                                if(braille[0]==1&&braille[1]==1&&braille[2]==1&&braille[3]==1&&braille[4]==0&&braille[5]==0)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //q
+                            case 16:
+                                if(braille[0]==1&&braille[1]==1&&braille[2]==1&&braille[3]==1&&braille[4]==1&&braille[5]==0)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //r
+                            case 17:
+                                if(braille[0]==1&&braille[1]==1&&braille[2]==1&&braille[3]==0&&braille[4]==1&&braille[5]==1)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //s
+                            case 18:
+                                if(braille[0]==0&&braille[1]==1&&braille[2]==1&&braille[3]==1&&braille[4]==0&&braille[5]==0)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //t
+                            case 19:
+                                if(braille[0]==0&&braille[1]==1&&braille[2]==1&&braille[3]==1&&braille[4]==1&&braille[5]==0)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //u
+                            case 20:
+                                if(braille[0]==1&&braille[1]==0&&braille[2]==1&&braille[3]==0&&braille[4]==0&&braille[5]==1)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //v
+                            case 21:
+                                if(braille[0]==1&&braille[1]==1&&braille[2]==1&&braille[3]==0&&braille[4]==0&&braille[5]==1)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //w
+                            case 22:
+                                if(braille[0]==0&&braille[1]==1&&braille[2]==0&&braille[3]==1&&braille[4]==1&&braille[5]==1)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //x
+                            case 23:
+                                if(braille[0]==1&&braille[1]==0&&braille[2]==1&&braille[3]==1&&braille[4]==0&&braille[5]==1)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //y
+                            case 24:
+                                if(braille[0]==1&&braille[1]==0&&braille[2]==1&&braille[3]==1&&braille[4]==1&&braille[5]==1)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //z
+                            case 25:
+                                if(braille[0]==1&&braille[1]==0&&braille[2]==1&&braille[3]==0&&braille[4]==1&&braille[5]==1)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                        }
 
                         break;
 
                     case "약자":
+                        switch (braille_abbreviation_picturenum){
+                            //가
+                            case 0:
+                                if(braille[0]==1&&braille[1]==1&&braille[2]==0&&braille[3]==1&&braille[4]==0&&braille[5]==1)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //나
+                            case 1:
+                                if(braille[0]==1&&braille[1]==0&&braille[2]==0&&braille[3]==1&&braille[4]==0&&braille[5]==0)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //다
+                            case 2:
+                                if(braille[0]==0&&braille[1]==1&&braille[2]==0&&braille[3]==1&&braille[4]==0&&braille[5]==0)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //마
+                            case 3:
+                                if(braille[0]==1&&braille[1]==0&&braille[2]==0&&braille[3]==0&&braille[4]==1&&braille[5]==0)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //바
+                            case 4:
+                                if(braille[0]==0&&braille[1]==0&&braille[2]==0&&braille[3]==1&&braille[4]==1&&braille[5]==0)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //사
+                            case 5:
+                                if(braille[0]==1&&braille[1]==1&&braille[2]==1&&braille[3]==0&&braille[4]==0&&braille[5]==0)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //자
+                            case 6:
+                                if(braille[0]==0&&braille[1]==0&&braille[2]==0&&braille[3]==1&&braille[4]==0&&braille[5]==5)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //카
+                            case 7:
+                                if(braille[0]==1&&braille[1]==1&&braille[2]==0&&braille[3]==1&&braille[4]==0&&braille[5]==0)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //타
+                            case 8:
+                                if(braille[0]==1&&braille[1]==1&&braille[2]==0&&braille[3]==0&&braille[4]==1&&braille[5]==0)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //파
+                            case 9:
+                                if(braille[0]==1&&braille[1]==0&&braille[2]==0&&braille[3]==1&&braille[4]==1&&braille[5]==0)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //하
+                            case 10:
+                                if(braille[0]==0&&braille[1]==1&&braille[2]==0&&braille[3]==1&&braille[4]==1&&braille[5]==0)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //것
+                            case 11:
+                                if(braille[0]==0&&braille[1]==0&&braille[2]==0&&braille[3]==1&&braille[4]==1&&braille[5]==1)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //것
+                            case 12:
+                                if(braille[0]==0&&braille[1]==1&&braille[2]==1&&braille[3]==1&&braille[4]==0&&braille[5]==0)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //억
+                            case 13:
+                                if(braille[0]==1&&braille[1]==0&&braille[2]==0&&braille[3]==1&&braille[4]==1&&braille[5]==1)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //언
+                            case 14:
+                                if(braille[0]==0&&braille[1]==1&&braille[2]==1&&braille[3]==1&&braille[4]==1&&braille[5]==1)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //얼
+                            case 15:
+                                if(braille[0]==0&&braille[1]==1&&braille[2]==1&&braille[3]==1&&braille[4]==1&&braille[5]==0)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //연
+                            case 16:
+                                if(braille[0]==1&&braille[1]==0&&braille[2]==0&&braille[3]==0&&braille[4]==0&&braille[5]==1)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //열
+                            case 17:
+                                if(braille[0]==1&&braille[1]==1&&braille[2]==0&&braille[3]==0&&braille[4]==1&&braille[5]==1)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //영
+                            case 18:
+                                if(braille[0]==1&&braille[1]==1&&braille[2]==0&&braille[3]==1&&braille[4]==1&&braille[5]==1)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //옥
+                            case 19:
+                                if(braille[0]==1&&braille[1]==0&&braille[2]==1&&braille[3]==1&&braille[4]==0&&braille[5]==1)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //온
+                            case 20:
+                                if(braille[0]==1&&braille[1]==1&&braille[2]==1&&braille[3]==0&&braille[4]==1&&braille[5]==1)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //옹
+                            case 21:
+                                if(braille[0]==1&&braille[1]==1&&braille[2]==1&&braille[3]==1&&braille[4]==1&&braille[5]==1)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //운
+                            case 22:
+                                if(braille[0]==1&&braille[1]==1&&braille[2]==0&&braille[3]==1&&braille[4]==1&&braille[5]==0)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //울
+                            case 23:
+                                if(braille[0]==1&&braille[1]==1&&braille[2]==1&&braille[3]==1&&braille[4]==0&&braille[5]==1)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //은
+                            case 24:
+                                if(braille[0]==1&&braille[1]==0&&braille[2]==1&&braille[3]==0&&braille[4]==1&&braille[5]==1)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //을
+                            case 25:
+                                if(braille[0]==0&&braille[1]==1&&braille[2]==1&&braille[3]==1&&braille[4]==0&&braille[5]==1)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                        }
 
                         break;
 
-                    case "접속사":
-
-                        break;
 
                     case "숫자":
+
+                        switch (braillenumber_picturenum){
+                            //1
+                            case 0:
+                                if(braille[0]==1&&braille[1]==0&&braille[2]==0&&braille[3]==0&&braille[4]==0&&braille[5]==0)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //2
+                            case 1:
+                                if(braille[0]==1&&braille[1]==2&&braille[2]==0&&braille[3]==0&&braille[4]==0&&braille[5]==0)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //3
+                            case 2:
+                                if(braille[0]==1&&braille[1]==0&braille[2]==0&&braille[3]==1&&braille[4]==0&&braille[5]==0)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //4
+                            case 3:
+                                if(braille[0]==1&&braille[1]==0&&braille[2]==0&&braille[3]==1&&braille[4]==1&&braille[5]==0)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //5
+                            case 4:
+                                if(braille[0]==1&&braille[1]==0&&braille[2]==0&&braille[3]==0&&braille[4]==1&&braille[5]==0)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //6
+                            case 5:
+                                if(braille[0]==1&&braille[1]==1&&braille[2]==0&&braille[3]==1&&braille[4]==0&&braille[5]==0)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //7
+                            case 6:
+                                if(braille[0]==1&&braille[1]==1&&braille[2]==0&&braille[3]==1&&braille[4]==1&&braille[5]==0)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //8
+                            case 7:
+                                if(braille[0]==1&&braille[1]==1&&braille[2]==0&&braille[3]==0&&braille[4]==1&&braille[5]==0)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //9
+                            case 8:
+                                if(braille[0]==0&&braille[1]==1&&braille[2]==0&&braille[3]==1&&braille[4]==0&&braille[5]==0)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                            //0
+                            case 9:
+                                if(braille[0]==0&&braille[1]==1&&braille[2]==0&&braille[3]==1&&braille[4]==1&&braille[5]==0)
+                                    braillebtn_false_ok();
+                                else
+                                    braillebtn_false_no();
+                                break;
+                        }
 
                         break;
 
@@ -610,7 +1295,7 @@ public class braillestudyActivity extends BaseActivity implements TextToSpeech.O
         btn_next.setEnabled(true);
     }
 
-    public void braillebtn_false(){
+    public void braillebtn_false_ok(){
 
         Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_false).into(braillebtn1);
         Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_false).into(braillebtn2);
@@ -626,18 +1311,30 @@ public class braillestudyActivity extends BaseActivity implements TextToSpeech.O
         braille[4]=0;
         braille[5]=0;
 
+        Glide.with(braillestudyActivity.this).load(R.drawable.resultok).into(studyresultpicture);
+        ttsClient.speak("정답", TextToSpeech.QUEUE_FLUSH, null);
     }
-/*
-    public Boolean ischecked(){
 
-        Cursor cursor = db.rawQuery("SELECT keyword, flag FROM braille WHERE point = '" + braille_point + "';", null);
 
-        while(cursor.moveToNext()){
-            result = cursor.getString(0);
-            temp_flag = cursor.getInt(1);
-        }
+    public void braillebtn_false_no(){
 
-        return result;
+        Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_false).into(braillebtn1);
+        Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_false).into(braillebtn2);
+        Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_false).into(braillebtn3);
+        Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_false).into(braillebtn4);
+        Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_false).into(braillebtn5);
+        Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_false).into(braillebtn6);
+
+        braille[0]=0;
+        braille[1]=0;
+        braille[2]=0;
+        braille[3]=0;
+        braille[4]=0;
+        braille[5]=0;
+
+        Glide.with(braillestudyActivity.this).load(R.drawable.resultno).into(studyresultpicture);
+        ttsClient.speak("오답", TextToSpeech.QUEUE_FLUSH, null);
+
     }
-*/
+
 }

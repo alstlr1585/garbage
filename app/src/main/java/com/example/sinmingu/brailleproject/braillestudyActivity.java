@@ -217,7 +217,7 @@ public class braillestudyActivity extends BaseActivity implements TextToSpeech.O
             @Override
             public void onClick(View v) {
 
-                Glide.with(braillestudyActivity.this).load(braillenumber_imgs[vowel_picturenum]).into(brailleImage);
+                Glide.with(braillestudyActivity.this).load(braillenumber_imgs[braillenumber_picturenum]).into(brailleImage);
                 study_part.setText("숫자");
                 menu_type="숫자";
 

@@ -26,6 +26,7 @@ import static java.lang.System.exit;
 
 public class braillestudyActivity extends BaseActivity implements TextToSpeech.OnInitListener{
 
+    //6점
     Button btn_before, btn_next,result_send;
     ImageButton braillebtn1,braillebtn2,braillebtn3,braillebtn4,braillebtn5,braillebtn6;
     int btnstatus1, btnstatus2, btnstatus3, btnstatus4, btnstatus5, btnstatus6;
@@ -66,6 +67,11 @@ public class braillestudyActivity extends BaseActivity implements TextToSpeech.O
             R.drawable.braille_alphabet_18,R.drawable.braille_alphabet_19,R.drawable.braille_alphabet_20,R.drawable.braille_alphabet_21,R.drawable.braille_alphabet_22,R.drawable.braille_alphabet_23,
             R.drawable.braille_alphabet_24,R.drawable.braille_alphabet_25,R.drawable.braille_alphabet_26};
 
+
+    //12점
+    ImageView brailleImage_12;
+    ImageButton braillebtn1_12,braillebtn2_12,braillebtn3_12,braillebtn4_12,braillebtn5_12,braillebtn6_12,braillebtn7_12,braillebtn8_12,braillebtn9_12,braillebtn10_12,braillebtn11_12,braillebtn12_12;
+
     DB StudyBraille;
     SQLiteDatabase db;
 
@@ -105,6 +111,42 @@ public class braillestudyActivity extends BaseActivity implements TextToSpeech.O
         braillebtn4=(ImageButton)findViewById(R.id.braillebtn4);
         braillebtn5=(ImageButton)findViewById(R.id.braillebtn5);
         braillebtn6=(ImageButton)findViewById(R.id.braillebtn6);
+
+
+        //12점---------------------------------------------------------------------------
+
+        brailleImage_12=(ImageView)findViewById(R.id.brailleImage_12);
+        braillebtn1_12=(ImageButton)findViewById(R.id.braillebtn1_12);
+        braillebtn2_12=(ImageButton)findViewById(R.id.braillebtn2_12);
+        braillebtn3_12=(ImageButton)findViewById(R.id.braillebtn3_12);
+        braillebtn4_12=(ImageButton)findViewById(R.id.braillebtn4_12);
+        braillebtn5_12=(ImageButton)findViewById(R.id.braillebtn5_12);
+        braillebtn6_12=(ImageButton)findViewById(R.id.braillebtn6_12);
+        braillebtn7_12=(ImageButton)findViewById(R.id.braillebtn7_12);
+        braillebtn8_12=(ImageButton)findViewById(R.id.braillebtn8_12);
+        braillebtn9_12=(ImageButton)findViewById(R.id.braillebtn9_12);
+        braillebtn10_12=(ImageButton)findViewById(R.id.braillebtn10_12);
+        braillebtn11_12=(ImageButton)findViewById(R.id.braillebtn11_12);
+        braillebtn12_12=(ImageButton)findViewById(R.id.braillebtn12_12);
+
+
+
+
+        Glide.with(this).load(R.drawable.braille_abbreviation12_1).into(brailleImage_12);
+        Glide.with(this).load(R.drawable.braillebtn_false).into(braillebtn1_12);
+        Glide.with(this).load(R.drawable.braillebtn_false).into(braillebtn2_12);
+        Glide.with(this).load(R.drawable.braillebtn_false).into(braillebtn3_12);
+        Glide.with(this).load(R.drawable.braillebtn_false).into(braillebtn4_12);
+        Glide.with(this).load(R.drawable.braillebtn_false).into(braillebtn5_12);
+        Glide.with(this).load(R.drawable.braillebtn_false).into(braillebtn6_12);
+        Glide.with(this).load(R.drawable.braillebtn_false).into(braillebtn7_12);
+        Glide.with(this).load(R.drawable.braillebtn_false).into(braillebtn8_12);
+        Glide.with(this).load(R.drawable.braillebtn_false).into(braillebtn9_12);
+        Glide.with(this).load(R.drawable.braillebtn_false).into(braillebtn10_12);
+        Glide.with(this).load(R.drawable.braillebtn_false).into(braillebtn11_12);
+        Glide.with(this).load(R.drawable.braillebtn_false).into(braillebtn12_12);
+
+        //--------------------------------------------------------------------------------
 
         //초급 버튼
         study_consonantinitial_btn=(Button)findViewById(R.id.study_consonantinitial_btn);

@@ -214,6 +214,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:layout_weight="1"
+                    android:paddingTop="5dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:background="@drawable/shapebottomsub"
@@ -253,7 +254,7 @@
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
                                 android:layout_marginRight="5dp"
-                                android:background="#ffffff"
+                                android:background="@android:color/transparent"
                                 android:id="@+id/braillebtn1"
                                 android:layout_gravity="center"
                                 android:layout_weight="1"/>
@@ -264,7 +265,7 @@
                                 android:gravity="center"
                                 android:layout_marginLeft="5dp"
                                 android:id="@+id/braillebtn4"
-                                android:background="#ffffff"
+                                android:background="@android:color/transparent"
                                 android:layout_gravity="center"
                                 android:layout_weight="1"/>
 
@@ -288,7 +289,7 @@
                                 android:gravity="center"
                                 android:layout_marginRight="5dp"
                                 android:id="@+id/braillebtn2"
-                                android:background="#ffffff"
+                                android:background="@android:color/transparent"
                                 android:layout_gravity="center"
                                 android:layout_weight="1"/>
 
@@ -297,7 +298,7 @@
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
                                 android:layout_marginLeft="5dp"
-                                android:background="#ffffff"
+                                android:background="@android:color/transparent"
                                 android:id="@+id/braillebtn5"
                                 android:layout_gravity="center"
                                 android:layout_weight="1"/>
@@ -317,7 +318,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
-                                android:background="#ffffff"
+                                android:background="@android:color/transparent"
                                 android:layout_marginRight="5dp"
                                 android:id="@+id/braillebtn3"
                                 android:layout_gravity="center"
@@ -328,7 +329,7 @@
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
                                 android:layout_marginLeft="5dp"
-                                android:background="#ffffff"
+                                android:background="@android:color/transparent"
                                 android:id="@+id/braillebtn6"
                                 android:layout_gravity="center"
                                 android:layout_weight="1"/>
@@ -395,7 +396,6 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
                         android:layout_marginTop="10dp"
-
                         android:id="@+id/studyresultpicture"
                         android:layout_height="match_parent" />
 
@@ -793,26 +793,14 @@
                                         android:layout_gravity="center"
                                         android:layout_weight="1"/>
 
-
                                 </LinearLayout>
 
-
                             </LinearLayout>
-
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1.2"/>
-
-
-
-
-
-
-
-
-
 
                         </LinearLayout>
 

@@ -3,7 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/garbage123123123.iml" filepath="$PROJECT_DIR$/garbage123123123.iml" />
+      <module fileurl="file://$PROJECT_DIR$/garbage.iml" filepath="$PROJECT_DIR$/garbage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/garbege0.2.iml" filepath="$PROJECT_DIR$/garbege0.2.iml" />
     </modules>
   </component>
 </project>

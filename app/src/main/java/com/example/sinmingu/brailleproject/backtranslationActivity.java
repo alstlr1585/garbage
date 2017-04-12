@@ -8,6 +8,7 @@ import android.media.Image;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -177,17 +178,26 @@ public class backtranslationActivity extends BaseActivity {
 
                     int j = 0;  // 띄워쓰기 횟수
 
+                    int num = 0;
                     for(int i=0; i<br_result.length(); i++){
-                        if(br_result.charAt(i) == ' ') {
-                            j += 5;
-                        }
-                        else if(br_result.charAt(i) == '0'){
-                            point[i+j].setImageResource(R.drawable.braille_zero);
-                            point[i+j].setVisibility(View.INVISIBLE);
-                        }
-                        else if(br_result.charAt(i) == '1'){
-                            point[i+j].setImageResource(R.drawable.braille_one);
-                            point[i+j].setVisibility(View.VISIBLE);
+                        if(br_result.charAt(i) == ' ')
+                            num++;
+                    }
+
+                    if ((br_result.replaceAll(" ", "").length() + (num*6)) > 180){
+                        Toast.makeText(backtranslationActivity.this, "글자가 너무 깁니다.", Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        for (int i = 0; i < br_result.length(); i++) {
+                            if (br_result.charAt(i) == ' ') {
+                                j += 5;
+                            } else if (br_result.charAt(i) == '0') {
+                                point[i + j].setImageResource(R.drawable.braille_zero);
+                                point[i + j].setVisibility(View.INVISIBLE);
+                            } else if (br_result.charAt(i) == '1') {
+                                point[i + j].setImageResource(R.drawable.braille_one);
+                                point[i + j].setVisibility(View.VISIBLE);
+                            }
                         }
                     }
                 }
@@ -227,7 +237,9 @@ public class backtranslationActivity extends BaseActivity {
                                     resultTemp = resultTemp + " " + "000001";
 
                                 if ((k == 2) && j + 1 < choice_translationtext.length() && key[2] == 0x0000 && (key[1] == 0x3151 || key[1] == 0x3158 || key[1] == 0x315c || key[1] == 0x315d)) {   // 붙임표 2번 파트
-                                    if (CHO[(((((choice_translationtext.charAt(j + 1) - 0xAC00) - (choice_translationtext.charAt(j + 1) - 0xAC00) % 28)) / 28) / 21)] == 0x3147 &&
+                                        // 현재 번역중인 글자에 받침이 없고, 이번에 번역한 것이 모음[ㅑ ㅘ ㅜ ㅝ]이며, 다음 글자가 존재할 경우.
+                                    if (choice_translationtext.charAt(j+1) != ' '&&
+                                            CHO[(((((choice_translationtext.charAt(j + 1) - 0xAC00) - (choice_translationtext.charAt(j + 1) - 0xAC00) % 28)) / 28) / 21)] == 0x3147 &&
                                             JUN[(((((choice_translationtext.charAt(j + 1) - 0xAC00) - (choice_translationtext.charAt(j + 1) - 0xAC00) % 28)) / 28) % 21)] == 0x3150)
                                         result = result + " " + "001001";
 
@@ -244,21 +256,29 @@ public class backtranslationActivity extends BaseActivity {
 
                     int j = 0;  // 띄워쓰기 횟수
 
+                    int num = 0;
                     for(int i=0; i<br_result.length(); i++){
-
-                        if(br_result.charAt(i) == ' ') {
-                            j += 5;
-                        }
-                        else if(br_result.charAt(i) == '0'){
-                            point[i+j].setImageResource(R.drawable.braille_zero);
-                            point[i+j].setVisibility(View.INVISIBLE);
-                        }
-                        else if(br_result.charAt(i) == '1'){
-                            point[i+j].setImageResource(R.drawable.braille_one);
-                            point[i+j].setVisibility(View.VISIBLE);
-                        }
+                        if(br_result.charAt(i) == ' ')
+                            num++;
                     }
 
+                    if ((br_result.replaceAll(" ", "").length() + (num*6)) > 180){
+                        Toast.makeText(backtranslationActivity.this, "글자가 너무 깁니다.", Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        for (int i = 0; i < br_result.length(); i++) {
+
+                            if (br_result.charAt(i) == ' ') {
+                                j += 5;
+                            } else if (br_result.charAt(i) == '0') {
+                                point[i + j].setImageResource(R.drawable.braille_zero);
+                                point[i + j].setVisibility(View.INVISIBLE);
+                            } else if (br_result.charAt(i) == '1') {
+                                point[i + j].setImageResource(R.drawable.braille_one);
+                                point[i + j].setVisibility(View.VISIBLE);
+                            }
+                        }
+                    }
                 }
 
             }

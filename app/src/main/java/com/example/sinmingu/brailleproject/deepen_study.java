@@ -15,7 +15,6 @@ import java.util.ArrayList;
 
 public class deepen_study extends AppCompatActivity {
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +38,6 @@ public class deepen_study extends AppCompatActivity {
         });
 
     }
-
     @Override
     public void onBackPressed() {
         finish();

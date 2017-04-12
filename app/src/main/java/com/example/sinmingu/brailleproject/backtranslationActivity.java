@@ -42,6 +42,7 @@ public class backtranslationActivity extends BaseActivity {
     //private static final String[] CHO = {"ㄱ" ,"ㄲ" ,"ㄴ" ,"ㄷ" ,"ㄸ" ,"ㄹ" ,"ㅁ" ,"ㅂ" ,"ㅃ" ,"ㅅ" ,"ㅆ" ,"ㅇ" ,"ㅈ" ,"ㅉ" ,"ㅊ" ,"ㅋ" ,"ㅌ" ,"ㅍ" ,"ㅎ"};
     ////////////////////////////////////////////////////////////////////
 
+    //점자 칸
     ImageView[] point;
     int[] point_id = {R.id.p1_1, R.id.p1_2, R.id.p1_3, R.id.p1_4, R.id.p1_5, R.id.p1_6,
             R.id.p2_1, R.id.p2_2, R.id.p2_3, R.id.p2_4, R.id.p2_5, R.id.p2_6,

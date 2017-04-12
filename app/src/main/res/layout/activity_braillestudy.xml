@@ -8,8 +8,6 @@
     android:layout_height="match_parent"
     tools:context="com.example.sinmingu.brailleproject.braillestudyActivity">
 
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:background="#F15F5F"
@@ -28,9 +26,7 @@
 
     </LinearLayout>
 
-
     <TabHost
-
         android:id="@+id/tab_host"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent" >

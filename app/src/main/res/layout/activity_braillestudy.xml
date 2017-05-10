@@ -318,6 +318,19 @@
                             android:orientation="horizontal"
                             android:id="@+id/linear_touch_3">
 
+
+                            <ImageButton
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:background="#ffffff"
+                                android:clickable="false"
+                                android:layout_marginRight="5dp"
+                                android:id="@+id/braillebtn3"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"/>
+
+                            
                             <ImageButton
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"

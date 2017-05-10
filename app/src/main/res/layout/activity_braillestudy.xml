@@ -234,7 +234,8 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:layout_gravity="center"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:id="@+id/linear_touch">
 
 
                         <LinearLayout
@@ -243,14 +244,16 @@
                             android:paddingLeft="30dp"
                             android:paddingRight="40dp"
                             android:layout_marginBottom="40dp"
-                            android:orientation="horizontal">
+                            android:orientation="horizontal"
+                            android:id="@+id/linear_touch_1">
 
                             <ImageButton
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
                                 android:layout_marginRight="5dp"
-                                android:background="@android:color/transparent"
+                                android:background="#ffffff"
+                                android:clickable="false"
                                 android:id="@+id/braillebtn1"
                                 android:layout_gravity="center"
                                 android:layout_weight="1"/>
@@ -261,7 +264,8 @@
                                 android:gravity="center"
                                 android:layout_marginLeft="5dp"
                                 android:id="@+id/braillebtn4"
-                                android:background="@android:color/transparent"
+                                android:background="#ffffff"
+                                android:clickable="false"
                                 android:layout_gravity="center"
                                 android:layout_weight="1"/>
 
@@ -277,7 +281,8 @@
                             android:paddingLeft="30dp"
                             android:layout_marginBottom="40dp"
                             android:paddingRight="40dp"
-                            android:orientation="horizontal">
+                            android:orientation="horizontal"
+                            android:id="@+id/linear_touch_2">
 
                             <ImageButton
                                 android:layout_width="match_parent"
@@ -285,7 +290,8 @@
                                 android:gravity="center"
                                 android:layout_marginRight="5dp"
                                 android:id="@+id/braillebtn2"
-                                android:background="@android:color/transparent"
+                                android:background="#ffffff"
+                                android:clickable="false"
                                 android:layout_gravity="center"
                                 android:layout_weight="1"/>
 
@@ -294,7 +300,8 @@
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
                                 android:layout_marginLeft="5dp"
-                                android:background="@android:color/transparent"
+                                android:background="#ffffff"
+                                android:clickable="false"
                                 android:id="@+id/braillebtn5"
                                 android:layout_gravity="center"
                                 android:layout_weight="1"/>
@@ -308,17 +315,8 @@
                             android:layout_height="wrap_content"
                             android:paddingLeft="30dp"
                             android:paddingRight="40dp"
-                            android:orientation="horizontal">
-
-                            <ImageButton
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:background="@android:color/transparent"
-                                android:layout_marginRight="5dp"
-                                android:id="@+id/braillebtn3"
-                                android:layout_gravity="center"
-                                android:layout_weight="1"/>
+                            android:orientation="horizontal"
+                            android:id="@+id/linear_touch_3">
 
                             <ImageButton
                                 android:layout_width="match_parent"

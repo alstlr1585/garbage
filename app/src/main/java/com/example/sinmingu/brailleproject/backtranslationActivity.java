@@ -178,17 +178,26 @@ public class backtranslationActivity extends BaseActivity {
 
                     int j = 0;  // 띄워쓰기 횟수
 
+                    int num = 0;
                     for(int i=0; i<br_result.length(); i++){
-                        if(br_result.charAt(i) == ' ') {
-                            j += 5;
-                        }
-                        else if(br_result.charAt(i) == '0'){
-                            point[i+j].setImageResource(R.drawable.braille_zero);
-                            point[i+j].setVisibility(View.INVISIBLE);
-                        }
-                        else if(br_result.charAt(i) == '1'){
-                            point[i+j].setImageResource(R.drawable.braille_one);
-                            point[i+j].setVisibility(View.VISIBLE);
+                        if(br_result.charAt(i) == ' ')
+                            num++;
+                    }
+
+                    if ((br_result.replaceAll(" ", "").length() + (num*6)) > 180){
+                        Toast.makeText(backtranslationActivity.this, "글자가 너무 깁니다.", Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        for (int i = 0; i < br_result.length(); i++) {
+                            if (br_result.charAt(i) == ' ') {
+                                j += 5;
+                            } else if (br_result.charAt(i) == '0') {
+                                point[i + j].setImageResource(R.drawable.braille_zero);
+                                point[i + j].setVisibility(View.INVISIBLE);
+                            } else if (br_result.charAt(i) == '1') {
+                                point[i + j].setImageResource(R.drawable.braille_one);
+                                point[i + j].setVisibility(View.VISIBLE);
+                            }
                         }
                     }
                 }
@@ -247,21 +256,29 @@ public class backtranslationActivity extends BaseActivity {
 
                     int j = 0;  // 띄워쓰기 횟수
 
+                    int num = 0;
                     for(int i=0; i<br_result.length(); i++){
-
-                        if(br_result.charAt(i) == ' ') {
-                            j += 5;
-                        }
-                        else if(br_result.charAt(i) == '0'){
-                            point[i+j].setImageResource(R.drawable.braille_zero);
-                            point[i+j].setVisibility(View.INVISIBLE);
-                        }
-                        else if(br_result.charAt(i) == '1'){
-                            point[i+j].setImageResource(R.drawable.braille_one);
-                            point[i+j].setVisibility(View.VISIBLE);
-                        }
+                        if(br_result.charAt(i) == ' ')
+                            num++;
                     }
 
+                    if ((br_result.replaceAll(" ", "").length() + (num*6)) > 180){
+                        Toast.makeText(backtranslationActivity.this, "글자가 너무 깁니다.", Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        for (int i = 0; i < br_result.length(); i++) {
+
+                            if (br_result.charAt(i) == ' ') {
+                                j += 5;
+                            } else if (br_result.charAt(i) == '0') {
+                                point[i + j].setImageResource(R.drawable.braille_zero);
+                                point[i + j].setVisibility(View.INVISIBLE);
+                            } else if (br_result.charAt(i) == '1') {
+                                point[i + j].setImageResource(R.drawable.braille_one);
+                                point[i + j].setVisibility(View.VISIBLE);
+                            }
+                        }
+                    }
                 }
 
             }
@@ -390,12 +407,9 @@ public class backtranslationActivity extends BaseActivity {
             }
         }
 
-
         past = past.replaceAll("2", "1");
-
         past = past.replaceAll("  ", "◆");
         past = past.replaceAll(" ", "");
-
         past = past.replaceAll("◆", " ");
         return past;
     }

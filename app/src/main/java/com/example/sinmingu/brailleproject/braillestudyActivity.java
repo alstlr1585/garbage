@@ -151,7 +151,38 @@ public class braillestudyActivity extends BaseActivity implements TextToSpeech.O
 
 
         //12점---------------------------------------------------------------------------
+        braille_12=new int[12];
+        menu_type_12="";
 
+        btnstatus1_12=0;
+        btnstatus2_12=0;
+        btnstatus3_12=0;
+        btnstatus4_12=0;
+        btnstatus5_12=0;
+        btnstatus6_12=0;
+        btnstatus7_12=0;
+        btnstatus8_12=0;
+        btnstatus9_12=0;
+        btnstatus10_12=0;
+        btnstatus11_12=0;
+        btnstatus12_12=0;
+
+        braille_abbreviation12_picturenum=0;
+        vowel_picturenum=0;
+        consonantinitial12_picturenum=0;
+        braille_alphabet12_picturenum=0;
+
+        study_alphabet_btn_12=(Button)findViewById(R.id.study_alphabet_btn_12);
+        study_vowel_btn_12=(Button)findViewById(R.id.study_vowel_btn_12);
+        study_consonantinitial_btn_12=(Button)findViewById(R.id.study_consonantinitial_btn_12);
+        stduy_part_12=(TextView)findViewById(R.id.stduy_part_12);
+        study_12_result=(TextView)findViewById(R.id.study_12_result);
+        btn_before_12=(Button)findViewById(R.id.btn_before_12);
+        btn_next_12=(Button)findViewById(R.id.btn_next_12);
+        result_send_12=(Button)findViewById(R.id.result_send_12);
+        study_abbreviation_btn_12=(Button)findViewById(R.id.study_abbreviation_btn_12);
+
+        studyresult_12_picture=(ImageView)findViewById(R.id.studyresult_12_picture);
         brailleImage_12=(ImageView)findViewById(R.id.brailleImage_12);
         braillebtn1_12=(ImageButton)findViewById(R.id.braillebtn1_12);
         braillebtn2_12=(ImageButton)findViewById(R.id.braillebtn2_12);
@@ -165,9 +196,6 @@ public class braillestudyActivity extends BaseActivity implements TextToSpeech.O
         braillebtn10_12=(ImageButton)findViewById(R.id.braillebtn10_12);
         braillebtn11_12=(ImageButton)findViewById(R.id.braillebtn11_12);
         braillebtn12_12=(ImageButton)findViewById(R.id.braillebtn12_12);
-
-
-
 
         Glide.with(this).load(R.drawable.braille_abbreviation12_1).into(brailleImage_12);
         Glide.with(this).load(R.drawable.braillebtn_false).into(braillebtn1_12);

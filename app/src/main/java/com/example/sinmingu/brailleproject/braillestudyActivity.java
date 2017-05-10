@@ -67,6 +67,9 @@ public class braillestudyActivity extends BaseActivity implements TextToSpeech.O
             R.drawable.braille_alphabet_18,R.drawable.braille_alphabet_19,R.drawable.braille_alphabet_20,R.drawable.braille_alphabet_21,R.drawable.braille_alphabet_22,R.drawable.braille_alphabet_23,
             R.drawable.braille_alphabet_24,R.drawable.braille_alphabet_25,R.drawable.braille_alphabet_26};
 
+    DB StudyBraille;
+    SQLiteDatabase db;
+
 
     int braille[];
     String menu_type;

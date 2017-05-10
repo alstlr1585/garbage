@@ -48,20 +48,26 @@ public class deepen_study extends AppCompatActivity {
 
     private ArrayList<position> getData() {
 
-        position p1 = new position("pitcher");
+        position p1 = new position("첫소리 자리에 쓰인 자음자");
         p1.players.add("1");
         p1.players.add("2");
         p1.players.add("3");
 
-        position p2 = new position("catcher");
-        p2.players.add("강민호");
+        position p2 = new position("받침으로 쓰인 자음자");
+        p2.players.add("4");
+        p2.players.add("5");
+        p2.players.add("6");
 
-        position p3 = new position("infield");
-        p3.players.add("문규현");
+        position p3 = new position("모 음 자");
+        p3.players.add("7");
+        p3.players.add("8");
 
-        position p4 = new position("outfield");
-        p4.players.add("Jim Adduci");
+        position p4 = new position("단독으로 쓰인 자모");
+        p4.players.add("9");
 
+        position p5 = new position("모음 연쇄");
+        p5.players.add("10");
+        p5.players.add("11");
 
 
         ArrayList<position> allposition = new ArrayList<>();
@@ -69,6 +75,7 @@ public class deepen_study extends AppCompatActivity {
         allposition.add(p2);
         allposition.add(p3);
         allposition.add(p4);
+        allposition.add(p5);
 
         return allposition;
     }

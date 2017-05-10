@@ -30,6 +30,7 @@ public class QuizSelect extends BaseActivity {
 
         vp.setAdapter(new pagerAdapter(getSupportFragmentManager()));
         vp.setCurrentItem(0);
+
 /*
         btn_first.setOnClickListener(movePageListener);
         btn_first.setTag(0);

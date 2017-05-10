@@ -408,12 +408,9 @@ public class backtranslationActivity extends BaseActivity {
             }
         }
 
-
         past = past.replaceAll("2", "1");
-
         past = past.replaceAll("  ", "◆");
         past = past.replaceAll(" ", "");
-
         past = past.replaceAll("◆", " ");
         return past;
     }

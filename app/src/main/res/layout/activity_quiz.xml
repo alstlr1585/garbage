@@ -13,7 +13,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:background="#F15F5F"
+        android:background="#BCE9B7"
         android:layout_height="40dp"
         android:orientation="horizontal">
 
@@ -21,7 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="퀴 즈"
-            android:textColor="#ffffff"
+            android:textColor="#000000"
             android:textStyle="bold"
             android:textSize="15dp"
             android:layout_gravity="center_vertical"
@@ -39,7 +39,7 @@
         <TabWidget
             android:id="@android:id/tabs"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"/>
 
         <FrameLayout
             android:id="@android:id/tabcontent"
@@ -65,7 +65,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="30dp"
                         android:orientation="horizontal"
-                        android:layout_marginBottom="20dp"
+                        android:layout_marginBottom="10dp"
                         android:paddingLeft="10dp">
 
                         <Button
@@ -132,152 +132,33 @@
                             android:background="@drawable/shapestudybtn"
                             android:text="숫자"/>
 
-
                     </LinearLayout>
 
                 </HorizontalScrollView>
 
-
-
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="1.5dp"
                     android:background="#000000"/>
 
-                <LinearLayout
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textSize="15dp"
                     android:gravity="center"
-                    android:paddingTop="8dp"
-                    android:paddingBottom="8dp"
-                    android:background="#FFEAEA">
-
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:id="@+id/quiz_clock"
-                        android:layout_height="30dp" />
-
-
-
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="남은시간 : 10"
-                        android:layout_marginBottom="5dp"
-                        android:layout_marginTop="5dp"
-                        android:textStyle="bold"
-                        android:layout_marginLeft="10dp"
-                        android:id="@+id/count_text"
-                        android:textSize="15dp"
-                        android:textColor="#000000"
-                        android:layout_gravity="center"
-                        android:gravity="center" />
-
-
-
-
-                </LinearLayout>
-
+                    android:paddingBottom="5dp"
+                    android:paddingTop="5dp"
+                    android:background="#EAEAEA"
+                    android:textColor="#000000"
+                    android:text="미선택"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="1.5dp"
-                    android:background="#000000"/>
+                    android:background="#000000"
+                    android:layout_marginBottom="10dp"/>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:paddingLeft="30dp"
-                    android:paddingRight="20dp">
-
-
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-
-                        android:layout_weight="1">
-
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_gravity="center"
-                            android:id="@+id/quizstart"
-                            android:background="@android:color/transparent"
-                            android:layout_height="20dp" />
-
-                        <Button
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/quiz_startbtn"
-                            android:text="시작하기"
-                            android:paddingRight="10dp"
-                            android:textSize="13dp"
-                            android:background="#00ff0000"/>
-
-
-
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_weight="1">
-
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_gravity="center"
-                            android:id="@+id/soundon"
-                            android:background="@android:color/transparent"
-                            android:layout_height="20dp" />
-
-                        <Button
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/quiz_soundon"
-                            android:text="소리켜기"
-                            android:paddingRight="10dp"
-                            android:textSize="13dp"
-                            android:background="#00ff0000"/>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_weight="1">
-
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:background="@android:color/transparent"
-                            android:layout_gravity="center"
-                            android:id="@+id/soundoff"/>
-
-                        <Button
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/quiz_soundoff"
-                            android:text="소리끄기"
-                            android:paddingRight="10dp"
-                            android:textSize="13dp"
-                            android:background="#00ff0000"/>
-
-                    </LinearLayout>
-
-
-
-
-                </LinearLayout>
-
-
-                <LinearLayout
+               <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
@@ -287,17 +168,67 @@
                     android:layout_weight="1"
                     android:orientation="horizontal">
 
-
-
-                    <ImageView
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="30dp"
-                        android:layout_marginRight="30dp"
-                        android:layout_marginTop="40dp"
-                        android:id="@+id/quiz_consonant_initial1"
-                        android:layout_marginBottom="50dp"
-                        android:layout_weight="1"/>
+                        android:layout_height="match_parent"
+                        android:background="@drawable/quiz_ch"
+                        android:orientation="vertical"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.5"/>
+
+
+                        <ImageButton
+                            android:layout_width="match_parent"
+                            android:layout_height="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:id="@+id/quiz_ch_listen"
+                            android:layout_marginBottom="20dp"
+                            android:background="@android:color/transparent"
+                            android:layout_weight="0.5"/>
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="#000000"
+                            android:textSize="15dp"
+                            android:layout_weight="0.1"
+                            android:layout_marginBottom="20dp"
+                            android:gravity="center"
+                            android:text="다시 듣기"/>
+
+
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:textSize="70dp"
+                            android:paddingTop="60dp"
+                            android:textColor="#000000"
+                            android:text="ㄱ"
+                            android:layout_weight="1"
+                            android:id="@+id/textView5" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:textSize="15dp"
+                            android:layout_marginBottom="30dp"
+                            android:textColor="#000000"
+                            android:text="정답확인"/>
+
+
+
+
+                    </LinearLayout>
 
 
                     <LinearLayout
@@ -312,7 +243,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:paddingLeft="30dp"
-                            android:paddingRight="40dp"
+                            android:paddingRight="30dp"
                             android:layout_marginBottom="40dp"
                             android:orientation="horizontal">
 
@@ -320,7 +251,6 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
-                                android:layout_marginRight="5dp"
                                 android:background="@android:color/transparent"
                                 android:id="@+id/quiz_braillebtn1"
                                 android:layout_gravity="center"
@@ -330,7 +260,6 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
-                                android:layout_marginLeft="5dp"
                                 android:id="@+id/quiz_braillebtn4"
                                 android:background="@android:color/transparent"
                                 android:layout_gravity="center"
@@ -347,14 +276,13 @@
                             android:layout_height="wrap_content"
                             android:paddingLeft="30dp"
                             android:layout_marginBottom="40dp"
-                            android:paddingRight="40dp"
+                            android:paddingRight="30dp"
                             android:orientation="horizontal">
 
                             <ImageButton
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
-                                android:layout_marginRight="5dp"
                                 android:id="@+id/quiz_braillebtn2"
                                 android:background="@android:color/transparent"
                                 android:layout_gravity="center"
@@ -364,7 +292,6 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
-                                android:layout_marginLeft="5dp"
                                 android:background="@android:color/transparent"
                                 android:id="@+id/quiz_braillebtn5"
                                 android:layout_gravity="center"
@@ -378,7 +305,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:paddingLeft="30dp"
-                            android:paddingRight="40dp"
+                            android:paddingRight="30dp"
                             android:orientation="horizontal">
 
                             <ImageButton
@@ -386,7 +313,6 @@
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
                                 android:background="@android:color/transparent"
-                                android:layout_marginRight="5dp"
                                 android:id="@+id/quiz_braillebtn3"
                                 android:layout_gravity="center"
                                 android:layout_weight="1"/>
@@ -395,7 +321,6 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
-                                android:layout_marginLeft="5dp"
                                 android:background="@android:color/transparent"
                                 android:id="@+id/quiz_braillebtn6"
                                 android:layout_gravity="center"
@@ -409,6 +334,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="확 인"
+                            android:layout_marginLeft="20dp"
                             android:layout_marginRight="20dp"
                             android:textColor="#000000"
                             android:id="@+id/quiz_result_send"
@@ -566,93 +492,7 @@
 
                 </HorizontalScrollView>
 
-
             </LinearLayout>
-
-
-            <LinearLayout
-                android:id="@+id/quiz_tab_view3"
-                android:orientation="vertical"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent" >
-
-
-
-                <HorizontalScrollView
-                    android:layout_width="match_parent"
-                    android:scrollbars="none"
-                    android:layout_height="wrap_content">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="30dp"
-                        android:orientation="horizontal"
-                        android:paddingLeft="10dp">
-
-                        <Button
-                            android:layout_width="75dp"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/shapestudybtn"
-                            android:textColor="#ffffff"
-                            android:textSize="12dp"
-                            android:layout_marginRight="10dp"
-                            android:text="초성 자음"/>
-
-                        <Button
-                            android:layout_width="75dp"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/shapestudybtn"
-                            android:textColor="#ffffff"
-                            android:layout_marginRight="10dp"
-                            android:textSize="12dp"
-                            android:text="종성 자음"/>
-
-                        <Button
-                            android:layout_width="75dp"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/shapestudybtn"
-                            android:textSize="12dp"
-                            android:textColor="#ffffff"
-                            android:layout_marginRight="10dp"
-                            android:text="모음"/>
-
-                        <Button
-                            android:layout_width="75dp"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/shapestudybtn"
-                            android:textSize="12dp"
-                            android:textColor="#ffffff"
-                            android:layout_marginRight="10dp"
-                            android:text="알파벳"/>
-
-                        <Button
-                            android:layout_width="75dp"
-                            android:layout_height="wrap_content"
-                            android:textColor="#ffffff"
-                            android:textSize="12dp"
-                            android:background="@drawable/shapestudybtn"
-                            android:layout_marginRight="10dp"
-                            android:text="약어"/>
-
-                        <Button
-                            android:layout_width="75dp"
-                            android:layout_height="wrap_content"
-                            android:textSize="12dp"
-                            android:layout_marginRight="10dp"
-                            android:textColor="#ffffff"
-                            android:background="@drawable/shapestudybtn"
-                            android:text="숫자"/>
-
-                    </LinearLayout>
-
-
-
-                </HorizontalScrollView>
-
-
-
-            </LinearLayout>
-
 
         </FrameLayout>
 

@@ -50,8 +50,9 @@ public class Quiz_test extends Fragment {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(getActivity(),QuizActivity.class);
+                Intent intent = new Intent(getActivity(),test_quiz.class);
                 startActivity(intent);
+
 
             }
         });

@@ -6,6 +6,7 @@ package com.example.sinmingu.brailleproject;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -86,12 +87,12 @@ public class deepenAdapter extends BaseExpandableListAdapter {
 
         ImageView imageView = (ImageView) convertView.findViewById(R.id.indicator);
         if(isExpanded){
-            imageView.setImageResource(R.drawable.alphabet_2);
+            imageView.setImageResource(R.drawable.up_arrow);
         } else {
-            imageView.setImageResource(R.drawable.alphabet_2);
+            imageView.setImageResource(R.drawable.down_arrow);
         }
 
-        convertView.setBackgroundColor(Color.parseColor("#ffffff"));
+        convertView.setBackgroundColor(Color.parseColor("#F6F6F6"));
         return convertView;
     }
 
@@ -115,7 +116,7 @@ public class deepenAdapter extends BaseExpandableListAdapter {
 
         //get position name
         String positionName = (String) getGroup(groupPosition).toString();
-        if (positionName == "pitcher") {
+        if (positionName == "첫소리 자리에 쓰인 자음자") {
             if (child == "1") {
                 img.setImageResource(R.drawable.test_1);
 
@@ -126,19 +127,37 @@ public class deepenAdapter extends BaseExpandableListAdapter {
             else if (child == "3"){
                 img.setImageResource(R.drawable.test_3);
             }
-        } else if (positionName == "infield") {
-            //if (child == "문규현") {
-                img.setImageResource(R.drawable.study_deepen_1);
-            //}
-        } else if (positionName == "catcher") {
-            //if (child == "강민호") {
-                img.setImageResource(R.drawable.study_deepen_2);
-            //}
-        } else if (positionName == "outfield") {
-            //if (child == "Jim Adduci") {
-                img.setImageResource(R.drawable.study_deepen_3);
-            //}
+        } else if (positionName == "받침으로 쓰인 자음자") {
+            if (child == "4") {
+                img.setImageResource(R.drawable.study_deepen_4);
+            }
+            else if(child =="5") {
+                img.setImageResource(R.drawable.study_deepen_5);
+            }
+            else if(child =="6"){
+                img.setImageResource(R.drawable.study_deepen_6);
+            }
+        } else if (positionName == "모 음 자") {
+            if (child == "7") {
+                img.setImageResource(R.drawable.study_deepen_7);
+            }
+            else if(child=="8"){
+                img.setImageResource(R.drawable.study_deepen_8);
+            }
+        } else if (positionName == "단독으로 쓰인 자모") {
+            if (child == "9") {
+                img.setImageResource(R.drawable.study_deepen_9);
+            }
+        }else if(positionName == "모음 연쇄"){
+            if(child=="10"){
+                img.setImageResource(R.drawable.study_deepen_10);
+            }
+            else if(child=="11"){
+                img.setImageResource(R.drawable.study_deepen_11);
+            }
+
         }
+
         return convertView;
     }
 

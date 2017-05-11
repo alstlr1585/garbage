@@ -33,11 +33,10 @@
         <activity
             android:name=".StudyActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".translationActivity" />
         <activity android:name=".QuizSelect" />
         <activity android:name=".Quiz_word" />
-        <activity android:name=".Quiz_sentence" />
-        <activity android:name=".Quiz_grammar" />
+        <activity android:name=".test_quiz"/>
+        <activity android:name=".word_quiz"/>
         <activity android:name=".Quiz_test" />
         <activity android:name=".Quiz_character" />
         <activity android:name=".deepen_study_screen" />

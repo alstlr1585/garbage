@@ -24,23 +24,15 @@ public class StudyActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_study);
 
-
         btntable=(Button)findViewById(R.id.btntable);
         btnstudy=(Button)findViewById(R.id.btnstudy);
         studyimage1=(ImageView)findViewById(R.id.studyimage1);
         studyimage2=(ImageView)findViewById(R.id.studyimage2);
         studyimagetop=(ImageView)findViewById(R.id.studyimagetop);
 
-
         Glide.with(this).load(R.drawable.study_brailleview).into(studyimage1);
         Glide.with(this).load(R.drawable.study_write).into(studyimage2);
         Glide.with(this).load(R.drawable.study_top).into(studyimagetop);
-
-
-
-
-
-
 
         btntable.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,8 +53,6 @@ public class StudyActivity extends BaseActivity {
                 overridePendingTransition(R.anim.leftin_activity,R.anim.not_move_activit);
             }
         });
-
-
 
 
     }

@@ -331,12 +331,8 @@
                 android:textSize="15dp"
                 android:text="1"/>
 
-
         </LinearLayout>
 
-
-
     </LinearLayout>
-
 
 </LinearLayout>

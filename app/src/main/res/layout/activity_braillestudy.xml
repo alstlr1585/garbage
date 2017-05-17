@@ -575,6 +575,7 @@
                         android:layout_weight="1"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
+                        android:id="@+id/linear_touch2"
                         android:background="@drawable/shapebottomsub"
                         android:orientation="vertical">
 
@@ -593,6 +594,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
+                            android:id="@+id/linear_touch2_enter"
                             android:orientation="horizontal">
 
                             <TextView
@@ -606,6 +608,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_weight="1"
+                            android:id="@+id/linear_touch2_left"
                             android:orientation="vertical">
 
 
@@ -613,6 +616,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="20dp"
+                                android:id="@+id/linear_touch2_1"
                                 android:orientation="horizontal">
 
                                 <ImageButton
@@ -644,6 +648,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="20dp"
+                                android:id="@+id/linear_touch2_2"
                                 android:orientation="horizontal">
 
                                 <ImageButton
@@ -672,6 +677,7 @@
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:id="@+id/linear_touch2_3"
                                 android:orientation="horizontal">
 
                                 <ImageButton
@@ -711,6 +717,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
+                                android:id="@+id/linear_touch2_right"
                                 android:layout_weight="1"
                                 android:orientation="vertical">
 

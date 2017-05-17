@@ -25,6 +25,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
+import static android.R.attr.id;
 import static java.lang.System.exit;
 
 public class braillestudyActivity extends BaseActivity implements TextToSpeech.OnInitListener{
@@ -36,6 +37,7 @@ public class braillestudyActivity extends BaseActivity implements TextToSpeech.O
     TextView studyresult,study_part;
     ImageView brailleImage,studyresultpicture;
     RectF rect1, rect2, rect3, rect4, rect5, rect6;
+    RectF rect12_1, rect12_2, rect12_3, rect12_4, rect12_5, rect12_6, rect12_7, rect12_8, rect12_9, rect12_10, rect12_11, rect12_12;
     Button study_consonantinitial_btn, study_finalconsonantinitial_btn, study_vowel_btn, study_alphabet_btn, study_number_btn,
             study_abbreviation_btn;
     int consonantinitial_picturenum,finalconsonantinitial_picturenum,vowel_picturenum,braillenumber_picturenum,braille_conjunction_picturenum,braille_abbreviation_picturenum,braille_alphabet_picturenum;
@@ -103,7 +105,8 @@ public class braillestudyActivity extends BaseActivity implements TextToSpeech.O
 
     private TextToSpeech ttsClient;
     LinearLayout linear_touch, linear_touch_1, linear_touch_2, linear_touch_3;
-
+    LinearLayout linear_touch2, linear_touch2_1, linear_touch2_2, linear_touch2_3;
+    LinearLayout linear_touch2_left, linear_touch2_right, linear_touch2_enter;
 
     //---------------------------------------------------------------------------------------------------------------------------------------------
     @Override
@@ -118,6 +121,15 @@ public class braillestudyActivity extends BaseActivity implements TextToSpeech.O
         linear_touch_2 = (LinearLayout)findViewById(R.id.linear_touch_2);
         linear_touch_3 = (LinearLayout)findViewById(R.id.linear_touch_3);
 
+        linear_touch2 = (LinearLayout) findViewById(R.id.linear_touch2);
+        linear_touch2_1 = (LinearLayout) findViewById(R.id.linear_touch2_1);
+        linear_touch2_2 = (LinearLayout) findViewById(R.id.linear_touch2_2);
+        linear_touch2_3 = (LinearLayout) findViewById(R.id.linear_touch2_3);
+
+        linear_touch2_left = (LinearLayout) findViewById(R.id.linear_touch2_left);
+        linear_touch2_right = (LinearLayout) findViewById(R.id.linear_touch2_right);
+        linear_touch2_enter = (LinearLayout) findViewById(R.id.linear_touch2_enter);
+
         ttsClient= new TextToSpeech(getApplicationContext(),this);
 
         menu_type="";
@@ -127,6 +139,19 @@ public class braillestudyActivity extends BaseActivity implements TextToSpeech.O
         rect4 = new RectF();
         rect5 = new RectF();
         rect6 = new RectF();
+
+        rect12_1 = new RectF();
+        rect12_2 = new RectF();
+        rect12_3 = new RectF();
+        rect12_4 = new RectF();
+        rect12_5 = new RectF();
+        rect12_6 = new RectF();
+        rect12_7 = new RectF();
+        rect12_8 = new RectF();
+        rect12_9 = new RectF();
+        rect12_10 = new RectF();
+        rect12_11 = new RectF();
+        rect12_12 = new RectF();
 
         btnstatus1=0;
         btnstatus2=0;
@@ -280,6 +305,7 @@ public class braillestudyActivity extends BaseActivity implements TextToSpeech.O
         /////////////////////////////////
 
 
+
         linear_touch.setOnTouchListener(new View.OnTouchListener() {
             int flag = 0;
             @Override
@@ -383,6 +409,213 @@ public class braillestudyActivity extends BaseActivity implements TextToSpeech.O
                 return true;
             }
 
+        });
+
+        braillebtn1_12.setClickable(false);
+        braillebtn2_12.setClickable(false);
+        braillebtn3_12.setClickable(false);
+        braillebtn4_12.setClickable(false);
+        braillebtn5_12.setClickable(false);
+        braillebtn6_12.setClickable(false);
+        braillebtn7_12.setClickable(false);
+        braillebtn8_12.setClickable(false);
+        braillebtn9_12.setClickable(false);
+        braillebtn10_12.setClickable(false);
+        braillebtn11_12.setClickable(false);
+        braillebtn12_12.setClickable(false);
+
+        linear_touch2.setOnTouchListener(new View.OnTouchListener() {
+            int flag = 0;
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+
+
+                rect12_1.set(braillebtn1_12.getLeft() + linear_touch2_left.getLeft(), braillebtn1_12.getTop() + linear_touch2_enter.getTop(), braillebtn1_12.getRight() + linear_touch2_left.getLeft(), braillebtn1_12.getBottom() + linear_touch2_enter.getTop());
+                rect12_2.set(braillebtn2_12.getLeft() + linear_touch2_left.getLeft(),  braillebtn2_12.getTop() + linear_touch2_2.getTop() + linear_touch2_enter.getTop(), braillebtn2_12.getRight() + linear_touch2_left.getLeft(), braillebtn2_12.getBottom() + linear_touch2_2.getTop() + linear_touch2_enter.getTop());
+                rect12_3.set(braillebtn3_12.getLeft() + linear_touch2_left.getLeft(), braillebtn3_12.getTop() + linear_touch2_3.getTop() + linear_touch2_enter.getTop(), braillebtn3_12.getRight() + linear_touch2_left.getLeft(), braillebtn3_12.getBottom() + linear_touch2_3.getTop() + linear_touch2_enter.getTop());
+
+                rect12_4.set(braillebtn4_12.getLeft() + linear_touch2_left.getLeft(), braillebtn4_12.getTop() + linear_touch2_enter.getTop(), braillebtn4_12.getRight() + linear_touch2_left.getLeft(), braillebtn4_12.getBottom() + + linear_touch2_enter.getTop());
+                rect12_5.set(braillebtn5_12.getLeft() + linear_touch2_left.getLeft(), braillebtn5_12.getTop() + linear_touch2_enter.getTop() + linear_touch2_2.getTop(), braillebtn5_12.getRight() + linear_touch2_left.getLeft(), braillebtn5_12.getBottom() + linear_touch2_2.getTop() + linear_touch2_enter.getTop());
+                rect12_6.set(braillebtn6_12.getLeft() + linear_touch2_left.getLeft(), braillebtn6_12.getTop() + linear_touch2_enter.getTop() + linear_touch2_3.getTop(), braillebtn6_12.getRight() + linear_touch2_left.getLeft(), braillebtn6_12.getBottom() + linear_touch2_3.getTop() + linear_touch2_enter.getTop());
+
+                rect12_7.set(braillebtn1_12.getLeft() + linear_touch2_right.getLeft(), braillebtn1_12.getTop() + linear_touch2_enter.getTop(), braillebtn1_12.getRight() + linear_touch2_right.getLeft(), braillebtn1_12.getBottom() + linear_touch2_enter.getTop());
+                rect12_8.set(braillebtn2_12.getLeft() + linear_touch2_right.getLeft(),  braillebtn2_12.getTop() + linear_touch2_2.getTop() + linear_touch2_enter.getTop(), braillebtn2_12.getRight() + linear_touch2_right.getLeft(), braillebtn2_12.getBottom() + linear_touch2_2.getTop() + linear_touch2_enter.getTop());
+                rect12_9.set(braillebtn3_12.getLeft() + linear_touch2_right.getLeft(), braillebtn3_12.getTop() + linear_touch2_3.getTop() + linear_touch2_enter.getTop(), braillebtn3_12.getRight() + linear_touch2_right.getLeft(), braillebtn3_12.getBottom() + linear_touch2_3.getTop() + linear_touch2_enter.getTop());
+
+                rect12_10.set(braillebtn4_12.getLeft() + linear_touch2_right.getLeft(), braillebtn4_12.getTop() + linear_touch2_enter.getTop(), braillebtn4_12.getRight() + linear_touch2_right.getLeft(), braillebtn4_12.getBottom() + + linear_touch2_enter.getTop());
+                rect12_11.set(braillebtn5_12.getLeft() + linear_touch2_right.getLeft(), braillebtn5_12.getTop() + linear_touch2_enter.getTop() + linear_touch2_2.getTop(), braillebtn5_12.getRight() + linear_touch2_right.getLeft(), braillebtn5_12.getBottom() + linear_touch2_2.getTop() + linear_touch2_enter.getTop());
+                rect12_12.set(braillebtn6_12.getLeft() + linear_touch2_right.getLeft(), braillebtn6_12.getTop() + linear_touch2_enter.getTop() + linear_touch2_3.getTop(), braillebtn6_12.getRight() + linear_touch2_right.getLeft(), braillebtn6_12.getBottom() + linear_touch2_3.getTop() + linear_touch2_enter.getTop());
+
+                if (event.getAction() == MotionEvent.ACTION_DOWN || event.getAction() == MotionEvent.ACTION_MOVE) {
+
+                    if (rect12_1.contains(event.getX(), event.getY())) {
+                        if (flag == 0) {
+                            if ((btnstatus1_12 % 2) == 0) {
+                                Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_true).into(braillebtn1_12);
+                                braille_12[0] = 1;
+                            } else {
+                                Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_false).into(braillebtn1_12);
+                                braille_12[0] = 0;
+                            }
+
+                            btnstatus1_12++;
+                            flag = 1;
+                        }
+                    } else if (rect12_2.contains(event.getX(), event.getY())) {
+                        if (flag == 0) {
+                            if ((btnstatus2_12 % 2) == 0) {
+                                Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_true).into(braillebtn2_12);
+                                braille_12[1] = 1;
+                            } else {
+                                Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_false).into(braillebtn2_12);
+                                braille_12[1] = 0;
+                            }
+
+                            btnstatus2_12++;
+                            flag = 1;
+                        }
+                    } else if (rect12_3.contains(event.getX(), event.getY())) {
+                        if (flag == 0) {
+                            if ((btnstatus3_12 % 2) == 0) {
+                                Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_true).into(braillebtn3_12);
+                                braille_12[2] = 1;
+                            } else {
+                                Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_false).into(braillebtn3_12);
+                                braille_12[2] = 0;
+                            }
+
+                            btnstatus3_12++;
+                            flag = 1;
+                        }
+                    } else if (rect12_4.contains(event.getX(), event.getY())) {
+                        if (flag == 0) {
+                            if ((btnstatus4_12 % 2) == 0) {
+                                Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_true).into(braillebtn4_12);
+                                braille_12[3] = 1;
+                            } else {
+                                Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_false).into(braillebtn4_12);
+                                braille_12[3] = 0;
+                            }
+
+                            btnstatus4_12++;
+                            flag = 1;
+                        }
+                    } else if (rect12_5.contains(event.getX(), event.getY())) {
+                        if (flag == 0) {
+                            if ((btnstatus5_12 % 2) == 0) {
+                                Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_true).into(braillebtn5_12);
+                                braille_12[4] = 1;
+                            } else {
+                                Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_false).into(braillebtn5_12);
+                                braille_12[4] = 0;
+                            }
+
+                            btnstatus5_12++;
+                            flag = 1;
+                        }
+                    } else if (rect12_6.contains(event.getX(), event.getY())) {
+                        if (flag == 0) {
+                            if ((btnstatus6_12 % 2) == 0) {
+                                Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_true).into(braillebtn6_12);
+                                braille_12[5] = 1;
+                            } else {
+                                Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_false).into(braillebtn6_12);
+                                braille_12[5] = 0;
+                            }
+
+                            btnstatus6_12++;
+                            flag = 1;
+                        }
+                    } else if (rect12_7.contains(event.getX(), event.getY())) {
+                        if (flag == 0) {
+                            if ((btnstatus7_12 % 2) == 0) {
+                                Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_true).into(braillebtn7_12);
+                                braille_12[6] = 1;
+                            } else {
+                                Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_false).into(braillebtn7_12);
+                                braille_12[6] = 0;
+                            }
+
+                            btnstatus7_12++;
+                            flag = 1;
+                        }
+                    } else if (rect12_8.contains(event.getX(), event.getY())) {
+                        if (flag == 0) {
+                            if ((btnstatus8_12 % 2) == 0) {
+                                Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_true).into(braillebtn8_12);
+                                braille_12[7] = 1;
+                            } else {
+                                Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_false).into(braillebtn8_12);
+                                braille_12[7] = 0;
+                            }
+
+                            btnstatus8_12++;
+                            flag = 1;
+                        }
+                    } else if (rect12_9.contains(event.getX(), event.getY())) {
+                        if (flag == 0) {
+                            if ((btnstatus9_12 % 2) == 0) {
+                                Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_true).into(braillebtn9_12);
+                                braille_12[8] = 1;
+                            } else {
+                                Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_false).into(braillebtn9_12);
+                                braille_12[8] = 0;
+                            }
+
+                            btnstatus9_12++;
+                            flag = 1;
+                        }
+                    } else if (rect12_10.contains(event.getX(), event.getY())) {
+                        if (flag == 0) {
+                            if ((btnstatus10_12 % 2) == 0) {
+                                Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_true).into(braillebtn10_12);
+                                braille_12[9] = 1;
+                            } else {
+                                Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_false).into(braillebtn10_12);
+                                braille_12[9] = 0;
+                            }
+
+                            btnstatus10_12++;
+                            flag = 1;
+                        }
+                    } else if (rect12_11.contains(event.getX(), event.getY())) {
+                        if (flag == 0) {
+                            if ((btnstatus11_12 % 2) == 0) {
+                                Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_true).into(braillebtn11_12);
+                                braille_12[10] = 1;
+                            } else {
+                                Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_false).into(braillebtn11_12);
+                                braille_12[10] = 0;
+                            }
+
+                            btnstatus11_12++;
+                            flag = 1;
+                        }
+                    } else if (rect12_12.contains(event.getX(), event.getY())) {
+                        if (flag == 0) {
+                            if ((btnstatus12_12 % 2) == 0) {
+                                Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_true).into(braillebtn12_12);
+                                braille_12[11] = 1;
+                            } else {
+                                Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_false).into(braillebtn12_12);
+                                braille_12[11] = 0;
+                            }
+
+                            btnstatus12_12++;
+                            flag = 1;
+                        }
+                    }
+                    else {
+                        if (flag == 1) {
+                            flag = 0;
+                        }
+                    }
+                }
+                else if (event.getAction() == MotionEvent.ACTION_UP)
+                    flag = 0;
+
+                return true;
+            }
         });
 
 
@@ -1390,222 +1623,6 @@ public class braillestudyActivity extends BaseActivity implements TextToSpeech.O
             }
         });
 
-        //12점------------------------------------------------------------------------------------------------------------------------------
-        braillebtn1_12.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                if((btnstatus1_12%2)==0){
-                    Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_true).into(braillebtn1_12);
-                    braille_12[0]=1;
-                }
-                else {
-                    Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_false).into(braillebtn1_12);
-                    braille_12[0]=0;
-                }
-
-                btnstatus1_12++;
-
-            }
-        });
-
-        braillebtn2_12.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                if((btnstatus2_12%2)==0){
-                    Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_true).into(braillebtn2_12);
-                    braille_12[1]=1;
-                }
-                else {
-                    Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_false).into(braillebtn2_12);
-                    braille_12[1]=0;
-                }
-
-                btnstatus2_12++;
-
-            }
-        });
-
-        braillebtn3_12.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                if((btnstatus3_12%2)==0){
-                    Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_true).into(braillebtn3_12);
-                    braille_12[2]=1;
-                }
-                else {
-                    Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_false).into(braillebtn3_12);
-                    braille_12[2]=0;
-                }
-
-                btnstatus3_12++;
-
-            }
-        });
-
-        braillebtn4_12.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                if((btnstatus4_12%2)==0){
-                    Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_true).into(braillebtn4_12);
-                    braille_12[3]=1;
-                }
-                else {
-                    Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_false).into(braillebtn4_12);
-                    braille_12[3]=0;
-                }
-
-                btnstatus4_12++;
-
-            }
-        });
-
-        braillebtn5_12.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                if((btnstatus5_12%2)==0){
-                    Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_true).into(braillebtn5_12);
-                    braille_12[4]=1;
-                }
-                else {
-                    Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_false).into(braillebtn5_12);
-                    braille_12[4]=0;
-                }
-
-                btnstatus5_12++;
-
-            }
-        });
-
-        braillebtn6_12.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                if((btnstatus6_12%2)==0){
-                    Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_true).into(braillebtn6_12);
-                    braille_12[5]=1;
-                }
-                else {
-                    Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_false).into(braillebtn6_12);
-                    braille_12[5]=0;
-                }
-
-                btnstatus6_12++;
-
-            }
-        });
-
-        braillebtn7_12.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                if((btnstatus7_12%2)==0){
-                    Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_true).into(braillebtn7_12);
-                    braille_12[6]=1;
-                }
-                else {
-                    Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_false).into(braillebtn7_12);
-                    braille_12[6]=0;
-                }
-
-                btnstatus7_12++;
-
-            }
-        });
-
-        braillebtn8_12.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                if((btnstatus8_12%2)==0){
-                    Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_true).into(braillebtn8_12);
-                    braille_12[7]=1;
-                }
-                else {
-                    Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_false).into(braillebtn8_12);
-                    braille_12[7]=0;
-                }
-
-                btnstatus8_12++;
-
-            }
-        });
-
-        braillebtn9_12.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                if((btnstatus9_12%2)==0){
-                    Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_true).into(braillebtn9_12);
-                    braille_12[8]=1;
-                }
-                else {
-                    Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_false).into(braillebtn9_12);
-                    braille_12[8]=0;
-                }
-
-                btnstatus9_12++;
-
-            }
-        });
-
-        braillebtn10_12.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                if((btnstatus10_12%2)==0){
-                    Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_true).into(braillebtn10_12);
-                    braille_12[9]=1;
-                }
-                else {
-                    Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_false).into(braillebtn10_12);
-                    braille_12[9]=0;
-                }
-
-                btnstatus10_12++;
-
-            }
-        });
-
-        braillebtn11_12.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                if((btnstatus11_12%2)==0){
-                    Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_true).into(braillebtn11_12);
-                    braille_12[10]=1;
-                }
-                else {
-                    Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_false).into(braillebtn11_12);
-                    braille_12[10]=0;
-                }
-
-                btnstatus11_12++;
-
-            }
-        });
-
-        braillebtn12_12.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                if((btnstatus12_12%2)==0){
-                    Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_true).into(braillebtn12_12);
-                    braille_12[11]=1;
-                }
-                else {
-                    Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_false).into(braillebtn12_12);
-                    braille_12[11]=0;
-                }
-
-                btnstatus12_12++;
-
-            }
-        });
 
         study_abbreviation_btn_12.setOnClickListener(new View.OnClickListener() {
             @Override

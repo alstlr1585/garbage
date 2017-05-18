@@ -203,8 +203,6 @@
                             android:text="다시 듣기"/>
 
 
-
-
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -231,125 +229,129 @@
                     </LinearLayout>
 
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_gravity="center"
-                        android:orientation="vertical">
+                   <LinearLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_weight="1"
+                       android:layout_gravity="center"
+                       android:id="@+id/linear_quiz6"
+                       android:orientation="vertical">
 
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:paddingLeft="30dp"
-                            android:paddingRight="30dp"
-                            android:layout_marginBottom="40dp"
-                            android:orientation="horizontal">
+                       <LinearLayout
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:paddingLeft="30dp"
+                           android:paddingRight="30dp"
+                           android:id="@+id/linear_quiz6_1"
+                           android:layout_marginBottom="40dp"
+                           android:orientation="horizontal">
 
-                            <ImageButton
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:background="@android:color/transparent"
-                                android:id="@+id/quiz_braillebtn1"
-                                android:layout_gravity="center"
-                                android:layout_weight="1"/>
+                           <ImageButton
+                               android:layout_width="match_parent"
+                               android:layout_height="wrap_content"
+                               android:gravity="center"
+                               android:background="@android:color/transparent"
+                               android:id="@+id/quiz_braillebtn1"
+                               android:layout_gravity="center"
+                               android:layout_weight="1"/>
 
-                            <ImageButton
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:id="@+id/quiz_braillebtn4"
-                                android:background="@android:color/transparent"
-                                android:layout_gravity="center"
-                                android:layout_weight="1"/>
-
-
-
-
-                        </LinearLayout>
-
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:paddingLeft="30dp"
-                            android:layout_marginBottom="40dp"
-                            android:paddingRight="30dp"
-                            android:orientation="horizontal">
-
-                            <ImageButton
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:id="@+id/quiz_braillebtn2"
-                                android:background="@android:color/transparent"
-                                android:layout_gravity="center"
-                                android:layout_weight="1"/>
-
-                            <ImageButton
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:background="@android:color/transparent"
-                                android:id="@+id/quiz_braillebtn5"
-                                android:layout_gravity="center"
-                                android:layout_weight="1"/>
-
-
-                        </LinearLayout>
-
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:paddingLeft="30dp"
-                            android:paddingRight="30dp"
-                            android:orientation="horizontal">
-
-                            <ImageButton
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:background="@android:color/transparent"
-                                android:id="@+id/quiz_braillebtn3"
-                                android:layout_gravity="center"
-                                android:layout_weight="1"/>
-
-                            <ImageButton
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:background="@android:color/transparent"
-                                android:id="@+id/quiz_braillebtn6"
-                                android:layout_gravity="center"
-                                android:layout_weight="1"/>
-
-
-                        </LinearLayout>
-
-                        <Button
-                            android:layout_marginTop="30dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="확 인"
-                            android:layout_marginLeft="20dp"
-                            android:layout_marginRight="20dp"
-                            android:textColor="#000000"
-                            android:id="@+id/quiz_result_send"
-                            android:background="@drawable/shapebottomsub"
-                            android:textStyle="bold"
-                            android:textSize="15dp"
-                            />
+                           <ImageButton
+                               android:layout_width="match_parent"
+                               android:layout_height="wrap_content"
+                               android:gravity="center"
+                               android:id="@+id/quiz_braillebtn4"
+                               android:background="@android:color/transparent"
+                               android:layout_gravity="center"
+                               android:layout_weight="1"/>
 
 
 
 
-                    </LinearLayout>
+                       </LinearLayout>
 
 
-                </LinearLayout>
+                       <LinearLayout
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:paddingLeft="30dp"
+                           android:layout_marginBottom="40dp"
+                           android:paddingRight="30dp"
+                           android:id="@+id/linear_quiz6_2"
+                           android:orientation="horizontal">
+
+                           <ImageButton
+                               android:layout_width="match_parent"
+                               android:layout_height="wrap_content"
+                               android:gravity="center"
+                               android:id="@+id/quiz_braillebtn2"
+                               android:background="@android:color/transparent"
+                               android:layout_gravity="center"
+                               android:layout_weight="1"/>
+
+                           <ImageButton
+                               android:layout_width="match_parent"
+                               android:layout_height="wrap_content"
+                               android:gravity="center"
+                               android:background="@android:color/transparent"
+                               android:id="@+id/quiz_braillebtn5"
+                               android:layout_gravity="center"
+                               android:layout_weight="1"/>
+
+
+                       </LinearLayout>
+
+
+                       <LinearLayout
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:paddingLeft="30dp"
+                           android:paddingRight="30dp"
+                           android:id="@+id/linear_quiz6_3"
+                           android:orientation="horizontal">
+
+                           <ImageButton
+                               android:layout_width="match_parent"
+                               android:layout_height="wrap_content"
+                               android:gravity="center"
+                               android:background="@android:color/transparent"
+                               android:id="@+id/quiz_braillebtn3"
+                               android:layout_gravity="center"
+                               android:layout_weight="1"/>
+
+                           <ImageButton
+                               android:layout_width="match_parent"
+                               android:layout_height="wrap_content"
+                               android:gravity="center"
+                               android:background="@android:color/transparent"
+                               android:id="@+id/quiz_braillebtn6"
+                               android:layout_gravity="center"
+                               android:layout_weight="1"/>
+
+
+                       </LinearLayout>
+
+                       <Button
+                           android:layout_marginTop="30dp"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:text="확 인"
+                           android:layout_marginLeft="20dp"
+                           android:layout_marginRight="20dp"
+                           android:textColor="#000000"
+                           android:id="@+id/quiz_result_send"
+                           android:background="@drawable/shapebottomsub"
+                           android:textStyle="bold"
+                           android:textSize="15dp"
+                           />
+
+
+
+
+                   </LinearLayout>
+
+
+               </LinearLayout>
 
 
                 <LinearLayout
@@ -506,6 +508,7 @@
                     android:layout_weight="1"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
+                    android:id="@+id/linear_quiz12"
                     android:background="@drawable/shapebottomsub"
                     android:orientation="vertical">
 
@@ -577,6 +580,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
+                        android:id="@+id/linear_quiz12_enter"
                         android:orientation="horizontal">
 
                         <TextView
@@ -590,6 +594,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_weight="1"
+                            android:id="@+id/linear_quiz12_left"
                             android:orientation="vertical">
 
 
@@ -597,6 +602,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="20dp"
+                                android:id="@+id/linear_quiz12_1"
                                 android:orientation="horizontal">
 
                                 <ImageButton
@@ -625,6 +631,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="20dp"
+                                android:id="@+id/linear_quiz12_2"
                                 android:orientation="horizontal">
 
                                 <ImageButton
@@ -652,6 +659,7 @@
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:id="@+id/linear_quiz12_3"
                                 android:orientation="horizontal">
 
                                 <ImageButton
@@ -688,6 +696,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
+                            android:id="@+id/linear_quiz12_right"
                             android:layout_weight="1"
                             android:orientation="vertical">
 

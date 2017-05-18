@@ -233,9 +233,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="정답"
+                            android:paddingLeft="6dp"
+                            android:paddingRight="6dp"
+                            android:paddingTop="1dp"
+                            android:paddingBottom="1dp"
+                            android:background="@drawable/quiz_test_bottom"
                             android:layout_marginRight="5dp"
                             android:textSize="15dp"
-                            android:textColor="#000000"/>
+                            android:textColor="#ffffff"/>
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -262,12 +267,16 @@
                             android:layout_marginBottom="10dp"
                             android:layout_marginRight="5dp"
                             android:textSize="15dp"
+                            android:paddingLeft="6dp"
+                            android:paddingRight="6dp"
                             android:textColor="#000000"/>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="14dp"
+                            android:paddingLeft="6dp"
+                            android:paddingRight="6dp"
                             android:text="ㄱ의 '입시'는 하인이나 종이 먹는 밥을 낮잡아 이르는 말"/>
 
                     </LinearLayout>

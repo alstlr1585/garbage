@@ -222,7 +222,6 @@ public class braillestudyActivity extends BaseActivity implements TextToSpeech.O
         braillebtn11_12=(ImageButton)findViewById(R.id.braillebtn11_12);
         braillebtn12_12=(ImageButton)findViewById(R.id.braillebtn12_12);
 
-        Glide.with(this).load(R.drawable.braille_abbreviation12_1).into(brailleImage_12);
         Glide.with(this).load(R.drawable.braillebtn_false).into(braillebtn1_12);
         Glide.with(this).load(R.drawable.braillebtn_false).into(braillebtn2_12);
         Glide.with(this).load(R.drawable.braillebtn_false).into(braillebtn3_12);

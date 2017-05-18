@@ -39,6 +39,10 @@ public class QuizActivity extends BaseActivity implements TextToSpeech.OnInitLis
 
     TabHost quiz_tab_host;
 
+    ImageButton cha_braillebtn1_12, cha_braillebtn2_12, cha_braillebtn3_12, cha_braillebtn4_12, cha_braillebtn5_12, cha_braillebtn6_12, cha_braillebtn7_12,
+            cha_braillebtn8_12,cha_braillebtn9_12,cha_braillebtn10_12,cha_braillebtn11_12,cha_braillebtn12_12;
+    ImageButton quiz_ch_listen_12;
+
     private TextToSpeech ttsClient;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -86,6 +90,38 @@ public class QuizActivity extends BaseActivity implements TextToSpeech.OnInitLis
         Glide.with(this).load(R.drawable.braillebtn_false).into(quiz_braillebtn5);
         Glide.with(this).load(R.drawable.braillebtn_false).into(quiz_braillebtn6);
         Glide.with(this).load(R.drawable.resultok).into(quiz_resultpicture);
+
+
+        //-----------------------------------------------------------------------------
+        quiz_ch_listen_12=(ImageButton)findViewById(R.id.quiz_ch_listen_12);
+
+        cha_braillebtn1_12=(ImageButton)findViewById(R.id.cha_braillebtn1_12);
+        cha_braillebtn2_12=(ImageButton)findViewById(R.id.cha_braillebtn2_12);
+        cha_braillebtn3_12=(ImageButton)findViewById(R.id.cha_braillebtn3_12);
+        cha_braillebtn4_12=(ImageButton)findViewById(R.id.cha_braillebtn4_12);
+        cha_braillebtn5_12=(ImageButton)findViewById(R.id.cha_braillebtn5_12);
+        cha_braillebtn6_12=(ImageButton)findViewById(R.id.cha_braillebtn6_12);
+        cha_braillebtn7_12=(ImageButton)findViewById(R.id.cha_braillebtn7_12);
+        cha_braillebtn8_12=(ImageButton)findViewById(R.id.cha_braillebtn8_12);
+        cha_braillebtn9_12=(ImageButton)findViewById(R.id.cha_braillebtn9_12);
+        cha_braillebtn10_12=(ImageButton)findViewById(R.id.cha_braillebtn10_12);
+        cha_braillebtn11_12=(ImageButton)findViewById(R.id.cha_braillebtn11_12);
+        cha_braillebtn12_12=(ImageButton)findViewById(R.id.cha_braillebtn12_12);
+
+        Glide.with(this).load(R.drawable.quiz_headphone).fitCenter().into(quiz_ch_listen_12);
+
+        Glide.with(this).load(R.drawable.braillebtn_false).into(cha_braillebtn1_12);
+        Glide.with(this).load(R.drawable.braillebtn_false).into(cha_braillebtn2_12);
+        Glide.with(this).load(R.drawable.braillebtn_false).into(cha_braillebtn3_12);
+        Glide.with(this).load(R.drawable.braillebtn_false).into(cha_braillebtn4_12);
+        Glide.with(this).load(R.drawable.braillebtn_false).into(cha_braillebtn5_12);
+        Glide.with(this).load(R.drawable.braillebtn_false).into(cha_braillebtn6_12);
+        Glide.with(this).load(R.drawable.braillebtn_false).into(cha_braillebtn7_12);
+        Glide.with(this).load(R.drawable.braillebtn_false).into(cha_braillebtn8_12);
+        Glide.with(this).load(R.drawable.braillebtn_false).into(cha_braillebtn9_12);
+        Glide.with(this).load(R.drawable.braillebtn_false).into(cha_braillebtn10_12);
+        Glide.with(this).load(R.drawable.braillebtn_false).into(cha_braillebtn11_12);
+        Glide.with(this).load(R.drawable.braillebtn_false).into(cha_braillebtn12_12);
 
         Typeface font = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/BMJUA_ttf.ttf");
 

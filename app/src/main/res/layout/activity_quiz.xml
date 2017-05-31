@@ -73,7 +73,7 @@
                             android:layout_height="wrap_content"
                             android:background="@drawable/shapestudybtn"
                             android:textColor="#ffffff"
-                            android:id="@+id/quiz_consonant_initial"
+                            android:id="@+id/char_consonant_initial"
                             android:textSize="12dp"
                             android:layout_marginRight="10dp"
                             android:text="초성 자음"/>
@@ -81,6 +81,7 @@
                         <Button
                             android:layout_width="75dp"
                             android:layout_height="wrap_content"
+                            android:id="@+id/char_finalconsonant_initial"
                             android:background="@drawable/shapestudybtn"
                             android:textSize="12dp"
                             android:textColor="#ffffff"
@@ -91,6 +92,7 @@
                             android:layout_width="75dp"
                             android:layout_height="wrap_content"
                             android:textSize="12dp"
+                            android:id="@+id/char_vowel"
                             android:background="@drawable/shapestudybtn"
                             android:textColor="#ffffff"
                             android:layout_marginRight="10dp"
@@ -100,6 +102,7 @@
                             android:layout_width="75dp"
                             android:layout_height="wrap_content"
                             android:textSize="12dp"
+                            android:id="@+id/char_alphabet"
                             android:background="@drawable/shapestudybtn"
                             android:textColor="#ffffff"
                             android:layout_marginRight="10dp"
@@ -110,25 +113,18 @@
                             android:textSize="12dp"
                             android:layout_height="wrap_content"
                             android:textColor="#ffffff"
+                            android:id="@+id/char_abbreviation"
                             android:background="@drawable/shapestudybtn"
                             android:layout_marginRight="10dp"
                             android:text="약자"/>
 
                         <Button
                             android:layout_width="75dp"
-                            android:textSize="12dp"
-                            android:layout_height="wrap_content"
-                            android:textColor="#ffffff"
-                            android:background="@drawable/shapestudybtn"
-                            android:layout_marginRight="10dp"
-                            android:text="접속사"/>
-
-                        <Button
-                            android:layout_width="75dp"
                             android:layout_height="wrap_content"
                             android:layout_marginRight="10dp"
                             android:textSize="12dp"
                             android:textColor="#ffffff"
+                            android:id="@+id/char_number"
                             android:background="@drawable/shapestudybtn"
                             android:text="숫자"/>
 
@@ -210,9 +206,8 @@
                             android:textSize="70dp"
                             android:paddingTop="60dp"
                             android:textColor="#000000"
-                            android:text="ㄱ"
                             android:layout_weight="1"
-                            android:id="@+id/textView5" />
+                            android:id="@+id/problem_cha_quiz_6" />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -221,7 +216,7 @@
                             android:textSize="15dp"
                             android:layout_marginBottom="30dp"
                             android:textColor="#000000"
-                            android:text="정답확인"/>
+                            android:text="문 제"/>
 
 
 
@@ -358,12 +353,20 @@
                     android:layout_width="match_parent"
                     android:layout_gravity="center"
                     android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
                     android:orientation="horizontal">
 
-                    <TextView
+                    <Button
+                        android:id="@+id/quiz_solution"
                         android:layout_width="match_parent"
+                        android:layout_marginBottom="10dp"
                         android:layout_marginTop="10dp"
-                        android:layout_marginBottom="30dp"
+                        android:text="정답 보기"
+                        android:textSize="15dp"
+                        android:textColor="#000000"
+                        android:gravity="center"
+                        android:background="@drawable/shapebottomsub"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"/>
 
@@ -396,9 +399,17 @@
                         android:layout_height="match_parent" />
 
 
-                    <TextView
+                    <Button
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:id="@+id/next_question"
+                        android:text="다음 문제"
+                        android:textSize="15dp"
+                        android:textColor="#000000"
+                        android:gravity="center"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/shapebottomsub"
                         android:layout_weight="1"/>
 
 

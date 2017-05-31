@@ -5,16 +5,9 @@ import android.graphics.Color;
 import android.graphics.RectF;
 import android.graphics.Typeface;
 import android.os.Build;
-import android.os.CountDownTimer;
-import android.os.Handler;
-import android.os.Message;
+import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.support.annotation.RequiresApi;
-import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -22,50 +15,31 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TabHost;
-import android.widget.TabWidget;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
-import static android.R.attr.id;
-import static android.R.interpolator.linear;
-import static com.example.sinmingu.brailleproject.R.id.braillebtn1;
-import static com.example.sinmingu.brailleproject.R.id.braillebtn10_12;
-import static com.example.sinmingu.brailleproject.R.id.braillebtn11_12;
-import static com.example.sinmingu.brailleproject.R.id.braillebtn12_12;
-import static com.example.sinmingu.brailleproject.R.id.braillebtn1_12;
-import static com.example.sinmingu.brailleproject.R.id.braillebtn2;
-import static com.example.sinmingu.brailleproject.R.id.braillebtn2_12;
-import static com.example.sinmingu.brailleproject.R.id.braillebtn3;
-import static com.example.sinmingu.brailleproject.R.id.braillebtn3_12;
-import static com.example.sinmingu.brailleproject.R.id.braillebtn4;
-import static com.example.sinmingu.brailleproject.R.id.braillebtn4_12;
-import static com.example.sinmingu.brailleproject.R.id.braillebtn5;
-import static com.example.sinmingu.brailleproject.R.id.braillebtn5_12;
-import static com.example.sinmingu.brailleproject.R.id.braillebtn6;
-import static com.example.sinmingu.brailleproject.R.id.braillebtn6_12;
-import static com.example.sinmingu.brailleproject.R.id.braillebtn7_12;
-import static com.example.sinmingu.brailleproject.R.id.braillebtn8_12;
-import static com.example.sinmingu.brailleproject.R.id.braillebtn9_12;
-import static com.example.sinmingu.brailleproject.R.id.linear_touch2_2;
-import static com.example.sinmingu.brailleproject.R.id.linear_touch2_3;
-import static com.example.sinmingu.brailleproject.R.id.linear_touch2_enter;
-import static com.example.sinmingu.brailleproject.R.id.linear_touch2_left;
-import static com.example.sinmingu.brailleproject.R.id.linear_touch2_right;
-import static com.example.sinmingu.brailleproject.R.id.linear_touch_2;
-import static com.example.sinmingu.brailleproject.R.id.linear_touch_3;
+import java.util.Random;
 
 public class QuizActivity extends BaseActivity implements TextToSpeech.OnInitListener{
 
-
-    Button quiz_consonant_initial,quiz_result_send;
+    int type_6 = 0;
+    int randomNum = 1;
+    //6점 메뉴 버튼
+    Button char_consonant_initial,char_finalconsonant_initial,char_vowel,char_alphabet,char_abbreviation,char_number,quiz_result_send;
 
     ImageButton quiz_braillebtn1,quiz_braillebtn2,quiz_braillebtn3,quiz_braillebtn4,quiz_braillebtn5,quiz_braillebtn6;
     int quiz_btnstatus1, quiz_btnstatus2, quiz_btnstatus3, quiz_btnstatus4, quiz_btnstatus5, quiz_btnstatus6;
-    ImageView quiz_resultpicture;
+    ImageView quiz_resultpicture, cha_result_12_picture;
     int quiz_picturenum;
     ImageButton quiz_ch_listen;
+
+    TextView problem_cha_quiz_6;
+
+    Random rand;
+
+
 
     TabHost quiz_tab_host;
 
@@ -93,13 +67,22 @@ public class QuizActivity extends BaseActivity implements TextToSpeech.OnInitLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
 
+        problem_cha_quiz_6=(TextView)findViewById(R.id.problem_cha_quiz_6);
+
         quiz_tab_host= (TabHost) findViewById(R.id.quiz_tab_host);
         quiz_ch_listen=(ImageButton)findViewById(R.id.quiz_ch_listen);
         TabHost tabHost = (TabHost)findViewById(R.id.quiz_tab_host);
-        quiz_consonant_initial=(Button)findViewById(R.id.quiz_consonant_initial);
+
+        //6점 메뉴버튼 초기화
+        char_consonant_initial=(Button)findViewById(R.id.char_consonant_initial);
+        char_finalconsonant_initial=(Button)findViewById(R.id.char_finalconsonant_initial);
+        char_vowel=(Button)findViewById(R.id.char_vowel);
+        char_alphabet=(Button)findViewById(R.id.char_alphabet);
+        char_abbreviation=(Button)findViewById(R.id.char_abbreviation);
+        char_number=(Button)findViewById(R.id.char_number);
         //정답확인 버튼
         quiz_result_send=(Button)findViewById(R.id.quiz_result_send);
-
+        cha_result_12_picture = (ImageView)findViewById(R.id.cha_result_12_picture);
         //1~6버튼 상태 초기화
         quiz_btnstatus1=0;
         quiz_btnstatus2=0;
@@ -183,7 +166,6 @@ public class QuizActivity extends BaseActivity implements TextToSpeech.OnInitLis
         Glide.with(this).load(R.drawable.braillebtn_false).into(quiz_braillebtn4);
         Glide.with(this).load(R.drawable.braillebtn_false).into(quiz_braillebtn5);
         Glide.with(this).load(R.drawable.braillebtn_false).into(quiz_braillebtn6);
-        Glide.with(this).load(R.drawable.resultok).into(quiz_resultpicture);
 
 
         //-----------------------------------------------------------------------------
@@ -234,6 +216,8 @@ public class QuizActivity extends BaseActivity implements TextToSpeech.OnInitLis
         tabSpec2.setContent(R.id.quiz_tab_view2); // Tab Content
         tabHost.addTab(tabSpec2);
 
+        // 랜덤 숫자 생성용
+        rand = new Random();
 
 
         // show First Tab Content
@@ -247,6 +231,62 @@ public class QuizActivity extends BaseActivity implements TextToSpeech.OnInitLis
             tv.setTextColor(Color.parseColor("#000000"));
             tv.setTextSize(16);
         }
+
+        char_consonant_initial.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                type_6 = 1;
+                randomNum = rand.nextInt(13);   // 0~12 난수
+
+                consonant_initial_setting(randomNum);
+
+            }
+        });
+        char_finalconsonant_initial.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                type_6 = 2;
+                randomNum = rand.nextInt(14);   // 0~13 난수
+
+                finalconsonant_initial_setting(randomNum);
+            }
+        });
+        char_vowel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                type_6 = 3;
+                randomNum = rand.nextInt(17);   // 0~16 난수
+
+                vowel_setting(randomNum);
+            }
+        });
+        char_alphabet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                type_6 = 4;
+                randomNum = rand.nextInt(26);   // 0~25 난수
+
+                alphabet_setting(randomNum);
+            }
+        });
+        char_abbreviation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                type_6 = 5;
+                randomNum = rand.nextInt(24);   // 0~25 난수
+
+                abbreviation_setting(randomNum);
+            }
+        });
+        char_number.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                type_6 = 6;
+                randomNum = rand.nextInt(10);   // 0~9 난수
+
+                number_setting(randomNum);
+            }
+        });
 
         quiz_braillebtn1.setClickable(false);
         quiz_braillebtn2.setClickable(false);
@@ -565,6 +605,44 @@ public class QuizActivity extends BaseActivity implements TextToSpeech.OnInitLis
             }
         });
 
+        quiz_result_send.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if(type_6 == 1) {
+                    switch (randomNum) {
+                        case 1:
+                            if (braille[0] == 0 && braille[1] == 0 && braille[2] == 0 && braille[3] == 1 && braille[4] == 0 && braille[5] == 0) {
+                                braillebtn_false_ok();
+                            } else {
+                                braillebtn_false_no();
+                            }
+                            break;
+                    }
+                }
+                else if(type_6 == 2){
+
+                }
+                else if(type_6 == 3){
+
+                }
+                else if(type_6 == 4){
+
+                }
+                else if(type_6 == 5){
+
+                }
+                else if(type_6 == 6){
+
+                }
+                else{
+                    Toast.makeText(getApplicationContext(), "타입을 눌러주세요", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+
+
     }
 
     @Override
@@ -582,5 +660,508 @@ public class QuizActivity extends BaseActivity implements TextToSpeech.OnInitLis
 
     }
 
+    public void braillebtn_false_ok_12(){
 
+        Glide.with(QuizActivity.this).load(R.drawable.braillebtn_false).into(cha_braillebtn1_12);
+        Glide.with(QuizActivity.this).load(R.drawable.braillebtn_false).into(cha_braillebtn2_12);
+        Glide.with(QuizActivity.this).load(R.drawable.braillebtn_false).into(cha_braillebtn3_12);
+        Glide.with(QuizActivity.this).load(R.drawable.braillebtn_false).into(cha_braillebtn4_12);
+        Glide.with(QuizActivity.this).load(R.drawable.braillebtn_false).into(cha_braillebtn5_12);
+        Glide.with(QuizActivity.this).load(R.drawable.braillebtn_false).into(cha_braillebtn6_12);
+        Glide.with(QuizActivity.this).load(R.drawable.braillebtn_false).into(cha_braillebtn7_12);
+        Glide.with(QuizActivity.this).load(R.drawable.braillebtn_false).into(cha_braillebtn8_12);
+        Glide.with(QuizActivity.this).load(R.drawable.braillebtn_false).into(cha_braillebtn9_12);
+        Glide.with(QuizActivity.this).load(R.drawable.braillebtn_false).into(cha_braillebtn10_12);
+        Glide.with(QuizActivity.this).load(R.drawable.braillebtn_false).into(cha_braillebtn11_12);
+        Glide.with(QuizActivity.this).load(R.drawable.braillebtn_false).into(cha_braillebtn12_12);
+
+        btnstatus1_12 = 0;
+        btnstatus2_12 = 0;
+        btnstatus3_12 = 0;
+        btnstatus4_12 = 0;
+        btnstatus5_12 = 0;
+        btnstatus6_12 = 0;
+        btnstatus7_12 = 0;
+        btnstatus8_12 = 0;
+        btnstatus9_12 = 0;
+        btnstatus10_12 = 0;
+        btnstatus11_12 = 0;
+        btnstatus12_12 = 0;
+
+        for(int i=0;i<12;i++){
+            braille_12[i]=0;
+
+        }
+
+        Glide.with(QuizActivity.this).load(R.drawable.resultok).into(cha_result_12_picture);
+        //ttsClient.speak("정답", TextToSpeech.QUEUE_FLUSH, null);
+
+    }
+    public void braillebtn_false_ok(){
+
+        Glide.with(QuizActivity.this).load(R.drawable.braillebtn_false).into(quiz_braillebtn1);
+        Glide.with(QuizActivity.this).load(R.drawable.braillebtn_false).into(quiz_braillebtn2);
+        Glide.with(QuizActivity.this).load(R.drawable.braillebtn_false).into(quiz_braillebtn3);
+        Glide.with(QuizActivity.this).load(R.drawable.braillebtn_false).into(quiz_braillebtn4);
+        Glide.with(QuizActivity.this).load(R.drawable.braillebtn_false).into(quiz_braillebtn5);
+        Glide.with(QuizActivity.this).load(R.drawable.braillebtn_false).into(quiz_braillebtn6);
+
+        quiz_btnstatus1=0;
+        quiz_btnstatus2=0;
+        quiz_btnstatus3=0;
+        quiz_btnstatus4=0;
+        quiz_btnstatus5=0;
+        quiz_btnstatus6=0;
+
+        braille[0]=0;
+        braille[1]=0;
+        braille[2]=0;
+        braille[3]=0;
+        braille[4]=0;
+        braille[5]=0;
+
+        Glide.with(QuizActivity.this).load(R.drawable.resultok).into(quiz_resultpicture);
+        //ttsClient.speak("정답", TextToSpeech.QUEUE_FLUSH, null);
+    }
+
+    public void braillebtn_false_no_12(){
+
+        Glide.with(QuizActivity.this).load(R.drawable.braillebtn_false).into(cha_braillebtn1_12);
+        Glide.with(QuizActivity.this).load(R.drawable.braillebtn_false).into(cha_braillebtn2_12);
+        Glide.with(QuizActivity.this).load(R.drawable.braillebtn_false).into(cha_braillebtn3_12);
+        Glide.with(QuizActivity.this).load(R.drawable.braillebtn_false).into(cha_braillebtn4_12);
+        Glide.with(QuizActivity.this).load(R.drawable.braillebtn_false).into(cha_braillebtn5_12);
+        Glide.with(QuizActivity.this).load(R.drawable.braillebtn_false).into(cha_braillebtn6_12);
+        Glide.with(QuizActivity.this).load(R.drawable.braillebtn_false).into(cha_braillebtn7_12);
+        Glide.with(QuizActivity.this).load(R.drawable.braillebtn_false).into(cha_braillebtn8_12);
+        Glide.with(QuizActivity.this).load(R.drawable.braillebtn_false).into(cha_braillebtn9_12);
+        Glide.with(QuizActivity.this).load(R.drawable.braillebtn_false).into(cha_braillebtn10_12);
+        Glide.with(QuizActivity.this).load(R.drawable.braillebtn_false).into(cha_braillebtn11_12);
+        Glide.with(QuizActivity.this).load(R.drawable.braillebtn_false).into(cha_braillebtn12_12);
+
+        btnstatus1_12 = 0;
+        btnstatus2_12 = 0;
+        btnstatus3_12 = 0;
+        btnstatus4_12 = 0;
+        btnstatus5_12 = 0;
+        btnstatus6_12 = 0;
+        btnstatus7_12 = 0;
+        btnstatus8_12 = 0;
+        btnstatus9_12 = 0;
+        btnstatus10_12 = 0;
+        btnstatus11_12 = 0;
+        btnstatus12_12 = 0;
+
+        for(int i=0;i<12;i++){
+            braille_12[i]=0;
+
+        }
+
+        Glide.with(QuizActivity.this).load(R.drawable.resultno).into(cha_result_12_picture);
+        //ttsClient.speak("오답", TextToSpeech.QUEUE_FLUSH, null);
+
+    }
+
+    public void braillebtn_false_no(){
+
+        Glide.with(QuizActivity.this).load(R.drawable.braillebtn_false).into(quiz_braillebtn1);
+        Glide.with(QuizActivity.this).load(R.drawable.braillebtn_false).into(quiz_braillebtn2);
+        Glide.with(QuizActivity.this).load(R.drawable.braillebtn_false).into(quiz_braillebtn3);
+        Glide.with(QuizActivity.this).load(R.drawable.braillebtn_false).into(quiz_braillebtn4);
+        Glide.with(QuizActivity.this).load(R.drawable.braillebtn_false).into(quiz_braillebtn5);
+        Glide.with(QuizActivity.this).load(R.drawable.braillebtn_false).into(quiz_braillebtn6);
+
+        quiz_btnstatus1=0;
+        quiz_btnstatus2=0;
+        quiz_btnstatus3=0;
+        quiz_btnstatus4=0;
+        quiz_btnstatus5=0;
+        quiz_btnstatus6=0;
+
+        braille[0]=0;
+        braille[1]=0;
+        braille[2]=0;
+        braille[3]=0;
+        braille[4]=0;
+        braille[5]=0;
+
+        Glide.with(QuizActivity.this).load(R.drawable.resultno).into(quiz_resultpicture);
+        //ttsClient.speak("오답", TextToSpeech.QUEUE_FLUSH, null);
+
+    }
+
+    public void consonant_initial_setting(int number){
+        switch (number){
+
+            case 0 :
+                problem_cha_quiz_6.setText("ㄱ");
+                break;
+            case 1:
+                problem_cha_quiz_6.setText("ㄴ");
+                break;
+            case 2:
+                problem_cha_quiz_6.setText("ㄷ");
+                break;
+            case 3:
+                problem_cha_quiz_6.setText("ㄹ");
+                break;
+            case 4:
+                problem_cha_quiz_6.setText("ㅁ");
+                break;
+            case 5:
+                problem_cha_quiz_6.setText("ㅂ");
+                break;
+            case 6:
+                problem_cha_quiz_6.setText("ㅅ");
+                break;
+            case 7:
+                problem_cha_quiz_6.setText("ㅈ");
+                break;
+            case 8:
+                problem_cha_quiz_6.setText("ㅊ");
+                break;
+            case 9:
+                problem_cha_quiz_6.setText("ㅋ");
+                break;
+            case 10:
+                problem_cha_quiz_6.setText("ㅌ");
+                break;
+            case 11:
+                problem_cha_quiz_6.setText("ㅍ");
+                break;
+            case 12:
+                problem_cha_quiz_6.setText("ㅎ");
+                break;
+            default:
+                Toast.makeText(getApplicationContext(), "", Toast.LENGTH_SHORT).show();
+
+        }
+    }
+
+    public void finalconsonant_initial_setting(int number){
+
+        switch (number){
+
+            case 0 :
+                problem_cha_quiz_6.setText("ㄱ");
+                break;
+            case 1:
+                problem_cha_quiz_6.setText("ㄴ");
+                break;
+            case 2:
+                problem_cha_quiz_6.setText("ㄷ");
+                break;
+            case 3:
+                problem_cha_quiz_6.setText("ㄹ");
+                break;
+            case 4:
+                problem_cha_quiz_6.setText("ㅁ");
+                break;
+            case 5:
+                problem_cha_quiz_6.setText("ㅂ");
+                break;
+            case 6:
+                problem_cha_quiz_6.setText("ㅅ");
+                break;
+            case 7:
+                problem_cha_quiz_6.setText("ㅇ");
+                break;
+            case 8:
+                problem_cha_quiz_6.setText("ㅈ");
+                break;
+            case 9:
+                problem_cha_quiz_6.setText("ㅊ");
+                break;
+            case 10:
+                problem_cha_quiz_6.setText("ㅋ");
+                break;
+            case 11:
+                problem_cha_quiz_6.setText("ㅌ");
+                break;
+            case 12:
+                problem_cha_quiz_6.setText("ㅍ");
+                break;
+            case 13:
+                problem_cha_quiz_6.setText("ㅎ");
+                break;
+            default:
+                Toast.makeText(getApplicationContext(), "", Toast.LENGTH_SHORT).show();
+
+        }
+    }
+
+    public void vowel_setting(int number){
+
+        switch (number){
+
+            case 0 :
+                problem_cha_quiz_6.setText("ㅏ");
+                break;
+            case 1:
+                problem_cha_quiz_6.setText("ㅑ");
+                break;
+            case 2:
+                problem_cha_quiz_6.setText("ㅓ");
+                break;
+            case 3:
+                problem_cha_quiz_6.setText("ㅕ");
+                break;
+            case 4:
+                problem_cha_quiz_6.setText("ㅗ");
+                break;
+            case 5:
+                problem_cha_quiz_6.setText("ㅛ");
+                break;
+            case 6:
+                problem_cha_quiz_6.setText("ㅜ");
+                break;
+            case 7:
+                problem_cha_quiz_6.setText("ㅠ");
+                break;
+            case 8:
+                problem_cha_quiz_6.setText("ㅡ");
+                break;
+            case 9:
+                problem_cha_quiz_6.setText("ㅣ");
+                break;
+            case 10:
+                problem_cha_quiz_6.setText("ㅐ");
+                break;
+            case 11:
+                problem_cha_quiz_6.setText("ㅔ");
+                break;
+            case 12:
+                problem_cha_quiz_6.setText("ㅚ");
+                break;
+            case 13:
+                problem_cha_quiz_6.setText("ㅘ");
+                break;
+            case 14:
+                problem_cha_quiz_6.setText("ㅝ");
+                break;
+            case 15:
+                problem_cha_quiz_6.setText("ㅢ");
+                break;
+            case 16:
+                problem_cha_quiz_6.setText("ㅖ");
+                break;
+            default:
+                Toast.makeText(getApplicationContext(), "", Toast.LENGTH_SHORT).show();
+
+        }
+
+    }
+
+    public void alphabet_setting(int number){
+
+        switch (number){
+
+            case 0 :
+                problem_cha_quiz_6.setText("a");
+                break;
+            case 1:
+                problem_cha_quiz_6.setText("b");
+                break;
+            case 2:
+                problem_cha_quiz_6.setText("c");
+                break;
+            case 3:
+                problem_cha_quiz_6.setText("d");
+                break;
+            case 4:
+                problem_cha_quiz_6.setText("e");
+                break;
+            case 5:
+                problem_cha_quiz_6.setText("f");
+                break;
+            case 6:
+                problem_cha_quiz_6.setText("g");
+                break;
+            case 7:
+                problem_cha_quiz_6.setText("h");
+                break;
+            case 8:
+                problem_cha_quiz_6.setText("i");
+                break;
+            case 9:
+                problem_cha_quiz_6.setText("j");
+                break;
+            case 10:
+                problem_cha_quiz_6.setText("k");
+                break;
+            case 11:
+                problem_cha_quiz_6.setText("l");
+                break;
+            case 12:
+                problem_cha_quiz_6.setText("m");
+                break;
+            case 14:
+                problem_cha_quiz_6.setText("n");
+                break;
+            case 15:
+                problem_cha_quiz_6.setText("o");
+                break;
+            case 16:
+                problem_cha_quiz_6.setText("p");
+                break;
+            case 17:
+                problem_cha_quiz_6.setText("q");
+                break;
+            case 18:
+                problem_cha_quiz_6.setText("r");
+                break;
+            case 19:
+                problem_cha_quiz_6.setText("s");
+                break;
+            case 20:
+                problem_cha_quiz_6.setText("t");
+                break;
+            case 21:
+                problem_cha_quiz_6.setText("u");
+                break;
+            case 22:
+                problem_cha_quiz_6.setText("v");
+                break;
+            case 23:
+                problem_cha_quiz_6.setText("w");
+                break;
+            case 24:
+                problem_cha_quiz_6.setText("z");
+                break;
+            case 25:
+                problem_cha_quiz_6.setText("y");
+                break;
+            case 26:
+                problem_cha_quiz_6.setText("z");
+                break;
+            default:
+                Toast.makeText(getApplicationContext(), "", Toast.LENGTH_SHORT).show();
+
+        }
+
+    }
+
+    public void abbreviation_setting(int number){
+
+        switch (number){
+
+            case 0 :
+                problem_cha_quiz_6.setText("가");
+                break;
+            case 1:
+                problem_cha_quiz_6.setText("나");
+                break;
+            case 2:
+                problem_cha_quiz_6.setText("다");
+                break;
+            case 3:
+                problem_cha_quiz_6.setText("마");
+                break;
+            case 4:
+                problem_cha_quiz_6.setText("바");
+                break;
+            case 5:
+                problem_cha_quiz_6.setText("사");
+                break;
+            case 6:
+                problem_cha_quiz_6.setText("자");
+                break;
+            case 7:
+                problem_cha_quiz_6.setText("카");
+                break;
+            case 8:
+                problem_cha_quiz_6.setText("타");
+                break;
+            case 9:
+                problem_cha_quiz_6.setText("파");
+                break;
+            case 10:
+                problem_cha_quiz_6.setText("하");
+                break;
+            case 11:
+                problem_cha_quiz_6.setText("억");
+                break;
+            case 12:
+                problem_cha_quiz_6.setText("언");
+                break;
+            case 13:
+                problem_cha_quiz_6.setText("얼");
+                break;
+            case 14:
+                problem_cha_quiz_6.setText("연");
+                break;
+            case 15:
+                problem_cha_quiz_6.setText("열");
+                break;
+            case 16:
+                problem_cha_quiz_6.setText("영");
+                break;
+            case 17:
+                problem_cha_quiz_6.setText("옥");
+                break;
+            case 18:
+                problem_cha_quiz_6.setText("온");
+                break;
+            case 19:
+                problem_cha_quiz_6.setText("옹");
+                break;
+            case 20:
+                problem_cha_quiz_6.setText("운");
+                break;
+            case 21:
+                problem_cha_quiz_6.setText("울");
+                break;
+            case 22:
+                problem_cha_quiz_6.setText("은");
+                break;
+            case 23:
+                problem_cha_quiz_6.setText("을");
+                break;
+            default:
+                Toast.makeText(getApplicationContext(), "", Toast.LENGTH_SHORT).show();
+
+        }
+
+    }
+
+    public void number_setting(int number){
+
+        switch (number){
+
+            case 0 :
+                problem_cha_quiz_6.setText("1");
+                break;
+            case 1:
+                problem_cha_quiz_6.setText("2");
+                break;
+            case 2:
+                problem_cha_quiz_6.setText("3");
+                break;
+            case 3:
+                problem_cha_quiz_6.setText("4");
+                break;
+            case 4:
+                problem_cha_quiz_6.setText("5");
+                break;
+            case 5:
+                problem_cha_quiz_6.setText("6");
+                break;
+            case 6:
+                problem_cha_quiz_6.setText("7");
+                break;
+            case 7:
+                problem_cha_quiz_6.setText("8");
+                break;
+            case 8:
+                problem_cha_quiz_6.setText("9");
+                break;
+            case 9:
+                problem_cha_quiz_6.setText("0");
+                break;
+            default:
+                Toast.makeText(getApplicationContext(), "", Toast.LENGTH_SHORT).show();
+
+        }
+
+    }
 }

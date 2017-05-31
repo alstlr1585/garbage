@@ -2190,6 +2190,19 @@ public class braillestudyActivity extends BaseActivity implements TextToSpeech.O
         Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_false).into(braillebtn11_12);
         Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_false).into(braillebtn12_12);
 
+        btnstatus2_12 = 0;
+        btnstatus1_12 = 0;
+        btnstatus3_12 = 0;
+        btnstatus4_12 = 0;
+        btnstatus5_12 = 0;
+        btnstatus6_12 = 0;
+        btnstatus7_12 = 0;
+        btnstatus8_12 = 0;
+        btnstatus9_12 = 0;
+        btnstatus10_12 = 0;
+        btnstatus11_12 = 0;
+        btnstatus12_12 = 0;
+
         for(int i=0;i<12;i++){
             braille_12[i]=0;
 
@@ -2239,6 +2252,19 @@ public class braillestudyActivity extends BaseActivity implements TextToSpeech.O
         Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_false).into(braillebtn10_12);
         Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_false).into(braillebtn11_12);
         Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_false).into(braillebtn12_12);
+
+        btnstatus2_12 = 0;
+        btnstatus1_12 = 0;
+        btnstatus3_12 = 0;
+        btnstatus4_12 = 0;
+        btnstatus5_12 = 0;
+        btnstatus6_12 = 0;
+        btnstatus7_12 = 0;
+        btnstatus8_12 = 0;
+        btnstatus9_12 = 0;
+        btnstatus10_12 = 0;
+        btnstatus11_12 = 0;
+        btnstatus12_12 = 0;
 
         for(int i=0;i<12;i++){
             braille_12[i]=0;

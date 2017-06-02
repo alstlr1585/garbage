@@ -137,16 +137,32 @@
                     android:layout_height="1.5dp"
                     android:background="#000000"/>
 
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="15dp"
-                    android:gravity="center"
-                    android:paddingBottom="5dp"
-                    android:paddingTop="5dp"
                     android:background="#EAEAEA"
-                    android:textColor="#000000"
-                    android:text="미선택"/>
+                    android:orientation="horizontal">
+
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="15dp"
+                        android:gravity="center"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp"
+                        android:layout_weight="1"
+                        android:id="@+id/braille_mode"
+                        android:background="#EAEAEA"
+                        android:textColor="#000000"
+                        android:text="미선택"/>
+
+
+
+                </LinearLayout>
+
+
 
                 <TextView
                     android:layout_width="match_parent"
@@ -179,7 +195,7 @@
 
                         <ImageButton
                             android:layout_width="match_parent"
-                            android:layout_height="20dp"
+                            android:layout_height="30dp"
                             android:layout_marginLeft="20dp"
                             android:layout_marginRight="20dp"
                             android:id="@+id/quiz_ch_listen"
@@ -406,6 +422,7 @@
                         android:text="다음 문제"
                         android:textSize="15dp"
                         android:textColor="#000000"
+                        android:visibility="invisible"
                         android:gravity="center"
                         android:layout_marginBottom="10dp"
                         android:layout_marginTop="10dp"
@@ -415,13 +432,6 @@
 
 
                 </LinearLayout>
-
-
-
-
-
-
-
 
 
             </LinearLayout>
@@ -815,8 +825,16 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <TextView
+                    <Button
+                        android:id="@+id/quiz_solution_12"
                         android:layout_width="match_parent"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="10dp"
+                        android:text="정답 보기"
+                        android:textSize="15dp"
+                        android:textColor="#000000"
+                        android:gravity="center"
+                        android:background="@drawable/shapebottomsub"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"/>
 
@@ -849,8 +867,11 @@
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="확 인"
+                        android:text="다음문제"
+                        android:gravity="center"
                         android:layout_weight="1"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="10dp"
                         android:textColor="#000000"
                         android:id="@+id/cha_result_send_12"
                         android:background="@drawable/shapebottomsub"

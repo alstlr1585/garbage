@@ -64,8 +64,7 @@ public class braillestudyActivity extends BaseActivity implements TextToSpeech.O
             R.drawable.braille_abbreviation_5,R.drawable.braille_abbreviation_6,R.drawable.braille_abbreviation_7,R.drawable.braille_abbreviation_8,R.drawable.braille_abbreviation_9,
             R.drawable.braille_abbreviation_10,R.drawable.braille_abbreviation_11,R.drawable.braille_abbreviation_12,R.drawable.braille_abbreviation_13,R.drawable.braille_abbreviation_14,
             R.drawable.braille_abbreviation_15,R.drawable.braille_abbreviation_16,R.drawable.braille_abbreviation_17,R.drawable.braille_abbreviation_18,R.drawable.braille_abbreviation_19,
-            R.drawable.braille_abbreviation_20,R.drawable.braille_abbreviation_21,R.drawable.braille_abbreviation_22,R.drawable.braille_abbreviation_23,R.drawable.braille_abbreviation_24,
-            R.drawable.braille_abbreviation_25,R.drawable.braille_abbreviation_26};
+            R.drawable.braille_abbreviation_20,R.drawable.braille_abbreviation_21,R.drawable.braille_abbreviation_22,R.drawable.braille_abbreviation_23,R.drawable.braille_abbreviation_24};
 
     int [] braille_alphabet_imgs={R.drawable.braille_alphabet_1,R.drawable.braille_alphabet_2,R.drawable.braille_alphabet_3,R.drawable.braille_alphabet_4,R.drawable.braille_alphabet_5,
             R.drawable.braille_alphabet_6,R.drawable.braille_alphabet_7,R.drawable.braille_alphabet_8,R.drawable.braille_alphabet_9,R.drawable.braille_alphabet_10,R.drawable.braille_alphabet_11,
@@ -800,7 +799,7 @@ public class braillestudyActivity extends BaseActivity implements TextToSpeech.O
 
                     case "약자":
 
-                        if(braille_abbreviation_picturenum!=25)
+                        if(braille_abbreviation_picturenum!=23)
                             braille_abbreviation_picturenum++;
                         Glide.with(braillestudyActivity.this).load(braille_abbreviation_imgs[braille_abbreviation_picturenum]).into(brailleImage);
                         break;
@@ -1393,7 +1392,7 @@ public class braillestudyActivity extends BaseActivity implements TextToSpeech.O
                                 break;
                             //자
                             case 6:
-                                if(braille[0]==0&&braille[1]==0&&braille[2]==0&&braille[3]==1&&braille[4]==0&&braille[5]==5)
+                                if(braille[0]==0&&braille[1]==0&&braille[2]==0&&braille[3]==1&&braille[4]==0&&braille[5]==1)
                                     braillebtn_false_ok();
                                 else
                                     braillebtn_false_no();
@@ -1426,106 +1425,92 @@ public class braillestudyActivity extends BaseActivity implements TextToSpeech.O
                                 else
                                     braillebtn_false_no();
                                 break;
-                            //것
-                            case 11:
-                                if(braille[0]==0&&braille[1]==0&&braille[2]==0&&braille[3]==1&&braille[4]==1&&braille[5]==1)
-                                    braillebtn_false_ok();
-                                else
-                                    braillebtn_false_no();
-                                break;
-                            //것
-                            case 12:
-                                if(braille[0]==0&&braille[1]==1&&braille[2]==1&&braille[3]==1&&braille[4]==0&&braille[5]==0)
-                                    braillebtn_false_ok();
-                                else
-                                    braillebtn_false_no();
-                                break;
                             //억
-                            case 13:
+                            case 11:
                                 if(braille[0]==1&&braille[1]==0&&braille[2]==0&&braille[3]==1&&braille[4]==1&&braille[5]==1)
                                     braillebtn_false_ok();
                                 else
                                     braillebtn_false_no();
                                 break;
                             //언
-                            case 14:
+                            case 12:
                                 if(braille[0]==0&&braille[1]==1&&braille[2]==1&&braille[3]==1&&braille[4]==1&&braille[5]==1)
                                     braillebtn_false_ok();
                                 else
                                     braillebtn_false_no();
                                 break;
                             //얼
-                            case 15:
+                            case 13:
                                 if(braille[0]==0&&braille[1]==1&&braille[2]==1&&braille[3]==1&&braille[4]==1&&braille[5]==0)
                                     braillebtn_false_ok();
                                 else
                                     braillebtn_false_no();
                                 break;
                             //연
-                            case 16:
+                            case 14:
                                 if(braille[0]==1&&braille[1]==0&&braille[2]==0&&braille[3]==0&&braille[4]==0&&braille[5]==1)
                                     braillebtn_false_ok();
                                 else
                                     braillebtn_false_no();
                                 break;
                             //열
-                            case 17:
+                            case 15:
                                 if(braille[0]==1&&braille[1]==1&&braille[2]==0&&braille[3]==0&&braille[4]==1&&braille[5]==1)
                                     braillebtn_false_ok();
                                 else
                                     braillebtn_false_no();
                                 break;
                             //영
-                            case 18:
+                            case 16:
                                 if(braille[0]==1&&braille[1]==1&&braille[2]==0&&braille[3]==1&&braille[4]==1&&braille[5]==1)
                                     braillebtn_false_ok();
                                 else
                                     braillebtn_false_no();
                                 break;
                             //옥
-                            case 19:
+                            case 17:
                                 if(braille[0]==1&&braille[1]==0&&braille[2]==1&&braille[3]==1&&braille[4]==0&&braille[5]==1)
                                     braillebtn_false_ok();
                                 else
                                     braillebtn_false_no();
                                 break;
                             //온
-                            case 20:
+                            case 18:
                                 if(braille[0]==1&&braille[1]==1&&braille[2]==1&&braille[3]==0&&braille[4]==1&&braille[5]==1)
                                     braillebtn_false_ok();
                                 else
                                     braillebtn_false_no();
                                 break;
                             //옹
-                            case 21:
+                            case 19:
                                 if(braille[0]==1&&braille[1]==1&&braille[2]==1&&braille[3]==1&&braille[4]==1&&braille[5]==1)
                                     braillebtn_false_ok();
                                 else
                                     braillebtn_false_no();
                                 break;
                             //운
-                            case 22:
+                            case 20:
                                 if(braille[0]==1&&braille[1]==1&&braille[2]==0&&braille[3]==1&&braille[4]==1&&braille[5]==0)
                                     braillebtn_false_ok();
                                 else
                                     braillebtn_false_no();
                                 break;
                             //울
-                            case 23:
+                            case 21:
                                 if(braille[0]==1&&braille[1]==1&&braille[2]==1&&braille[3]==1&&braille[4]==0&&braille[5]==1)
                                     braillebtn_false_ok();
                                 else
                                     braillebtn_false_no();
                                 break;
                             //은
-                            case 24:
+                            case 22:
                                 if(braille[0]==1&&braille[1]==0&&braille[2]==1&&braille[3]==0&&braille[4]==1&&braille[5]==1)
                                     braillebtn_false_ok();
                                 else
                                     braillebtn_false_no();
                                 break;
                             //을
-                            case 25:
+                            case 23:
                                 if(braille[0]==0&&braille[1]==1&&braille[2]==1&&braille[3]==1&&braille[4]==0&&braille[5]==1)
                                     braillebtn_false_ok();
                                 else
@@ -1548,7 +1533,7 @@ public class braillestudyActivity extends BaseActivity implements TextToSpeech.O
                                 break;
                             //2
                             case 1:
-                                if(braille[0]==1&&braille[1]==2&&braille[2]==0&&braille[3]==0&&braille[4]==0&&braille[5]==0)
+                                if(braille[0]==1&&braille[1]==1&&braille[2]==0&&braille[3]==0&&braille[4]==0&&braille[5]==0)
                                     braillebtn_false_ok();
                                 else
                                     braillebtn_false_no();

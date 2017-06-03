@@ -44,7 +44,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="- 심화학습 -"
+                android:text="심화학습"
                 android:textSize="25dp"
                 android:textColor="#ffffff"/>
 
@@ -55,6 +55,7 @@
             android:orientation="horizontal"
             android:gravity="center"
             android:layout_weight="0.02"
+            android:layout_marginBottom="-35dp"
             android:layout_height="wrap_content">
 
             <TextView
@@ -80,6 +81,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.1"
             android:gravity="center"
+            android:layout_marginBottom="-10dp"
             android:orientation="vertical">
 
             <TextView
@@ -90,7 +92,14 @@
                 android:gravity="center"
                 android:layout_marginBottom="7dp"
                 android:textColor="#ffffff"/>
-
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="약 자"
+                android:textSize="15dp"
+                android:gravity="center"
+                android:layout_marginBottom="7dp"
+                android:textColor="#ffffff"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -109,13 +118,14 @@
                 android:textSize="15dp"
                 android:textColor="#ffffff"/>
 
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="단독으로 쓰인 자모"
-                android:layout_marginBottom="7dp"
-                android:gravity="center"
+                android:text="약 어"
                 android:textSize="15dp"
+                android:gravity="center"
+                android:layout_marginBottom="7dp"
                 android:textColor="#ffffff"/>
 
             <TextView
@@ -126,6 +136,16 @@
                 android:gravity="center"
                 android:layout_marginBottom="7dp"
                 android:textColor="#ffffff"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="단독으로 쓰인 자모"
+                android:layout_marginBottom="7dp"
+                android:gravity="center"
+                android:textSize="15dp"
+                android:textColor="#ffffff"/>
+
+
 
 
         </LinearLayout>

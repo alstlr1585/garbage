@@ -204,7 +204,39 @@
                             android:layout_height="wrap_content"
                             android:id="@+id/textView3" />
 
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"/>
+
+                            <Button
+                                android:layout_width="wrap_content"
+                                android:text="확 인"
+                                android:textColor="#000000"
+                                android:textSize="15dp"
+                                android:background="@drawable/shapebraille"
+                                android:gravity="center"
+                                android:layout_marginRight="8dp"
+                                android:layout_marginLeft="20dp"
+                                android:layout_height="wrap_content" />
+
+
+
+                        </LinearLayout>
+
+
+
                     </LinearLayout>
+
+
+
+
 
 
                 </LinearLayout>

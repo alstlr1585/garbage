@@ -148,7 +148,7 @@ public class deepenAdapter extends BaseExpandableListAdapter {
             if (child == "9") {
                 img.setImageResource(R.drawable.study_deepen_9);
             }
-        }else if(positionName == "모음 연쇄"){
+        } else if(positionName == "모음 연쇄"){
             if(child=="10"){
                 img.setImageResource(R.drawable.study_deepen_10);
             }
@@ -156,6 +156,26 @@ public class deepenAdapter extends BaseExpandableListAdapter {
                 img.setImageResource(R.drawable.study_deepen_11);
             }
 
+        } else if(positionName == "약 자"){
+            if(child=="12"){
+                img.setImageResource(R.drawable.deppen_abbreviation1);
+            }
+            else if(child=="13"){
+                img.setImageResource(R.drawable.deppen_abbreviation2);
+            }
+            else if(child=="14"){
+                img.setImageResource(R.drawable.deppen_abbreviation3);
+            }
+        } else if(positionName == "약 어"){
+            if(child=="15"){
+                img.setImageResource(R.drawable.deppen_abb1);
+            }
+            else if(child=="16"){
+                img.setImageResource(R.drawable.deppen_abb2);
+            }
+            else if(child=="17"){
+                img.setImageResource(R.drawable.deppen_abb3);
+            }
         }
 
         return convertView;

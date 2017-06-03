@@ -69,6 +69,15 @@ public class deepen_study extends AppCompatActivity {
         p5.players.add("10");
         p5.players.add("11");
 
+        position p6 = new position("약 자");
+        p6.players.add("12");
+        p6.players.add("13");
+        p6.players.add("14");
+
+        position p7 = new position("약 어");
+        p7.players.add("15");
+        p7.players.add("16");
+        p7.players.add("17");
 
         ArrayList<position> allposition = new ArrayList<>();
         allposition.add(p1);
@@ -76,6 +85,8 @@ public class deepen_study extends AppCompatActivity {
         allposition.add(p3);
         allposition.add(p4);
         allposition.add(p5);
+        allposition.add(p6);
+        allposition.add(p7);
 
         return allposition;
     }

@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/garbage.iml" filepath="$PROJECT_DIR$/garbage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/garbage0.5.iml" filepath="$PROJECT_DIR$/garbage0.5.iml" />
       <module fileurl="file://$PROJECT_DIR$/garbageMS.iml" filepath="$PROJECT_DIR$/garbageMS.iml" />
     </modules>
   </component>

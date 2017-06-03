@@ -59,6 +59,7 @@ public class QuizActivity extends BaseActivity implements TextToSpeech.OnInitLis
     int char_consonant_initial_status, char_finalconsonant_initial_status,char_vowel_status,char_alphabet_status,char_abbreviation_status,char_number_status;
     private TextToSpeech ttsClient;
 
+    TextView braille_mode;
 
     //-----------------------------------------------12점----------------------------------------
 
@@ -66,9 +67,7 @@ public class QuizActivity extends BaseActivity implements TextToSpeech.OnInitLis
     Button quiz_consonantinitial_btn_12, quiz_vowel_btn_12, quiz_alphabet_btn_12, quiz_abbreviation_btn_12;
     TextView problem_cha_quiz_12;
     Button next_question_12, quiz_solution_12, quiz_result_send_12;
-
-
-
+    TextView braille_mode_12;
 
 
 
@@ -101,6 +100,8 @@ public class QuizActivity extends BaseActivity implements TextToSpeech.OnInitLis
         char_alphabet_status=0;
         char_abbreviation_status=0;
         char_number_status=0;
+
+        braille_mode=(TextView)findViewById(R.id.braille_mode);
 
         //정답확인 버튼
         quiz_result_send=(Button)findViewById(R.id.quiz_result_send);
@@ -194,6 +195,8 @@ public class QuizActivity extends BaseActivity implements TextToSpeech.OnInitLis
 
 
         //-----------------------------------------------------------------------------
+
+        braille_mode_12=(TextView)findViewById(R.id.braille_mode_12);
         quiz_ch_listen_12=(ImageButton)findViewById(R.id.quiz_ch_listen_12);
 
         cha_braillebtn1_12=(ImageButton)findViewById(R.id.cha_braillebtn1_12);
@@ -268,6 +271,7 @@ public class QuizActivity extends BaseActivity implements TextToSpeech.OnInitLis
 
                 present_valuse=problem_cha_quiz_6.getText().toString();
                 ttsClient.speak(present_valuse, TextToSpeech.QUEUE_FLUSH, null);
+                braille_mode.setText("초성 자음");
 
             }
         });
@@ -280,6 +284,7 @@ public class QuizActivity extends BaseActivity implements TextToSpeech.OnInitLis
 
                 present_valuse=problem_cha_quiz_6.getText().toString();
                 ttsClient.speak(present_valuse, TextToSpeech.QUEUE_FLUSH, null);
+                braille_mode.setText("종성 자음");
             }
         });
         char_vowel.setOnClickListener(new View.OnClickListener() {
@@ -291,6 +296,7 @@ public class QuizActivity extends BaseActivity implements TextToSpeech.OnInitLis
 
                 present_valuse=problem_cha_quiz_6.getText().toString();
                 ttsClient.speak(present_valuse, TextToSpeech.QUEUE_FLUSH, null);
+                braille_mode.setText("모음");
             }
         });
         char_alphabet.setOnClickListener(new View.OnClickListener() {
@@ -302,6 +308,7 @@ public class QuizActivity extends BaseActivity implements TextToSpeech.OnInitLis
 
                 present_valuse=problem_cha_quiz_6.getText().toString();
                 ttsClient.speak(present_valuse, TextToSpeech.QUEUE_FLUSH, null);
+                braille_mode.setText("소문자");
             }
         });
         char_abbreviation.setOnClickListener(new View.OnClickListener() {
@@ -313,6 +320,7 @@ public class QuizActivity extends BaseActivity implements TextToSpeech.OnInitLis
 
                 present_valuse=problem_cha_quiz_6.getText().toString();
                 ttsClient.speak(present_valuse, TextToSpeech.QUEUE_FLUSH, null);
+                braille_mode.setText("약자");
             }
         });
         char_number.setOnClickListener(new View.OnClickListener() {
@@ -324,6 +332,7 @@ public class QuizActivity extends BaseActivity implements TextToSpeech.OnInitLis
 
                 present_valuse=problem_cha_quiz_6.getText().toString();
                 ttsClient.speak(present_valuse, TextToSpeech.QUEUE_FLUSH, null);
+                braille_mode.setText("숫자");
             }
         });
 
@@ -350,6 +359,8 @@ public class QuizActivity extends BaseActivity implements TextToSpeech.OnInitLis
                 present_valuse=problem_cha_quiz_12.getText().toString();
                 ttsClient.speak(present_valuse, TextToSpeech.QUEUE_FLUSH, null);
 
+                braille_mode_12.setText("초성 자음");
+
             }
         });
 
@@ -363,7 +374,7 @@ public class QuizActivity extends BaseActivity implements TextToSpeech.OnInitLis
 
                 present_valuse=problem_cha_quiz_12.getText().toString();
                 ttsClient.speak(present_valuse, TextToSpeech.QUEUE_FLUSH, null);
-
+                braille_mode_12.setText("모음");
             }
         });
 
@@ -377,6 +388,7 @@ public class QuizActivity extends BaseActivity implements TextToSpeech.OnInitLis
 
                 present_valuse=problem_cha_quiz_12.getText().toString();
                 ttsClient.speak(present_valuse, TextToSpeech.QUEUE_FLUSH, null);
+                braille_mode_12.setText("대문자");
 
             }
         });
@@ -391,6 +403,7 @@ public class QuizActivity extends BaseActivity implements TextToSpeech.OnInitLis
 
                 present_valuse=problem_cha_quiz_12.getText().toString();
                 ttsClient.speak(present_valuse, TextToSpeech.QUEUE_FLUSH, null);
+                braille_mode_12.setText("약자");
 
             }
         });

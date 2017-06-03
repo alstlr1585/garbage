@@ -9,13 +9,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
 public class Quiz_word extends Fragment {
 
     ImageView move_word,quiz_state_word;
+
     Button btn_word;
 
     public Quiz_word(){

@@ -22,7 +22,7 @@ public class word_quiz extends BaseActivity {
     ImageView quiz_word_problem;
     Random random;
     int problem_now;
-    ArrayList<Integer> problemHistory, checkFlag;
+    ArrayList<Integer> problemHistory, checkFlag, userSolutionHistory;
     int solution, problemCount = 30;
     CheckBox quiz_word_checkbox1, quiz_word_checkbox2, quiz_word_checkbox3, quiz_word_checkbox4;
     TextView quiz_word_choice_1, quiz_word_choice_2, quiz_word_choice_3, quiz_word_choice_4, quiz_word_solution, quiz_word_commentary, quiz_word_rightAnswer, quiz_word_wrongAnswer, quiz_word_problem_number;
@@ -43,6 +43,9 @@ public class word_quiz extends BaseActivity {
 
         // 맞은 문제, 틀린 문제 세탁 방지용
         checkFlag = new ArrayList<Integer>();
+
+        // 과거 답안 저장용
+        userSolutionHistory = new ArrayList<Integer>();
 
         // 문제
         quiz_word_problem = (ImageView)findViewById(R.id.quiz_word_problem);
@@ -97,13 +100,15 @@ public class word_quiz extends BaseActivity {
         }
         else{
             setProblem(problemHistory.get((--problem_now)-1));
-            if (checkFlag.get((problem_now) - 1) == 0) {
+            if (checkFlag.get((problem_now) - 1) == 0) {    // 안 풀고 간거라면
                 quiz_word_solution.setVisibility(View.INVISIBLE);
                 quiz_word_commentary.setVisibility(View.INVISIBLE);
+                setCheckable(true);
             }
-            else{
+            else{   // 풀고 간거라면
                 quiz_word_solution.setVisibility(View.VISIBLE);
                 quiz_word_commentary.setVisibility(View.VISIBLE);
+                setBeforeChecked(userSolutionHistory.get((problem_now) - 1));
             }
 
         }
@@ -117,17 +122,21 @@ public class word_quiz extends BaseActivity {
             quiz_word_commentary.setVisibility(View.INVISIBLE);
             problemHistory.add(problemNumber);  // 기록남기기
             checkFlag.add(0);
+            userSolutionHistory.add(0);
             setProblem(problemNumber);
+            setCheckable(true);
         }
-        else {  // 기존에 풀었던 문제
+        else {  // 지나간 문제
             setProblem(problemHistory.get((++problem_now) - 1));
-            if (checkFlag.get((problem_now) - 1) == 0){
+            if (checkFlag.get((problem_now) - 1) == 0){     // 안풀고 넘어간거라면
                 quiz_word_solution.setVisibility(View.INVISIBLE);
                 quiz_word_commentary.setVisibility(View.INVISIBLE);
+                setCheckable(true);
             }
-            else{
+            else{   // 풀고 간 거라면
                 quiz_word_solution.setVisibility(View.VISIBLE);
                 quiz_word_commentary.setVisibility(View.VISIBLE);
+                setBeforeChecked(userSolutionHistory.get((problem_now) - 1));
             }
         }
     }
@@ -138,11 +147,13 @@ public class word_quiz extends BaseActivity {
             return;
 
         onSolutionCheck();
+
         checkFlag.set(problem_now-1, 1);
+        setCheckable(false);
     }
 
 
-    public void onSolutionCheck(){      // 사용자가 제출한 정답이 정답인지 체크하고, 알맞는 동작을 취함
+    public void onSolutionCheck(){      // 사용자가 제출한 정답이 정답인지 체크하고, 맞거나 틀린 문제 개수를 플러스
 
         if (onChoiceCheck() == -1)  // 복수선택이면 함수를 실행하지 않고 종료
             return;
@@ -150,11 +161,11 @@ public class word_quiz extends BaseActivity {
         quiz_word_solution.setVisibility(View.VISIBLE);     // 정답과 해설을 가시화
         quiz_word_commentary.setVisibility(View.VISIBLE);
 
-        if (onChoiceCheck() == solution) {    // 선택한 것이 정답이라면
+        if (onChoiceCheck() == solution)    // 선택한 것이 정답이라면
             quiz_word_rightAnswer.setText("" + (Integer.parseInt(quiz_word_rightAnswer.getText().toString()) + 1));
-        }
         else
             quiz_word_wrongAnswer.setText("" + (Integer.parseInt(quiz_word_wrongAnswer.getText().toString()) + 1));
+        userSolutionHistory.set(problem_now-1, onChoiceCheck());
     }
 
 
@@ -376,6 +387,36 @@ public class word_quiz extends BaseActivity {
         quiz_word_checkbox2.setChecked(false);
         quiz_word_checkbox3.setChecked(false);
         quiz_word_checkbox4.setChecked(false);
+    }
+
+    public void setCheckable(boolean command){
+        quiz_word_checkbox1.setEnabled(command);
+        quiz_word_checkbox2.setEnabled(command);
+        quiz_word_checkbox3.setEnabled(command);
+        quiz_word_checkbox4.setEnabled(command);
+    }
+
+    public void setBeforeChecked(int command){  // 전에 체크한 것
+        setCheckable(false);
+        switch(command) {
+            case 0: // 전에 안푼거
+                setCheckable(true);
+                break;
+            case 1:
+                quiz_word_checkbox1.setChecked(true);
+                break;
+            case 2:
+                quiz_word_checkbox2.setChecked(true);
+                break;
+            case 3:
+                quiz_word_checkbox3.setChecked(true);
+                break;
+            case 4:
+                quiz_word_checkbox4.setChecked(true);
+                break;
+            default:
+                break;
+        }
     }
 
 }

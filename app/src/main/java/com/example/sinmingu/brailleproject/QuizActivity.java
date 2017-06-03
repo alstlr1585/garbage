@@ -64,6 +64,8 @@ public class QuizActivity extends BaseActivity implements TextToSpeech.OnInitLis
 
     int type_12 = 0;
     Button quiz_consonantinitial_btn_12, quiz_vowel_btn_12, quiz_alphabet_btn_12, quiz_abbreviation_btn_12;
+    TextView problem_cha_quiz_12;
+    Button next_question_12, quiz_solution_12, quiz_result_send_12;
 
 
 
@@ -328,40 +330,685 @@ public class QuizActivity extends BaseActivity implements TextToSpeech.OnInitLis
         //-----------------------------------------------------------------------------------
 
         //------------------------------------------12점---------------------------------------
-        /*quiz_consonantinitial_btn_12.setOnClickListener(new View.OnClickListener() {
+        problem_cha_quiz_12=(TextView)findViewById(R.id.textView5_12);
+        quiz_consonantinitial_btn_12 = (Button)findViewById(R.id.quiz_consonantinitial_btn_12);
+        quiz_vowel_btn_12 = (Button)findViewById(R.id.quiz_vowel_btn_12);
+        quiz_alphabet_btn_12 = (Button)findViewById(R.id.quiz_alphabet_btn_12);
+        quiz_abbreviation_btn_12 = (Button)findViewById(R.id.quiz_abbreviation_btn_12);
+        next_question_12 = (Button)findViewById(R.id.cha_result_send_12);
+        quiz_solution_12 = (Button)findViewById(R.id.quiz_solution_12);
+        quiz_result_send_12 = (Button)findViewById(R.id.quiz_result_send_12);
+
+        quiz_consonantinitial_btn_12.setOnClickListener(new View.OnClickListener() {    // 12점 초성자음
             @Override
             public void onClick(View v) {
+                next_question_12.setVisibility(View.INVISIBLE);
                 type_12 = 1;
                 randomNum = rand.nextInt(5);   // 0~4 난수
-                consonant_initial_setting(randomNum);
+                initial_setting_12(randomNum);
 
-                present_valuse=problem_cha_quiz_6.getText().toString();
+                present_valuse=problem_cha_quiz_12.getText().toString();
                 ttsClient.speak(present_valuse, TextToSpeech.QUEUE_FLUSH, null);
 
             }
         });
-*/
-        /*
-        메모장 내용
 
-초성자음 버튼 : quiz_consonantinitial_btn_12
-ㄲ 000001 000100
-ㄸ 000001 010100
-ㅃ 000001 000110
-ㅆ 000001 000001
-ㅉ 000001 00001
-(5개)
-모음 버튼 : quiz_vowel_btn_12
-ㅟ 101100 111010
-ㅒ 001110 111010
-ㅙ
-ㅞ
-(4개)
-대문자 버튼 : quiz_alphabet_btn_12
+        quiz_vowel_btn_12.setOnClickListener(new View.OnClickListener() {   // 12점 모음
+            @Override
+            public void onClick(View v) {
+                next_question_12.setVisibility(View.INVISIBLE);
+                type_12 = 2;
+                randomNum = rand.nextInt(4) + 5;   // 5~8 난수
+                initial_setting_12(randomNum);
 
-약자 버튼 : quiz_abbreviation_btn_12
+                present_valuse=problem_cha_quiz_12.getText().toString();
+                ttsClient.speak(present_valuse, TextToSpeech.QUEUE_FLUSH, null);
 
-         */
+            }
+        });
+
+        quiz_alphabet_btn_12.setOnClickListener(new View.OnClickListener() {    // 12점 대문자
+            @Override
+            public void onClick(View v) {
+                next_question_12.setVisibility(View.INVISIBLE);
+                type_12 = 3;
+                randomNum = rand.nextInt(26) + 9;   // 9~34 난수
+                initial_setting_12(randomNum);
+
+                present_valuse=problem_cha_quiz_12.getText().toString();
+                ttsClient.speak(present_valuse, TextToSpeech.QUEUE_FLUSH, null);
+
+            }
+        });
+
+        quiz_abbreviation_btn_12.setOnClickListener(new View.OnClickListener() {    // 12점 약자
+            @Override
+            public void onClick(View v) {
+                next_question_12.setVisibility(View.INVISIBLE);
+                type_12 = 4;
+                randomNum = rand.nextInt(7) + 35;   // 35~41 난수
+                initial_setting_12(randomNum);
+
+                present_valuse=problem_cha_quiz_12.getText().toString();
+                ttsClient.speak(present_valuse, TextToSpeech.QUEUE_FLUSH, null);
+
+            }
+        });
+
+        next_question_12.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {   // 12점 다음문제 클릭 시
+                next_question_12.setVisibility(View.INVISIBLE);
+                quiz_resultpicture.setImageResource(0);  // 정답 O,X 표시 지우기
+
+                //12점 초성자음
+                if(type_12==1){
+                    randomNum = rand.nextInt(5);   // 0~4 난수
+                    initial_setting_12(randomNum);
+                }
+                //12점 모음
+                else if(type_12==2){
+                    randomNum = rand.nextInt(4) + 5;   // 5~8 난수
+                    initial_setting_12(randomNum);
+                }
+                //12점 대문자
+                else if(type_12==3){
+                    randomNum = rand.nextInt(26) + 9;   // 0~16 난수
+                    initial_setting_12(randomNum);
+                }
+                //12점 약자
+                else if(type_12==4){
+                    randomNum = rand.nextInt(7) + 35;   // 35~41 난수
+                    initial_setting_12(randomNum);
+                }
+                present_valuse=problem_cha_quiz_12.getText().toString();
+                ttsClient.speak(present_valuse, TextToSpeech.QUEUE_FLUSH, null);
+
+            }
+        });
+
+        quiz_solution_12.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (type_12 == 0) {
+                    Toast.makeText(QuizActivity.this, "타입을 선택해주세요.", Toast.LENGTH_SHORT).show();
+                } else {
+                    switch (randomNum) {
+                        // 12점 초성자음
+                        case 0: // ㄲ
+                            braille12_reflash();
+                            choice_btn5_12();
+                            choice_btn9_12();
+                            break;
+                        case 1: // ㄸ
+                            braille12_reflash();
+                            choice_btn5_12();
+                            choice_btn7_12();
+                            choice_btn9_12();
+                            break;
+                        case 2: // ㅃ
+                            braille12_reflash();
+                            choice_btn5_12();
+                            choice_btn9_12();
+                            choice_btn10_12();
+                            break;
+                        case 3: // ㅆ
+                            braille12_reflash();
+                            choice_btn5_12();
+                            choice_btn11_12();
+                            break;
+                        case 4: // ㅉ
+                            braille12_reflash();
+                            choice_btn5_12();
+                            choice_btn9_12();
+                            choice_btn11_12();
+                            break;
+
+                        // 12점 모음
+                        case 5: // ㅟ
+                            braille12_all();
+                            no_choice_btn1_12();
+                            no_choice_btn4_12();
+                            no_choice_btn5_12();
+                            no_choice_btn9_12();
+                            no_choice_btn11_12();
+                            break;
+                        case 6: // ㅒ
+                            braille12_all();
+                            no_choice_btn0_12();
+                            no_choice_btn1_12();
+                            no_choice_btn5_12();
+                            no_choice_btn9_12();
+                            no_choice_btn11_12();
+                            break;
+                        case 7: // ㅙ
+                            braille12_all();
+                            no_choice_btn3_12();
+                            no_choice_btn4_12();
+                            no_choice_btn9_12();
+                            no_choice_btn11_12();
+                            break;
+                        case 8: // ㅞ
+                            braille12_all();
+                            no_choice_btn4_12();
+                            no_choice_btn5_12();
+                            no_choice_btn9_12();
+                            no_choice_btn11_12();
+                            break;
+
+                        // 12점 대문자
+                        case 9: // A
+                            braille12_reflash();
+                            choice_btn5_12();
+                            choice_btn6_12();
+                            break;
+                        case 10: // B
+                            braille12_reflash();
+                            choice_btn5_12();
+                            choice_btn6_12();
+                            choice_btn7_12();
+                            break;
+                        case 11: // C
+                            braille12_reflash();
+                            choice_btn5_12();
+                            choice_btn6_12();
+                            choice_btn9_12();
+                            break;
+                        case 12: // D
+                            braille12_reflash();
+                            choice_btn5_12();
+                            choice_btn6_12();
+                            choice_btn9_12();
+                            choice_btn10_12();
+                            break;
+                        case 13: // E
+                            braille12_reflash();
+                            choice_btn5_12();
+                            choice_btn6_12();
+                            choice_btn10_12();
+                            break;
+                        case 14: // F
+                            braille12_reflash();
+                            choice_btn5_12();
+                            choice_btn6_12();
+                            choice_btn7_12();
+                            choice_btn9_12();
+                            break;
+                        case 15: // G
+                            braille12_reflash();
+                            choice_btn5_12();
+                            choice_btn6_12();
+                            choice_btn7_12();
+                            choice_btn9_12();
+                            choice_btn10_12();
+                            break;
+                        case 16: // H
+                            braille12_reflash();
+                            choice_btn5_12();
+                            choice_btn6_12();
+                            choice_btn7_12();
+                            choice_btn10_12();
+                            break;
+                        case 17: // I
+                            braille12_reflash();
+                            choice_btn5_12();
+                            choice_btn7_12();
+                            choice_btn9_12();
+                            break;
+                        case 18: // J
+                            braille12_reflash();
+                            choice_btn5_12();
+                            choice_btn7_12();
+                            choice_btn9_12();
+                            choice_btn10_12();
+                            break;
+                        case 19: // K
+                            braille12_reflash();
+                            choice_btn5_12();
+                            choice_btn6_12();
+                            choice_btn8_12();
+                            break;
+                        case 20: // L
+                            braille12_reflash();
+                            choice_btn5_12();
+                            choice_btn6_12();
+                            choice_btn7_12();
+                            choice_btn8_12();
+                            break;
+                        case 21: // M
+                            braille12_reflash();
+                            choice_btn5_12();
+                            choice_btn6_12();
+                            choice_btn8_12();
+                            choice_btn9_12();
+                            break;
+                        case 22: // N
+                            braille12_reflash();
+                            choice_btn5_12();
+                            choice_btn6_12();
+                            choice_btn9_12();
+                            choice_btn10_12();
+                            break;
+                        case 23: // O
+                            braille12_reflash();
+                            choice_btn5_12();
+                            choice_btn6_12();
+                            choice_btn8_12();
+                            choice_btn10_12();
+                            break;
+                        case 24: // P
+                            braille12_reflash();
+                            choice_btn5_12();
+                            choice_btn6_12();
+                            choice_btn7_12();
+                            choice_btn8_12();
+                            choice_btn9_12();
+                            break;
+                        case 25: // Q
+                            braille12_reflash();
+                            choice_btn5_12();
+                            choice_btn6_12();
+                            choice_btn7_12();
+                            choice_btn8_12();
+                            choice_btn9_12();
+                            choice_btn10_12();
+                            break;
+                        case 26: // R
+                            braille12_reflash();
+                            choice_btn5_12();
+                            choice_btn6_12();
+                            choice_btn7_12();
+                            choice_btn8_12();
+                            choice_btn10_12();
+                            break;
+                        case 27: // S
+                            braille12_reflash();
+                            choice_btn5_12();
+                            choice_btn7_12();
+                            choice_btn8_12();
+                            choice_btn9_12();
+                            break;
+                        case 28: // T
+                            braille12_reflash();
+                            choice_btn5_12();
+                            choice_btn7_12();
+                            choice_btn8_12();
+                            choice_btn9_12();
+                            choice_btn10_12();
+                            break;
+                        case 29: // U
+                            braille12_reflash();
+                            choice_btn5_12();
+                            choice_btn6_12();
+                            choice_btn8_12();
+                            choice_btn11_12();
+                            break;
+                        case 30: // V
+                            braille12_reflash();
+                            choice_btn5_12();
+                            choice_btn6_12();
+                            choice_btn7_12();
+                            choice_btn8_12();
+                            choice_btn11_12();
+                            break;
+                        case 31: // W
+                            braille12_reflash();
+                            choice_btn5_12();
+                            choice_btn7_12();
+                            choice_btn9_12();
+                            choice_btn10_12();
+                            choice_btn11_12();
+                            break;
+                        case 32: // X
+                            braille12_reflash();
+                            choice_btn5_12();
+                            choice_btn6_12();
+                            choice_btn8_12();
+                            choice_btn9_12();
+                            choice_btn11_12();
+                            break;
+                        case 33: // Y
+                            braille12_reflash();
+                            choice_btn5_12();
+                            choice_btn6_12();
+                            choice_btn8_12();
+                            choice_btn9_12();
+                            choice_btn10_12();
+                            choice_btn11_12();
+                            break;
+                        case 34: // Z
+                            braille12_reflash();
+                            choice_btn5_12();
+                            choice_btn6_12();
+                            choice_btn8_12();
+                            choice_btn10_12();
+                            choice_btn11_12();
+                            break;
+
+                        // 12점 약자
+                        case 35: // 그래서
+                            braille12_reflash();
+                            choice_btn0_12();
+                            choice_btn7_12();
+                            choice_btn8_12();
+                            choice_btn9_12();
+                            break;
+                        case 36: // 그러나
+                            braille12_reflash();
+                            choice_btn0_12();
+                            choice_btn6_12();
+                            choice_btn9_12();
+                            break;
+                        case 37: // 그러면
+                            braille12_reflash();
+                            choice_btn0_12();
+                            choice_btn7_12();
+                            choice_btn10_12();
+                            break;
+                        case 38: // 그러므로
+                            braille12_reflash();
+                            choice_btn0_12();
+                            choice_btn7_12();
+                            choice_btn11_12();
+                            break;
+                        case 39: // 그런데
+                            braille12_reflash();
+                            choice_btn0_12();
+                            choice_btn6_12();
+                            choice_btn8_12();
+                            choice_btn9_12();
+                            choice_btn10_12();
+                            break;
+                        case 40: // 그리고
+                            braille12_reflash();
+                            choice_btn0_12();
+                            choice_btn6_12();
+                            choice_btn8_12();
+                            choice_btn11_12();
+                            break;
+                        case 41: // 그리하여
+                            braille12_reflash();
+                            choice_btn0_12();
+                            choice_btn6_12();
+                            choice_btn10_12();
+                            choice_btn11_12();
+                            break;
+
+
+                    }
+                }
+            }
+        });
+
+        quiz_result_send_12.setOnClickListener(new View.OnClickListener() { // 12점 확인버튼 클릭 시
+            @Override
+            public void onClick(View v) {
+                boolean result;
+                switch(problem_cha_quiz_12.getText().toString()){
+                        // 12점 초성자음
+                    case "ㄲ":
+                        if (onSolutionCheck_12("000001000100") == true)
+                            braillebtn_false_ok_12();
+                        else
+                            braillebtn_false_no_12();
+                        break;
+                    case "ㄸ":
+                        if (onSolutionCheck_12("000001010100") == true)
+                            braillebtn_false_ok_12();
+                        else
+                            braillebtn_false_no_12();
+                        break;
+                    case "ㅃ":
+                        if (onSolutionCheck_12("000001000110") == true)
+                            braillebtn_false_ok_12();
+                        else
+                            braillebtn_false_no_12();
+                        break;
+                        // 12점 모음
+                    case "ㅆ":
+                        if (onSolutionCheck_12("000001000001") == true)
+                            braillebtn_false_ok_12();
+                        else
+                            braillebtn_false_no_12();
+                        break;
+                    case "ㅉ":
+                        if (onSolutionCheck_12("000001000101") == true)
+                            braillebtn_false_ok_12();
+                        else
+                            braillebtn_false_no_12();
+                        break;
+                    case "ㅟ":
+                        if (onSolutionCheck_12("101100111010") == true)
+                            braillebtn_false_ok_12();
+                        else
+                            braillebtn_false_no_12();
+                        break;
+                    case "ㅒ":
+                        if (onSolutionCheck_12("001110111010") == true)
+                            braillebtn_false_ok_12();
+                        else
+                            braillebtn_false_no_12();
+                        break;
+                    case "ㅙ":
+                        if (onSolutionCheck_12("111001111010") == true)
+                            braillebtn_false_ok_12();
+                        else
+                            braillebtn_false_no_12();
+                        break;
+                    case "ㅞ":
+                        if (onSolutionCheck_12("111100111010") == true)
+                            braillebtn_false_ok_12();
+                        else
+                            braillebtn_false_no_12();
+                        break;
+                        // 12점 대문자
+                    case "A":
+                        if (onSolutionCheck_12("000001100000") == true)
+                            braillebtn_false_ok_12();
+                        else
+                            braillebtn_false_no_12();
+                        break;
+                    case "B":
+                        if (onSolutionCheck_12("000001110000") == true)
+                            braillebtn_false_ok_12();
+                        else
+                            braillebtn_false_no_12();
+                        break;
+                    case "C":
+                        if (onSolutionCheck_12("000001100100") == true)
+                            braillebtn_false_ok_12();
+                        else
+                            braillebtn_false_no_12();
+                        break;
+                    case "D":
+                        if (onSolutionCheck_12("000001100110") == true)
+                            braillebtn_false_ok_12();
+                        else
+                            braillebtn_false_no_12();
+                        break;
+                    case "E":
+                        if (onSolutionCheck_12("000001100010") == true)
+                            braillebtn_false_ok_12();
+                        else
+                            braillebtn_false_no_12();
+                        break;
+                    case "F":
+                        if (onSolutionCheck_12("000001110100") == true)
+                            braillebtn_false_ok_12();
+                        else
+                            braillebtn_false_no_12();
+                        break;
+                    case "G":
+                        if (onSolutionCheck_12("000001110110") == true)
+                            braillebtn_false_ok_12();
+                        else
+                            braillebtn_false_no_12();
+                        break;
+                    case "H":
+                        if (onSolutionCheck_12("000001110010") == true)
+                            braillebtn_false_ok_12();
+                        else
+                            braillebtn_false_no_12();
+                        break;
+                    case "I":
+                        if (onSolutionCheck_12("000001010100") == true)
+                            braillebtn_false_ok_12();
+                        else
+                            braillebtn_false_no_12();
+                        break;
+                    case "J":
+                        if (onSolutionCheck_12("000001010110") == true)
+                            braillebtn_false_ok_12();
+                        else
+                            braillebtn_false_no_12();
+                        break;
+                    case "K":
+                        if (onSolutionCheck_12("000001101000") == true)
+                            braillebtn_false_ok_12();
+                        else
+                            braillebtn_false_no_12();
+                        break;
+                    case "L":
+                        if (onSolutionCheck_12("000001111000") == true)
+                            braillebtn_false_ok_12();
+                        else
+                            braillebtn_false_no_12();
+                        break;
+                    case "M":
+                        if (onSolutionCheck_12("000001101100") == true)
+                            braillebtn_false_ok_12();
+                        else
+                            braillebtn_false_no_12();
+                        break;
+                    case "N":
+                        if (onSolutionCheck_12("000001100110") == true)
+                            braillebtn_false_ok_12();
+                        else
+                            braillebtn_false_no_12();
+                        break;
+                    case "O":
+                        if (onSolutionCheck_12("000001101010") == true)
+                            braillebtn_false_ok_12();
+                        else
+                            braillebtn_false_no_12();
+                        break;
+                    case "P":
+                        if (onSolutionCheck_12("000001111100") == true)
+                            braillebtn_false_ok_12();
+                        else
+                            braillebtn_false_no_12();
+                        break;
+                    case "Q":
+                        if (onSolutionCheck_12("000001111110") == true)
+                            braillebtn_false_ok_12();
+                        else
+                            braillebtn_false_no_12();
+                        break;
+                    case "R":
+                        if (onSolutionCheck_12("000001111010") == true)
+                            braillebtn_false_ok_12();
+                        else
+                            braillebtn_false_no_12();
+                        break;
+                    case "S":
+                        if (onSolutionCheck_12("000001011100") == true)
+                            braillebtn_false_ok_12();
+                        else
+                            braillebtn_false_no_12();
+                        break;
+                    case "T":
+                        if (onSolutionCheck_12("000001011110") == true)
+                            braillebtn_false_ok_12();
+                        else
+                            braillebtn_false_no_12();
+                        break;
+                    case "U":
+                        if (onSolutionCheck_12("000001101001") == true)
+                            braillebtn_false_ok_12();
+                        else
+                            braillebtn_false_no_12();
+                        break;
+                    case "V":
+                        if (onSolutionCheck_12("000001111001") == true)
+                            braillebtn_false_ok_12();
+                        else
+                            braillebtn_false_no_12();
+                        break;
+                    case "W":
+                        if (onSolutionCheck_12("000001010111") == true)
+                            braillebtn_false_ok_12();
+                        else
+                            braillebtn_false_no_12();
+                        break;
+                    case "X":
+                        if (onSolutionCheck_12("000001101101") == true)
+                            braillebtn_false_ok_12();
+                        else
+                            braillebtn_false_no_12();
+                        break;
+                    case "Y":
+                        if (onSolutionCheck_12("000001101111") == true)
+                            braillebtn_false_ok_12();
+                        else
+                            braillebtn_false_no_12();
+                        break;
+                    case "Z":
+                        if (onSolutionCheck_12("000001101011") == true)
+                            braillebtn_false_ok_12();
+                        else
+                            braillebtn_false_no_12();
+                        break;
+                        // 12점 약자
+                    case "그래서":
+                        if (onSolutionCheck_12("100000011100") == true)
+                            braillebtn_false_ok_12();
+                        else
+                            braillebtn_false_no_12();
+                        break;
+                    case "그러나":
+                        if (onSolutionCheck_12("100000100100") == true)
+                            braillebtn_false_ok_12();
+                        else
+                            braillebtn_false_no_12();
+                        break;
+                    case "그러면":
+                        if (onSolutionCheck_12("100000010010") == true)
+                            braillebtn_false_ok_12();
+                        else
+                            braillebtn_false_no_12();
+                        break;
+                    case "그러므로":
+                        if (onSolutionCheck_12("100000010001") == true)
+                            braillebtn_false_ok_12();
+                        else
+                            braillebtn_false_no_12();
+                        break;
+                    case "그런데":
+                        if (onSolutionCheck_12("100000101110") == true)
+                            braillebtn_false_ok_12();
+                        else
+                            braillebtn_false_no_12();
+                        break;
+                    case "그리고":
+                        if (onSolutionCheck_12("100000101001") == true)
+                            braillebtn_false_ok_12();
+                        else
+                            braillebtn_false_no_12();
+                        break;
+                    case "그리하여":
+                        if (onSolutionCheck_12("100000100011") == true)
+                            braillebtn_false_ok_12();
+                        else
+                            braillebtn_false_no_12();
+                        break;
+                    default:
+                        Toast.makeText(QuizActivity.this, "타입을 선택해주세요.", Toast.LENGTH_SHORT).show();
+                        break;
+                }
+            }
+        });
+
+
         quiz_braillebtn1.setClickable(false);
         quiz_braillebtn2.setClickable(false);
         quiz_braillebtn3.setClickable(false);
@@ -1443,7 +2090,7 @@ public class QuizActivity extends BaseActivity implements TextToSpeech.OnInitLis
 
                 }
                 else{
-                    Toast.makeText(getApplicationContext(), "타입을 눌러주세요", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "타입을 선택해주세요", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -2792,6 +3439,311 @@ public class QuizActivity extends BaseActivity implements TextToSpeech.OnInitLis
     public void no_choice_btn5(){
         Glide.with(this).load(R.drawable.braillebtn_false).into(quiz_braillebtn6);
         braille[5]=0;
+    }
+
+    //--------------------------------12점---------------------------------------------
+    public void initial_setting_12(int number){
+        switch (number){
+
+            case 0 :
+                problem_cha_quiz_12.setText("ㄲ");
+                break;
+            case 1:
+                problem_cha_quiz_12.setText("ㄸ");
+                break;
+            case 2:
+                problem_cha_quiz_12.setText("ㅃ");
+                break;
+            case 3:
+                problem_cha_quiz_12.setText("ㅆ");
+                break;
+            case 4:
+                problem_cha_quiz_12.setText("ㅉ");
+                break;
+            case 5:
+                problem_cha_quiz_12.setText("ㅟ");
+                break;
+            case 6:
+                problem_cha_quiz_12.setText("ㅒ");
+                break;
+            case 7:
+                problem_cha_quiz_12.setText("ㅙ");
+                break;
+            case 8:
+                problem_cha_quiz_12.setText("ㅞ");
+                break;
+            case 9:
+                problem_cha_quiz_12.setText("A");
+                break;
+            case 10:
+                problem_cha_quiz_12.setText("B");
+                break;
+            case 11:
+                problem_cha_quiz_12.setText("C");
+                break;
+            case 12:
+                problem_cha_quiz_12.setText("D");
+                break;
+            case 13:
+                problem_cha_quiz_12.setText("E");
+                break;
+            case 14:
+                problem_cha_quiz_12.setText("F");
+                break;
+            case 15:
+                problem_cha_quiz_12.setText("G");
+                break;
+            case 16:
+                problem_cha_quiz_12.setText("H");
+                break;
+            case 17:
+                problem_cha_quiz_12.setText("I");
+                break;
+            case 18:
+                problem_cha_quiz_12.setText("J");
+                break;
+            case 19:
+                problem_cha_quiz_12.setText("K");
+                break;
+            case 20:
+                problem_cha_quiz_12.setText("L");
+                break;
+            case 21:
+                problem_cha_quiz_12.setText("M");
+                break;
+            case 22:
+                problem_cha_quiz_12.setText("N");
+                break;
+            case 23:
+                problem_cha_quiz_12.setText("O");
+                break;
+            case 24:
+                problem_cha_quiz_12.setText("P");
+                break;
+            case 25:
+                problem_cha_quiz_12.setText("Q");
+                break;
+            case 26:
+                problem_cha_quiz_12.setText("R");
+                break;
+            case 27:
+                problem_cha_quiz_12.setText("S");
+                break;
+            case 28:
+                problem_cha_quiz_12.setText("T");
+                break;
+            case 29:
+                problem_cha_quiz_12.setText("U");
+                break;
+            case 30:
+                problem_cha_quiz_12.setText("V");
+                break;
+            case 31:
+                problem_cha_quiz_12.setText("W");
+                break;
+            case 32:
+                problem_cha_quiz_12.setText("X");
+                break;
+            case 33:
+                problem_cha_quiz_12.setText("Y");
+                break;
+            case 34:
+                problem_cha_quiz_12.setText("Z");
+                break;
+            case 35:
+                problem_cha_quiz_12.setText("그래서");
+                break;
+            case 36:
+                problem_cha_quiz_12.setText("그러나");
+                break;
+            case 37:
+                problem_cha_quiz_12.setText("그러면");
+                break;
+            case 38:
+                problem_cha_quiz_12.setText("그러므로");
+                break;
+            case 39:
+                problem_cha_quiz_12.setText("그런데");
+                break;
+            case 40:
+                problem_cha_quiz_12.setText("그리고");
+                break;
+            case 41:
+                problem_cha_quiz_12.setText("그리하여");
+                break;
+            default:
+                Toast.makeText(getApplicationContext(), "", Toast.LENGTH_SHORT).show();
+
+        }
+    }
+
+    public void braille12_reflash(){
+        // 12개의 점 모두 이미지 초기화
+        Glide.with(this).load(R.drawable.braillebtn_false).into(cha_braillebtn1_12);
+        Glide.with(this).load(R.drawable.braillebtn_false).into(cha_braillebtn2_12);
+        Glide.with(this).load(R.drawable.braillebtn_false).into(cha_braillebtn3_12);
+        Glide.with(this).load(R.drawable.braillebtn_false).into(cha_braillebtn4_12);
+        Glide.with(this).load(R.drawable.braillebtn_false).into(cha_braillebtn5_12);
+        Glide.with(this).load(R.drawable.braillebtn_false).into(cha_braillebtn6_12);
+        Glide.with(this).load(R.drawable.braillebtn_false).into(cha_braillebtn7_12);
+        Glide.with(this).load(R.drawable.braillebtn_false).into(cha_braillebtn8_12);
+        Glide.with(this).load(R.drawable.braillebtn_false).into(cha_braillebtn9_12);
+        Glide.with(this).load(R.drawable.braillebtn_false).into(cha_braillebtn10_12);
+        Glide.with(this).load(R.drawable.braillebtn_false).into(cha_braillebtn11_12);
+        Glide.with(this).load(R.drawable.braillebtn_false).into(cha_braillebtn12_12);
+
+        braille_12[0] = 0;
+        braille_12[1] = 0;
+        braille_12[2] = 0;
+        braille_12[3] = 0;
+        braille_12[4] = 0;
+        braille_12[5] = 0;
+        braille_12[6] = 0;
+        braille_12[7] = 0;
+        braille_12[8] = 0;
+        braille_12[9] = 0;
+        braille_12[10] = 0;
+        braille_12[11] = 0;
+    }
+
+    public void choice_btn0_12(){
+        Glide.with(this).load(R.drawable.braillebtn_true).into(cha_braillebtn1_12);
+        braille_12[0] = 1;
+    }
+    public void choice_btn1_12(){
+        Glide.with(this).load(R.drawable.braillebtn_true).into(cha_braillebtn2_12);
+        braille_12[1] = 1;
+    }
+    public void choice_btn2_12(){
+        Glide.with(this).load(R.drawable.braillebtn_true).into(cha_braillebtn3_12);
+        braille_12[2] = 1;
+    }
+    public void choice_btn3_12(){
+        Glide.with(this).load(R.drawable.braillebtn_true).into(cha_braillebtn4_12);
+        braille_12[3] = 1;
+    }
+    public void choice_btn4_12(){
+        Glide.with(this).load(R.drawable.braillebtn_true).into(cha_braillebtn5_12);
+        braille_12[4] = 1;
+    }
+    public void choice_btn5_12(){
+        Glide.with(this).load(R.drawable.braillebtn_true).into(cha_braillebtn6_12);
+        braille_12[5] = 1;
+    }
+    public void choice_btn6_12(){
+        Glide.with(this).load(R.drawable.braillebtn_true).into(cha_braillebtn7_12);
+        braille_12[6] = 1;
+    }
+    public void choice_btn7_12(){
+        Glide.with(this).load(R.drawable.braillebtn_true).into(cha_braillebtn8_12);
+        braille_12[7] = 1;
+    }
+    public void choice_btn8_12(){
+        Glide.with(this).load(R.drawable.braillebtn_true).into(cha_braillebtn9_12);
+        braille_12[8] = 1;
+    }
+    public void choice_btn9_12(){
+        Glide.with(this).load(R.drawable.braillebtn_true).into(cha_braillebtn10_12);
+        braille_12[9] = 1;
+    }
+    public void choice_btn10_12(){
+        Glide.with(this).load(R.drawable.braillebtn_true).into(cha_braillebtn11_12);
+        braille_12[10] = 1;
+    }
+    public void choice_btn11_12(){
+        Glide.with(this).load(R.drawable.braillebtn_true).into(cha_braillebtn12_12);
+        braille_12[11] = 1;
+    }
+
+
+
+    public void braille12_all(){
+        Glide.with(this).load(R.drawable.braillebtn_true).into(cha_braillebtn1_12);
+        Glide.with(this).load(R.drawable.braillebtn_true).into(cha_braillebtn2_12);
+        Glide.with(this).load(R.drawable.braillebtn_true).into(cha_braillebtn3_12);
+        Glide.with(this).load(R.drawable.braillebtn_true).into(cha_braillebtn4_12);
+        Glide.with(this).load(R.drawable.braillebtn_true).into(cha_braillebtn5_12);
+        Glide.with(this).load(R.drawable.braillebtn_true).into(cha_braillebtn6_12);
+        Glide.with(this).load(R.drawable.braillebtn_true).into(cha_braillebtn7_12);
+        Glide.with(this).load(R.drawable.braillebtn_true).into(cha_braillebtn8_12);
+        Glide.with(this).load(R.drawable.braillebtn_true).into(cha_braillebtn9_12);
+        Glide.with(this).load(R.drawable.braillebtn_true).into(cha_braillebtn10_12);
+        Glide.with(this).load(R.drawable.braillebtn_true).into(cha_braillebtn11_12);
+        Glide.with(this).load(R.drawable.braillebtn_true).into(cha_braillebtn12_12);
+
+        braille_12[0] = 1;
+        braille_12[1] = 1;
+        braille_12[2] = 1;
+        braille_12[3] = 1;
+        braille_12[4] = 1;
+        braille_12[5] = 1;
+        braille_12[6] = 1;
+        braille_12[7] = 1;
+        braille_12[8] = 1;
+        braille_12[9] = 1;
+        braille_12[10] = 1;
+        braille_12[11] = 1;
+    }
+
+    public void no_choice_btn0_12(){
+        Glide.with(this).load(R.drawable.braillebtn_false).into(cha_braillebtn1_12);
+        braille_12[0] = 0;
+    }
+    public void no_choice_btn1_12(){
+        Glide.with(this).load(R.drawable.braillebtn_false).into(cha_braillebtn2_12);
+        braille_12[1] = 0;
+    }
+    public void no_choice_btn2_12(){
+        Glide.with(this).load(R.drawable.braillebtn_false).into(cha_braillebtn3_12);
+        braille_12[2] = 0;
+    }
+    public void no_choice_btn3_12(){
+        Glide.with(this).load(R.drawable.braillebtn_false).into(cha_braillebtn4_12);
+        braille_12[3] = 0;
+    }
+    public void no_choice_btn4_12(){
+        Glide.with(this).load(R.drawable.braillebtn_false).into(cha_braillebtn5_12);
+        braille_12[4] = 0;
+    }
+    public void no_choice_btn5_12(){
+        Glide.with(this).load(R.drawable.braillebtn_false).into(cha_braillebtn6_12);
+        braille_12[5] = 0;
+    }
+    public void no_choice_btn6_12(){
+        Glide.with(this).load(R.drawable.braillebtn_false).into(cha_braillebtn7_12);
+        braille_12[6] = 0;
+    }
+    public void no_choice_btn7_12(){
+        Glide.with(this).load(R.drawable.braillebtn_false).into(cha_braillebtn8_12);
+        braille_12[7] = 0;
+    }
+    public void no_choice_btn8_12(){
+        Glide.with(this).load(R.drawable.braillebtn_false).into(cha_braillebtn9_12);
+        braille_12[8] = 0;
+    }
+    public void no_choice_btn9_12(){
+        Glide.with(this).load(R.drawable.braillebtn_false).into(cha_braillebtn10_12);
+        braille_12[9] = 0;
+    }
+    public void no_choice_btn10_12(){
+        Glide.with(this).load(R.drawable.braillebtn_false).into(cha_braillebtn11_12);
+        braille_12[10] = 0;
+    }
+    public void no_choice_btn11_12(){
+        Glide.with(this).load(R.drawable.braillebtn_false).into(cha_braillebtn12_12);
+        braille_12[11] = 0;
+    }
+
+    public boolean onSolutionCheck_12(String solution){
+        String now="";
+
+        for(int i=0;i<12;i++)
+            now += braille_12[i];
+
+        if (now.equals(solution) == true)
+            next_question_12.setVisibility(View.VISIBLE);
+
+        return now.equals(solution);
     }
 
 

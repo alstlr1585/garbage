@@ -113,150 +113,150 @@
         android:layout_height="wrap_content"
         android:id="@+id/quiz_word_problem"/>
 
-                <LinearLayout
-                    android:layout_weight="1"
-                    android:layout_marginRight="15dp"
-                    android:layout_marginLeft="15dp"
-                    android:gravity="center"
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/deepen_line"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="6dp"
+            android:paddingTop="6dp"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/quiz_word_checkbox1"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text=" ① 강아지"
+                android:id="@+id/quiz_word_choice_1"
+                android:textSize="12dp"
+                android:textColor="#FF0000"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="6dp"
+            android:paddingTop="6dp"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/quiz_word_checkbox2"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text=" ② 너구리"
+                android:id="@+id/quiz_word_choice_2"
+                android:textColor="#782B90"
+                android:textSize="12dp"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="6dp"
+            android:paddingTop="6dp"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/quiz_word_checkbox3"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text=" ③ 사슴"
+                android:id="@+id/quiz_word_choice_3"
+                android:textColor="#008000"
+                android:textSize="12dp"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="6dp"
+            android:paddingTop="6dp"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/quiz_word_checkbox4"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text=" ④ 고양이"
+                android:textSize="12dp"
+                android:textColor="#0100FF"
+                android:layout_height="wrap_content"
+                android:id="@+id/quiz_word_choice_4" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:orientation="horizontal">
+
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/deepen_line"
-                    android:orientation="vertical">
+                    android:layout_weight="1"/>
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingLeft="10dp"
-                        android:paddingRight="10dp"
-                        android:paddingBottom="6dp"
-                        android:paddingTop="6dp"
-                        android:orientation="horizontal">
-
-                        <CheckBox
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/quiz_word_checkbox1"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:text=" ① 강아지"
-                            android:id="@+id/quiz_word_choice_1"
-                            android:textSize="12dp"
-                            android:textColor="#FF0000"
-                            android:layout_height="wrap_content" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingLeft="10dp"
-                        android:paddingRight="10dp"
-                        android:paddingBottom="6dp"
-                        android:paddingTop="6dp"
-                        android:orientation="horizontal">
-
-                        <CheckBox
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/quiz_word_checkbox2"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:text=" ② 너구리"
-                            android:id="@+id/quiz_word_choice_2"
-                            android:textColor="#782B90"
-                            android:textSize="12dp"
-                            android:layout_height="wrap_content" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingLeft="10dp"
-                        android:paddingRight="10dp"
-                        android:paddingBottom="6dp"
-                        android:paddingTop="6dp"
-                        android:orientation="horizontal">
-
-                        <CheckBox
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/quiz_word_checkbox3"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:text=" ③ 사슴"
-                            android:id="@+id/quiz_word_choice_3"
-                            android:textColor="#008000"
-                            android:textSize="12dp"
-                            android:layout_height="wrap_content" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingLeft="10dp"
-                        android:paddingRight="10dp"
-                        android:paddingBottom="6dp"
-                        android:paddingTop="6dp"
-                        android:orientation="horizontal">
-
-                        <CheckBox
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/quiz_word_checkbox4"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:text=" ④ 고양이"
-                            android:textSize="12dp"
-                            android:textColor="#0100FF"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/quiz_word_choice_4" />
-
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="35dp"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"/>
-
-                            <Button
-                                android:layout_width="wrap_content"
-                                android:text="확 인"
-                                android:textColor="#000000"
-                                android:textSize="15dp"
-                                android:onClick="onSolutionCheckClick"
-                                android:background="@drawable/shapebraille"
-                                android:id="@+id/onSolutionCheckClick"
-                                android:gravity="center"
-                                android:layout_marginRight="8dp"
-                                android:layout_marginLeft="20dp"
-                                android:layout_height="wrap_content" />
+                <Button
+                    android:layout_width="wrap_content"
+                    android:text="확 인"
+                    android:textColor="#000000"
+                    android:textSize="15dp"
+                    android:onClick="onSolutionCheckClick"
+                    android:background="@drawable/shapebraille"
+                    android:id="@+id/onSolutionCheckClick"
+                    android:gravity="center"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_height="wrap_content" />
 
 
 
-                        </LinearLayout>
+            </LinearLayout>
 
 
 
-                    </LinearLayout>
+        </LinearLayout>
 
 
 
 
 
 
-                </LinearLayout>
+    </LinearLayout>
 
-                <LinearLayout
+    <LinearLayout
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
                     android:layout_marginTop="15dp"

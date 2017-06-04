@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
@@ -17,10 +18,6 @@ public class Quiz_test extends Fragment {
 
     ImageView move_test,quiz_state_test;
     Button btn_test;
-
-    public Quiz_test(){
-
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

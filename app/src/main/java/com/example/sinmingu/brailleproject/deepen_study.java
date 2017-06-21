@@ -13,14 +13,19 @@ import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
-public class deepen_study extends AppCompatActivity {
+public class deepen_study extends BaseActivity {
+
+    ImageView deepen_board;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_deepen_study);
 
-        ExpandableListView elv = (ExpandableListView) findViewById(R.id.deepen_list);
+        ExpandableListView elv = (ExpandableListView)findViewById(R.id.deepen_list);
+
+        deepen_board=(ImageView)findViewById(R.id.deepen_board);
+        Glide.with(this).load(R.drawable.rule_board).fitCenter().into(deepen_board);
 
         final ArrayList<position> position = getData();
 

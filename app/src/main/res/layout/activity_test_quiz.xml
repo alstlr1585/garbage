@@ -17,7 +17,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="단어 퀴즈"
+            android:text="규칙 퀴즈"
             android:textColor="#000000"
             android:textStyle="bold"
             android:textSize="18dp"
@@ -41,14 +41,16 @@
             android:textColor="#FF0000"
             android:textSize="13dp"
             android:gravity="center"
+            android:id="@+id/before"
             android:layout_height="wrap_content"
             android:background="#00ff0000"
-            android:layout_weight="1.5"/>
+            android:layout_weight="1.5"
+            android:onClick="onBeforeClick" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/stduy_part"
+            android:id="@+id/quiz_word_problem_number"
             android:textStyle="bold"
             android:textSize="15dp"
             android:text="1번 문제"
@@ -61,12 +63,14 @@
             android:layout_marginRight="20dp"
             android:layout_marginLeft="10dp"
             android:textColor="#FF0000"
+            android:id="@+id/next"
             android:text="다음"
             android:textSize="13dp"
             android:gravity="center"
             android:layout_height="wrap_content"
             android:background="#00ff0000"
-            android:layout_weight="1.5"/>
+            android:layout_weight="1.5"
+            android:onClick="onNextClick" />
 
     </LinearLayout>
 
@@ -81,7 +85,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="1. 다음 점자에 해당하는 단어를 선택하세요"
+            android:text="규칙 O X 퀴즈"
             android:textColor="#000000"
             android:textStyle="bold"
             android:id="@+id/quiz_word_question"
@@ -103,8 +107,9 @@
         android:paddingBottom="10dp"
         android:paddingRight="10dp"
         android:paddingLeft="10dp"
-        android:textSize="15dp"
-        android:text="멍멍거리는 동물은 무엇입니까?"
+        android:id="@+id/problem"
+        android:textColor="#000000"
+        android:textSize="30dp"
         android:background="@drawable/deepen_line"
         android:layout_height="wrap_content" />
 
@@ -205,7 +210,8 @@
                 android:id="@+id/test_result"
                 android:gravity="center"
                 android:background="@drawable/shapebraille"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:onClick="onSolutionCheckClick" />
 
 
             <TextView
@@ -259,7 +265,10 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/quiz_word_solution"
                 android:textSize="15dp"
+                android:textColor="#000000"
+                android:textStyle="bold"
                 android:text="③"/>
 
 
@@ -289,7 +298,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="6dp"
+                android:textColor="#000000"
+                android:textStyle="bold"
                 android:paddingRight="6dp"
+                android:id="@+id/quiz_word_commentary"
                 android:textSize="14dp"
                 android:text="ㄱ의 '입시'는 하인이나 종이 먹는 밥을 낮잡아 이르는 말"/>
 
@@ -338,7 +350,8 @@
                 android:textColor="#000000"
                 android:textSize="15dp"
                 android:layout_marginRight="70dp"
-                android:text="1"/>
+                android:text="0"
+                android:id="@+id/quiz_word_rightAnswer" />
 
 
             <TextView
@@ -353,7 +366,8 @@
                 android:layout_height="wrap_content"
                 android:textColor="#000000"
                 android:textSize="15dp"
-                android:text="1"/>
+                android:text="0"
+                android:id="@+id/quiz_word_wrongAnswer" />
 
         </LinearLayout>
 

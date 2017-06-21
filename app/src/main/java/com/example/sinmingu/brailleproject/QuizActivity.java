@@ -1,6 +1,7 @@
 package com.example.sinmingu.brailleproject;
 
 import android.graphics.Color;
+import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.Typeface;
 import android.os.Build;
@@ -1029,21 +1030,33 @@ public class QuizActivity extends BaseActivity implements TextToSpeech.OnInitLis
         quiz_braillebtn5.setClickable(false);
         quiz_braillebtn6.setClickable(false);
 
+
+
         linear_quiz6.setOnTouchListener(new View.OnTouchListener() {
             int flag = 0;
             @Override
             public boolean onTouch(View v, MotionEvent event) {
 
-                rect6_1.set(quiz_braillebtn1.getLeft(), quiz_braillebtn1.getTop(), quiz_braillebtn1.getRight(), quiz_braillebtn1.getBottom());
-                rect6_2.set(quiz_braillebtn2.getLeft(), quiz_braillebtn2.getTop() + linear_quiz6_2.getTop(), quiz_braillebtn2.getRight(), quiz_braillebtn2.getBottom() + linear_quiz6_2.getTop());
-                rect6_3.set(quiz_braillebtn3.getLeft(), quiz_braillebtn3.getTop() + linear_quiz6_3.getTop(), quiz_braillebtn3.getRight(), quiz_braillebtn3.getBottom() + linear_quiz6_3.getTop());
-                rect6_4.set(quiz_braillebtn4.getLeft(), quiz_braillebtn4.getTop(), quiz_braillebtn4.getRight(), quiz_braillebtn4.getBottom());
-                rect6_5.set(quiz_braillebtn5.getLeft(), quiz_braillebtn5.getTop() + linear_quiz6_2.getTop(), quiz_braillebtn5.getRight(), quiz_braillebtn5.getBottom() + linear_quiz6_2.getTop());
-                rect6_6.set(quiz_braillebtn6.getLeft(), quiz_braillebtn6.getTop() + linear_quiz6_3.getTop(), quiz_braillebtn6.getRight(), quiz_braillebtn6.getBottom() + linear_quiz6_3.getTop());
+                Rect r = new Rect();
+
+                quiz_braillebtn1.getGlobalVisibleRect(r);
+                rect6_1.set(r);
+                quiz_braillebtn2.getGlobalVisibleRect(r);
+                rect6_2.set(r);
+                quiz_braillebtn3.getGlobalVisibleRect(r);
+                rect6_3.set(r);
+                quiz_braillebtn4.getGlobalVisibleRect(r);
+                rect6_4.set(r);
+                quiz_braillebtn5.getGlobalVisibleRect(r);
+                rect6_5.set(r);
+                quiz_braillebtn6.getGlobalVisibleRect(r);
+                rect6_6.set(r);
+
+                linear_quiz6.getGlobalVisibleRect(r);
 
                 if (event.getAction() == MotionEvent.ACTION_DOWN || event.getAction() == MotionEvent.ACTION_MOVE) {
 
-                    if (rect6_1.contains(event.getX(), event.getY())) {
+                    if (rect6_1.contains(event.getX()+r.left, event.getY() + r.top)) {
                         if (flag == 0) {
                             if ((quiz_btnstatus1 % 2) == 0) {
                                 Glide.with(QuizActivity.this).load(R.drawable.braillebtn_true).into(quiz_braillebtn1);
@@ -1056,7 +1069,7 @@ public class QuizActivity extends BaseActivity implements TextToSpeech.OnInitLis
                             quiz_btnstatus1++;
                             flag = 1;
                         }
-                    } else if (rect6_2.contains(event.getX(), event.getY())) {
+                    } else if (rect6_2.contains(event.getX()+r.left, event.getY() + r.top)) {
                         if (flag == 0) {
                             if ((quiz_btnstatus2 % 2) == 0) {
                                 Glide.with(QuizActivity.this).load(R.drawable.braillebtn_true).into(quiz_braillebtn2);
@@ -1069,7 +1082,7 @@ public class QuizActivity extends BaseActivity implements TextToSpeech.OnInitLis
                             quiz_btnstatus2++;
                             flag = 1;
                         }
-                    } else if (rect6_3.contains(event.getX(), event.getY())) {
+                    } else if (rect6_3.contains(event.getX()+r.left, event.getY() + r.top)) {
                         if (flag == 0) {
                             if ((quiz_btnstatus3 % 2) == 0) {
                                 Glide.with(QuizActivity.this).load(R.drawable.braillebtn_true).into(quiz_braillebtn3);
@@ -1082,7 +1095,7 @@ public class QuizActivity extends BaseActivity implements TextToSpeech.OnInitLis
                             quiz_btnstatus3++;
                             flag = 1;
                         }
-                    } else if (rect6_4.contains(event.getX(), event.getY())) {
+                    } else if (rect6_4.contains(event.getX()+r.left, event.getY() + r.top)) {
                         if (flag == 0) {
                             if ((quiz_btnstatus4 % 2) == 0) {
                                 Glide.with(QuizActivity.this).load(R.drawable.braillebtn_true).into(quiz_braillebtn4);
@@ -1095,7 +1108,7 @@ public class QuizActivity extends BaseActivity implements TextToSpeech.OnInitLis
                             quiz_btnstatus4++;
                             flag = 1;
                         }
-                    } else if (rect6_5.contains(event.getX(), event.getY())) {
+                    } else if (rect6_5.contains(event.getX()+r.left, event.getY() + r.top)) {
                         if (flag == 0) {
                             if ((quiz_btnstatus5 % 2) == 0) {
                                 Glide.with(QuizActivity.this).load(R.drawable.braillebtn_true).into(quiz_braillebtn5);
@@ -1108,7 +1121,7 @@ public class QuizActivity extends BaseActivity implements TextToSpeech.OnInitLis
                             quiz_btnstatus5++;
                             flag = 1;
                         }
-                    } else if (rect6_6.contains(event.getX(), event.getY())) {
+                    } else if (rect6_6.contains(event.getX()+r.left, event.getY() + r.top)) {
                         if (flag == 0) {
                             if ((quiz_btnstatus6 % 2) == 0) {
                                 Glide.with(QuizActivity.this).load(R.drawable.braillebtn_true).into(quiz_braillebtn6);
@@ -1151,25 +1164,39 @@ public class QuizActivity extends BaseActivity implements TextToSpeech.OnInitLis
 
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                rect12_1.set(cha_braillebtn1_12.getLeft() + linear_quiz12_left.getLeft(), cha_braillebtn1_12.getTop() + linear_quiz12_enter.getTop() , cha_braillebtn1_12.getRight() + linear_quiz12_left.getLeft(), cha_braillebtn1_12.getBottom() + linear_quiz12_enter.getTop());
-                rect12_2.set(cha_braillebtn2_12.getLeft() + linear_quiz12_left.getLeft(),  cha_braillebtn2_12.getTop() + linear_quiz12_2.getTop() + linear_quiz12_enter.getTop() , cha_braillebtn2_12.getRight() + linear_quiz12_left.getLeft(), cha_braillebtn2_12.getBottom() + linear_quiz12_2.getTop() + linear_quiz12_enter.getTop());
-                rect12_3.set(cha_braillebtn3_12.getLeft() + linear_quiz12_left.getLeft(), cha_braillebtn3_12.getTop() + linear_quiz12_3.getTop() + linear_quiz12_enter.getTop() , cha_braillebtn3_12.getRight() + linear_quiz12_left.getLeft(), cha_braillebtn3_12.getBottom() + linear_quiz12_3.getTop() + linear_quiz12_enter.getTop());
 
-                rect12_4.set(cha_braillebtn4_12.getLeft() + linear_quiz12_left.getLeft(), cha_braillebtn4_12.getTop() + linear_quiz12_enter.getTop(), cha_braillebtn4_12.getRight() + linear_quiz12_left.getLeft(), cha_braillebtn4_12.getBottom() + + linear_quiz12_enter.getTop());
-                rect12_5.set(cha_braillebtn5_12.getLeft() + linear_quiz12_left.getLeft(), cha_braillebtn5_12.getTop() + linear_quiz12_enter.getTop() + linear_quiz12_2.getTop(), cha_braillebtn5_12.getRight() + linear_quiz12_left.getLeft(), cha_braillebtn5_12.getBottom() + linear_quiz12_2.getTop() + linear_quiz12_enter.getTop());
-                rect12_6.set(cha_braillebtn6_12.getLeft() + linear_quiz12_left.getLeft(), cha_braillebtn6_12.getTop() + linear_quiz12_enter.getTop() + linear_quiz12_3.getTop(), cha_braillebtn6_12.getRight() + linear_quiz12_left.getLeft(), cha_braillebtn6_12.getBottom() + linear_quiz12_3.getTop() + linear_quiz12_enter.getTop());
+                Rect r = new Rect();
 
-                rect12_7.set(cha_braillebtn1_12.getLeft() + linear_quiz12_right.getLeft(), cha_braillebtn1_12.getTop() + linear_quiz12_enter.getTop(), cha_braillebtn1_12.getRight() + linear_quiz12_right.getLeft(), cha_braillebtn1_12.getBottom() + linear_quiz12_enter.getTop());
-                rect12_8.set(cha_braillebtn2_12.getLeft() + linear_quiz12_right.getLeft(),  cha_braillebtn2_12.getTop() + linear_quiz12_2.getTop() + linear_quiz12_enter.getTop(), cha_braillebtn2_12.getRight() + linear_quiz12_right.getLeft(), cha_braillebtn2_12.getBottom() + linear_quiz12_2.getTop() + linear_quiz12_enter.getTop());
-                rect12_9.set(cha_braillebtn3_12.getLeft() + linear_quiz12_right.getLeft(), cha_braillebtn3_12.getTop() + linear_quiz12_3.getTop() + linear_quiz12_enter.getTop(), cha_braillebtn3_12.getRight() + linear_quiz12_right.getLeft(), cha_braillebtn3_12.getBottom() + linear_quiz12_3.getTop() + linear_quiz12_enter.getTop());
+                cha_braillebtn1_12.getGlobalVisibleRect(r);
+                rect12_1.set(r);
+                cha_braillebtn2_12.getGlobalVisibleRect(r);
+                rect12_2.set(r);
+                cha_braillebtn3_12.getGlobalVisibleRect(r);
+                rect12_3.set(r);
+                cha_braillebtn4_12.getGlobalVisibleRect(r);
+                rect12_4.set(r);
+                cha_braillebtn5_12.getGlobalVisibleRect(r);
+                rect12_5.set(r);
+                cha_braillebtn6_12.getGlobalVisibleRect(r);
+                rect12_6.set(r);
+                cha_braillebtn7_12.getGlobalVisibleRect(r);
+                rect12_7.set(r);
+                cha_braillebtn8_12.getGlobalVisibleRect(r);
+                rect12_8.set(r);
+                cha_braillebtn9_12.getGlobalVisibleRect(r);
+                rect12_9.set(r);
+                cha_braillebtn10_12.getGlobalVisibleRect(r);
+                rect12_10.set(r);
+                cha_braillebtn11_12.getGlobalVisibleRect(r);
+                rect12_11.set(r);
+                cha_braillebtn12_12.getGlobalVisibleRect(r);
+                rect12_12.set(r);
 
-                rect12_10.set(cha_braillebtn4_12.getLeft() + linear_quiz12_right.getLeft(), cha_braillebtn4_12.getTop() + linear_quiz12_enter.getTop(), cha_braillebtn4_12.getRight() + linear_quiz12_right.getLeft(), cha_braillebtn4_12.getBottom() + + linear_quiz12_enter.getTop());
-                rect12_11.set(cha_braillebtn5_12.getLeft() + linear_quiz12_right.getLeft(), cha_braillebtn5_12.getTop() + linear_quiz12_enter.getTop() + linear_quiz12_2.getTop(), cha_braillebtn5_12.getRight() + linear_quiz12_right.getLeft(), cha_braillebtn5_12.getBottom() + linear_quiz12_2.getTop() + linear_quiz12_enter.getTop());
-                rect12_12.set(cha_braillebtn6_12.getLeft() + linear_quiz12_right.getLeft(), cha_braillebtn6_12.getTop() + linear_quiz12_enter.getTop() + linear_quiz12_3.getTop(), cha_braillebtn6_12.getRight() + linear_quiz12_right.getLeft(), cha_braillebtn6_12.getBottom() + linear_quiz12_3.getTop() + linear_quiz12_enter.getTop());
+                linear_quiz12.getGlobalVisibleRect(r);
 
                 if (event.getAction() == MotionEvent.ACTION_DOWN || event.getAction() == MotionEvent.ACTION_MOVE) {
 
-                    if (rect12_1.contains(event.getX(), event.getY())) {
+                    if (rect12_1.contains(event.getX() + r.left, event.getY() + r.top)) {
                         if (flag == 0) {
                             if ((btnstatus1_12 % 2) == 0) {
                                 Glide.with(QuizActivity.this).load(R.drawable.braillebtn_true).into(cha_braillebtn1_12);
@@ -1182,7 +1209,7 @@ public class QuizActivity extends BaseActivity implements TextToSpeech.OnInitLis
                             btnstatus1_12++;
                             flag = 1;
                         }
-                    } else if (rect12_2.contains(event.getX(), event.getY())) {
+                    } else if (rect12_2.contains(event.getX() + r.left, event.getY() + r.top))  {
                         if (flag == 0) {
                             if ((btnstatus2_12 % 2) == 0) {
                                 Glide.with(QuizActivity.this).load(R.drawable.braillebtn_true).into(cha_braillebtn2_12);
@@ -1195,7 +1222,7 @@ public class QuizActivity extends BaseActivity implements TextToSpeech.OnInitLis
                             btnstatus2_12++;
                             flag = 1;
                         }
-                    } else if (rect12_3.contains(event.getX(), event.getY())) {
+                    } else if (rect12_3.contains(event.getX() + r.left, event.getY() + r.top))  {
                         if (flag == 0) {
                             if ((btnstatus3_12 % 2) == 0) {
                                 Glide.with(QuizActivity.this).load(R.drawable.braillebtn_true).into(cha_braillebtn3_12);
@@ -1208,7 +1235,7 @@ public class QuizActivity extends BaseActivity implements TextToSpeech.OnInitLis
                             btnstatus3_12++;
                             flag = 1;
                         }
-                    } else if (rect12_4.contains(event.getX(), event.getY())) {
+                    } else if (rect12_4.contains(event.getX() + r.left, event.getY() + r.top))  {
                         if (flag == 0) {
                             if ((btnstatus4_12 % 2) == 0) {
                                 Glide.with(QuizActivity.this).load(R.drawable.braillebtn_true).into(cha_braillebtn4_12);
@@ -1221,7 +1248,7 @@ public class QuizActivity extends BaseActivity implements TextToSpeech.OnInitLis
                             btnstatus4_12++;
                             flag = 1;
                         }
-                    } else if (rect12_5.contains(event.getX(), event.getY())) {
+                    } else if (rect12_5.contains(event.getX() + r.left, event.getY() + r.top))  {
                         if (flag == 0) {
                             if ((btnstatus5_12 % 2) == 0) {
                                 Glide.with(QuizActivity.this).load(R.drawable.braillebtn_true).into(cha_braillebtn5_12);
@@ -1234,7 +1261,7 @@ public class QuizActivity extends BaseActivity implements TextToSpeech.OnInitLis
                             btnstatus5_12++;
                             flag = 1;
                         }
-                    } else if (rect12_6.contains(event.getX(), event.getY())) {
+                    } else if (rect12_6.contains(event.getX() + r.left, event.getY() + r.top))  {
                         if (flag == 0) {
                             if ((btnstatus6_12 % 2) == 0) {
                                 Glide.with(QuizActivity.this).load(R.drawable.braillebtn_true).into(cha_braillebtn6_12);
@@ -1247,7 +1274,7 @@ public class QuizActivity extends BaseActivity implements TextToSpeech.OnInitLis
                             btnstatus6_12++;
                             flag = 1;
                         }
-                    } else if (rect12_7.contains(event.getX(), event.getY())) {
+                    } else if (rect12_7.contains(event.getX() + r.left, event.getY() + r.top))  {
                         if (flag == 0) {
                             if ((btnstatus7_12 % 2) == 0) {
                                 Glide.with(QuizActivity.this).load(R.drawable.braillebtn_true).into(cha_braillebtn7_12);
@@ -1260,7 +1287,7 @@ public class QuizActivity extends BaseActivity implements TextToSpeech.OnInitLis
                             btnstatus7_12++;
                             flag = 1;
                         }
-                    } else if (rect12_8.contains(event.getX(), event.getY())) {
+                    } else if (rect12_8.contains(event.getX() + r.left, event.getY() + r.top))  {
                         if (flag == 0) {
                             if ((btnstatus8_12 % 2) == 0) {
                                 Glide.with(QuizActivity.this).load(R.drawable.braillebtn_true).into(cha_braillebtn8_12);
@@ -1273,7 +1300,7 @@ public class QuizActivity extends BaseActivity implements TextToSpeech.OnInitLis
                             btnstatus8_12++;
                             flag = 1;
                         }
-                    } else if (rect12_9.contains(event.getX(), event.getY())) {
+                    } else if (rect12_9.contains(event.getX() + r.left, event.getY() + r.top))  {
                         if (flag == 0) {
                             if ((btnstatus9_12 % 2) == 0) {
                                 Glide.with(QuizActivity.this).load(R.drawable.braillebtn_true).into(cha_braillebtn9_12);
@@ -1286,7 +1313,7 @@ public class QuizActivity extends BaseActivity implements TextToSpeech.OnInitLis
                             btnstatus9_12++;
                             flag = 1;
                         }
-                    } else if (rect12_10.contains(event.getX(), event.getY())) {
+                    } else if (rect12_10.contains(event.getX() + r.left, event.getY() + r.top))  {
                         if (flag == 0) {
                             if ((btnstatus10_12 % 2) == 0) {
                                 Glide.with(QuizActivity.this).load(R.drawable.braillebtn_true).into(cha_braillebtn10_12);
@@ -1299,7 +1326,7 @@ public class QuizActivity extends BaseActivity implements TextToSpeech.OnInitLis
                             btnstatus10_12++;
                             flag = 1;
                         }
-                    } else if (rect12_11.contains(event.getX(), event.getY())) {
+                    } else if (rect12_11.contains(event.getX() + r.left, event.getY() + r.top))  {
                         if (flag == 0) {
                             if ((btnstatus11_12 % 2) == 0) {
                                 Glide.with(QuizActivity.this).load(R.drawable.braillebtn_true).into(cha_braillebtn11_12);
@@ -1312,7 +1339,7 @@ public class QuizActivity extends BaseActivity implements TextToSpeech.OnInitLis
                             btnstatus11_12++;
                             flag = 1;
                         }
-                    } else if (rect12_12.contains(event.getX(), event.getY())) {
+                    } else if (rect12_12.contains(event.getX() + r.left, event.getY() + r.top))  {
                         if (flag == 0) {
                             if ((btnstatus12_12 % 2) == 0) {
                                 Glide.with(QuizActivity.this).load(R.drawable.braillebtn_true).into(cha_braillebtn12_12);

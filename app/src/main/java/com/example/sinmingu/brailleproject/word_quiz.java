@@ -116,30 +116,30 @@ public class word_quiz extends BaseActivity {
 
     public void onNextClick(View v){    // 다음 버튼 클릭 시
         int problemNumber = random.nextInt(problemCount);
-        if (problemHistory.size() == problem_now) { // 새로운 문제 생성
-            problem_now++;  // 문제 번호를 +1
+    if (problemHistory.size() == problem_now) { // 새로운 문제 생성
+        problem_now++;  // 문제 번호를 +1
+        quiz_word_solution.setVisibility(View.INVISIBLE);
+        quiz_word_commentary.setVisibility(View.INVISIBLE);
+        problemHistory.add(problemNumber);  // 기록남기기
+        checkFlag.add(0);
+        userSolutionHistory.add(0);
+        setProblem(problemNumber);
+        setCheckable(true);
+    }
+    else {  // 지나간 문제
+        setProblem(problemHistory.get((++problem_now) - 1));
+        if (checkFlag.get((problem_now) - 1) == 0){     // 안풀고 넘어간거라면
             quiz_word_solution.setVisibility(View.INVISIBLE);
             quiz_word_commentary.setVisibility(View.INVISIBLE);
-            problemHistory.add(problemNumber);  // 기록남기기
-            checkFlag.add(0);
-            userSolutionHistory.add(0);
-            setProblem(problemNumber);
             setCheckable(true);
         }
-        else {  // 지나간 문제
-            setProblem(problemHistory.get((++problem_now) - 1));
-            if (checkFlag.get((problem_now) - 1) == 0){     // 안풀고 넘어간거라면
-                quiz_word_solution.setVisibility(View.INVISIBLE);
-                quiz_word_commentary.setVisibility(View.INVISIBLE);
-                setCheckable(true);
-            }
-            else{   // 풀고 간 거라면
-                quiz_word_solution.setVisibility(View.VISIBLE);
-                quiz_word_commentary.setVisibility(View.VISIBLE);
-                setBeforeChecked(userSolutionHistory.get((problem_now) - 1));
-            }
+        else{   // 풀고 간 거라면
+            quiz_word_solution.setVisibility(View.VISIBLE);
+            quiz_word_commentary.setVisibility(View.VISIBLE);
+            setBeforeChecked(userSolutionHistory.get((problem_now) - 1));
         }
     }
+}
 
     public void onSolutionCheckClick(View v){   // 확인 버튼이 클릭되면...
 
@@ -179,152 +179,152 @@ public class word_quiz extends BaseActivity {
         switch(problemNumber){
             // 문제 설정
             case 0:
-                Glide.with(this).load(R.drawable.word_problem_1).into(quiz_word_problem);
+                Glide.with(this).load(R.drawable.word_problem_1).fitCenter().into(quiz_word_problem);
                 setChoice("자동차","공유기","마음","물");     // 보기 설정
                 setSolution(3, "");
                 break;
             case 1:
-                Glide.with(this).load(R.drawable.word_problem_2).into(quiz_word_problem);
+                Glide.with(this).load(R.drawable.word_problem_2).fitCenter().into(quiz_word_problem);
                 setChoice("빛","영화관","고양이","시각");     // 보기 설정
                 setSolution(1, "");
                 break;
             case 2:
-                Glide.with(this).load(R.drawable.word_problem_3).into(quiz_word_problem);
+                Glide.with(this).load(R.drawable.word_problem_3).fitCenter().into(quiz_word_problem);
                 setChoice("세탁기","휴지","안경","기린");     // 보기 설정
                 setSolution(3, "");
                 break;
             case 3:
-                Glide.with(this).load(R.drawable.word_problem_4).into(quiz_word_problem);
+                Glide.with(this).load(R.drawable.word_problem_4).fitCenter().into(quiz_word_problem);
                 setChoice("강아지","한국어","라디오","신문");     // 보기 설정
                 setSolution(4, "");
                 break;
             case 4:
-                Glide.with(this).load(R.drawable.word_problem_5).into(quiz_word_problem);
+                Glide.with(this).load(R.drawable.word_problem_5).fitCenter().into(quiz_word_problem);
                 setChoice("어플","한국","한국어","콜라");     // 보기 설정
                 setSolution(2, "");
                 break;
             case 5:
-                Glide.with(this).load(R.drawable.word_problem_6).into(quiz_word_problem);
+                Glide.with(this).load(R.drawable.word_problem_6).fitCenter().into(quiz_word_problem);
                 setChoice("지하철","너구리","운명","마우스");     // 보기 설정
                 setSolution(1, "");
                 break;
             case 6:
-                Glide.with(this).load(R.drawable.word_problem_7).into(quiz_word_problem);
+                Glide.with(this).load(R.drawable.word_problem_7).fitCenter().into(quiz_word_problem);
                 setChoice("영어","엄마","점자","아버지");     // 보기 설정
                 setSolution(3, "");
                 break;
             case 7:
-                Glide.with(this).load(R.drawable.word_problem_8).into(quiz_word_problem);
+                Glide.with(this).load(R.drawable.word_problem_8).fitCenter().into(quiz_word_problem);
                 setChoice("코끼리","악어","치타","호랑이");     // 보기 설정
                 setSolution(4, "");
                 break;
             case 8:
-                Glide.with(this).load(R.drawable.word_problem_9).into(quiz_word_problem);
+                Glide.with(this).load(R.drawable.word_problem_9).fitCenter().into(quiz_word_problem);
                 setChoice("모니터","비디오","가습기","라디오");     // 보기 설정
                 setSolution(4, "");
                 break;
             case 9:
-                Glide.with(this).load(R.drawable.word_problem_10).into(quiz_word_problem);
+                Glide.with(this).load(R.drawable.word_problem_10).fitCenter().into(quiz_word_problem);
                 setChoice("숲","흙","불","닭");     // 보기 설정
                 setSolution(2, "");
                 break;
             case 10:
-                Glide.with(this).load(R.drawable.word_problem_11).into(quiz_word_problem);
+                Glide.with(this).load(R.drawable.word_problem_11).fitCenter().into(quiz_word_problem);
                 setChoice("스포츠","콜라","탄산","사이다");     // 보기 설정
                 setSolution(2, "");
                 break;
             case 11:
-                Glide.with(this).load(R.drawable.word_problem_12).into(quiz_word_problem);
+                Glide.with(this).load(R.drawable.word_problem_12).fitCenter().into(quiz_word_problem);
                 setChoice("자전거","지하철","자동차","비행기");     // 보기 설정
                 setSolution(3, "");
                 break;
             case 12:
-                Glide.with(this).load(R.drawable.word_problem_13).into(quiz_word_problem);
+                Glide.with(this).load(R.drawable.word_problem_13).fitCenter().into(quiz_word_problem);
                 setChoice("한글","한민족","한국사","한국어");     // 보기 설정
                 setSolution(4, "");
                 break;
             case 13:
-                Glide.with(this).load(R.drawable.word_problem_14).into(quiz_word_problem);
+                Glide.with(this).load(R.drawable.word_problem_14).fitCenter().into(quiz_word_problem);
                 setChoice("카카오톡","텔레비전","페이스북","통신사");     // 보기 설정
                 setSolution(1, "");
                 break;
             case 14:
-                Glide.with(this).load(R.drawable.word_problem_15).into(quiz_word_problem);
+                Glide.with(this).load(R.drawable.word_problem_15).fitCenter().into(quiz_word_problem);
                 setChoice("백화점","편의점","레스토랑","시장");     // 보기 설정
                 setSolution(2, "");
                 break;
             case 15:
-                Glide.with(this).load(R.drawable.word_problem_16).into(quiz_word_problem);
+                Glide.with(this).load(R.drawable.word_problem_16).fitCenter().into(quiz_word_problem);
                 setChoice("햄버거","치킨","피자","중식");     // 보기 설정
                 setSolution(2, "");
                 break;
             case 16:
-                Glide.with(this).load(R.drawable.word_problem_17).into(quiz_word_problem);
+                Glide.with(this).load(R.drawable.word_problem_17).fitCenter().into(quiz_word_problem);
                 setChoice("도박","복권","연금","로또");     // 보기 설정
                 setSolution(2, "");
                 break;
             case 17:
-                Glide.with(this).load(R.drawable.word_problem_18).into(quiz_word_problem);
+                Glide.with(this).load(R.drawable.word_problem_18).fitCenter().into(quiz_word_problem);
                 setChoice("물","집","배","돈");     // 보기 설정
                 setSolution(2, "");
                 break;
             case 18:
-                Glide.with(this).load(R.drawable.word_problem_19).into(quiz_word_problem);
+                Glide.with(this).load(R.drawable.word_problem_19).fitCenter().into(quiz_word_problem);
                 setChoice("고수","정수","액상","물");     // 보기 설정
                 setSolution(4, "");
                 break;
             case 19:
-                Glide.with(this).load(R.drawable.word_problem_20).into(quiz_word_problem);
+                Glide.with(this).load(R.drawable.word_problem_20).fitCenter().into(quiz_word_problem);
                 setChoice("셔츠","바지","양말","점퍼");     // 보기 설정
                 setSolution(3, "");
                 break;
             case 20:
-                Glide.with(this).load(R.drawable.word_problem_21).into(quiz_word_problem);
+                Glide.with(this).load(R.drawable.word_problem_21).fitCenter().into(quiz_word_problem);
                 setChoice("운명","인연","필연","우연");     // 보기 설정
                 setSolution(1, "");
                 break;
             case 21:
-                Glide.with(this).load(R.drawable.word_problem_22).into(quiz_word_problem);
+                Glide.with(this).load(R.drawable.word_problem_22).fitCenter().into(quiz_word_problem);
                 setChoice("모뎀","스캐너","프린터","공유기");     // 보기 설정
                 setSolution(4, "");
                 break;
             case 22:
-                Glide.with(this).load(R.drawable.word_problem_23).into(quiz_word_problem);
+                Glide.with(this).load(R.drawable.word_problem_23).fitCenter().into(quiz_word_problem);
                 setChoice("시각","청각","촉각","후각");     // 보기 설정
                 setSolution(1, "");
                 break;
             case 23:
-                Glide.with(this).load(R.drawable.word_problem_24).into(quiz_word_problem);
+                Glide.with(this).load(R.drawable.word_problem_24).fitCenter().into(quiz_word_problem);
                 setChoice("공부","휴식","식사","여가");     // 보기 설정
                 setSolution(1, "");
                 break;
             case 24:
-                Glide.with(this).load(R.drawable.word_problem_25).into(quiz_word_problem);
+                Glide.with(this).load(R.drawable.word_problem_25).fitCenter().into(quiz_word_problem);
                 setChoice("애플","고글","어플","샘물");     // 보기 설정
                 setSolution(3, "");
                 break;
             case 25:
-                Glide.with(this).load(R.drawable.word_problem_26).into(quiz_word_problem);
+                Glide.with(this).load(R.drawable.word_problem_26).fitCenter().into(quiz_word_problem);
                 setChoice("청소기","세탁기","세면대","다리미");     // 보기 설정
                 setSolution(2, "");
                 break;
             case 26:
-                Glide.with(this).load(R.drawable.word_problem_27).into(quiz_word_problem);
+                Glide.with(this).load(R.drawable.word_problem_27).fitCenter().into(quiz_word_problem);
                 setChoice("헤드폰","이어폰","키보드","마우스");     // 보기 설정
                 setSolution(4, "");
                 break;
             case 27:
-                Glide.with(this).load(R.drawable.word_problem_28).into(quiz_word_problem);
+                Glide.with(this).load(R.drawable.word_problem_28).fitCenter().into(quiz_word_problem);
                 setChoice("티슈","걸레","행주","휴지");     // 보기 설정
                 setSolution(4, "");
                 break;
             case 28:
-                Glide.with(this).load(R.drawable.word_problem_29).into(quiz_word_problem);
+                Glide.with(this).load(R.drawable.word_problem_29).fitCenter().into(quiz_word_problem);
                 setChoice("눈물","지하수","강물","약수");     // 보기 설정
                 setSolution(1, "");
                 break;
             case 29:
-                Glide.with(this).load(R.drawable.word_problem_30).into(quiz_word_problem);
+                Glide.with(this).load(R.drawable.word_problem_30).fitCenter().into(quiz_word_problem);
                 setChoice("상품권","관람객","영화관","할인권");     // 보기 설정
                 setSolution(3, "");
                 break;
@@ -355,11 +355,11 @@ public class word_quiz extends BaseActivity {
 
 
     public void setChoice(String choice1, String choice2, String choice3, String choice4){  // 주어진 보기를 세팅
-        quiz_word_choice_1.setText(" ① " + choice1);
-        quiz_word_choice_2.setText(" ② " + choice2);
-        quiz_word_choice_3.setText(" ③ " + choice3);
-        quiz_word_choice_4.setText(" ④ " + choice4);
-    }
+                quiz_word_choice_1.setText(" ① " + choice1);
+                quiz_word_choice_2.setText(" ② " + choice2);
+                quiz_word_choice_3.setText(" ③ " + choice3);
+                quiz_word_choice_4.setText(" ④ " + choice4);
+        }
 
 
     public void setSolution(int solution, String commentary){   // 주어진 정답을 세팅

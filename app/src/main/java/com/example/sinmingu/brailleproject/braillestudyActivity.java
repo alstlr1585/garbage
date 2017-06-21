@@ -1,15 +1,10 @@
 package com.example.sinmingu.brailleproject;
 
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
+import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.Typeface;
-import android.os.Handler;
-import android.os.Message;
-import android.speech.tts.TextToSpeech;
-import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.view.MotionEvent;
@@ -18,15 +13,11 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.Switch;
 import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-
-import static android.R.attr.id;
-import static java.lang.System.exit;
 
 public class braillestudyActivity extends BaseActivity implements TextToSpeech.OnInitListener{
 
@@ -309,16 +300,25 @@ public class braillestudyActivity extends BaseActivity implements TextToSpeech.O
             @Override
             public boolean onTouch(View v, MotionEvent event) {
 
-                rect1.set(braillebtn1.getLeft(), braillebtn1.getTop(), braillebtn1.getRight(), braillebtn1.getBottom());
-                rect2.set(braillebtn2.getLeft(), braillebtn2.getTop() + linear_touch_2.getTop(), braillebtn2.getRight(), braillebtn2.getBottom() + linear_touch_2.getTop());
-                rect3.set(braillebtn3.getLeft(), braillebtn3.getTop() + linear_touch_3.getTop(), braillebtn3.getRight(), braillebtn3.getBottom() + linear_touch_3.getTop());
-                rect4.set(braillebtn4.getLeft(), braillebtn4.getTop(), braillebtn4.getRight(), braillebtn4.getBottom());
-                rect5.set(braillebtn5.getLeft(), braillebtn5.getTop() + linear_touch_2.getTop(), braillebtn5.getRight(), braillebtn5.getBottom() + linear_touch_2.getTop());
-                rect6.set(braillebtn6.getLeft(), braillebtn6.getTop() + linear_touch_3.getTop(), braillebtn6.getRight(), braillebtn6.getBottom() + linear_touch_3.getTop());
+                Rect r = new Rect();
+                braillebtn1.getGlobalVisibleRect(r);
+                rect1.set(r);
+                braillebtn2.getGlobalVisibleRect(r);
+                rect2.set(r);
+                braillebtn3.getGlobalVisibleRect(r);
+                rect3.set(r);
+                braillebtn4.getGlobalVisibleRect(r);
+                rect4.set(r);
+                braillebtn5.getGlobalVisibleRect(r);
+                rect5.set(r);
+                braillebtn6.getGlobalVisibleRect(r);
+                rect6.set(r);
+
+                linear_touch.getGlobalVisibleRect(r);
 
                 if (event.getAction() == MotionEvent.ACTION_DOWN || event.getAction() == MotionEvent.ACTION_MOVE) {
 
-                    if (rect1.contains(event.getX(), event.getY())) {
+                    if (rect1.contains(event.getX()+r.left, event.getY()+r.top)) {
                         if (flag == 0) {
                             if ((btnstatus1 % 2) == 0) {
                                 Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_true).into(braillebtn1);
@@ -331,7 +331,7 @@ public class braillestudyActivity extends BaseActivity implements TextToSpeech.O
                             btnstatus1++;
                             flag = 1;
                         }
-                    } else if (rect2.contains(event.getX(), event.getY())) {
+                    } else if (rect2.contains(event.getX()+r.left, event.getY()+r.top)) {
                         if (flag == 0) {
                             if ((btnstatus2 % 2) == 0) {
                                 Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_true).into(braillebtn2);
@@ -344,7 +344,7 @@ public class braillestudyActivity extends BaseActivity implements TextToSpeech.O
                             btnstatus2++;
                             flag = 1;
                         }
-                    } else if (rect3.contains(event.getX(), event.getY())) {
+                    } else if (rect3.contains(event.getX()+r.left, event.getY()+r.top)) {
                         if (flag == 0) {
                             if ((btnstatus3 % 2) == 0) {
                                 Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_true).into(braillebtn3);
@@ -357,7 +357,7 @@ public class braillestudyActivity extends BaseActivity implements TextToSpeech.O
                             btnstatus3++;
                             flag = 1;
                         }
-                    } else if (rect4.contains(event.getX(), event.getY())) {
+                    } else if (rect4.contains(event.getX()+r.left, event.getY()+r.top)) {
                         if (flag == 0) {
                             if ((btnstatus4 % 2) == 0) {
                                 Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_true).into(braillebtn4);
@@ -370,7 +370,7 @@ public class braillestudyActivity extends BaseActivity implements TextToSpeech.O
                             btnstatus4++;
                             flag = 1;
                         }
-                    } else if (rect5.contains(event.getX(), event.getY())) {
+                    } else if (rect5.contains(event.getX()+r.left, event.getY()+r.top)) {
                         if (flag == 0) {
                             if ((btnstatus5 % 2) == 0) {
                                 Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_true).into(braillebtn5);
@@ -383,7 +383,7 @@ public class braillestudyActivity extends BaseActivity implements TextToSpeech.O
                             btnstatus5++;
                             flag = 1;
                         }
-                    } else if (rect6.contains(event.getX(), event.getY())) {
+                    } else if (rect6.contains(event.getX()+r.left, event.getY()+r.top)) {
                         if (flag == 0) {
                             if ((btnstatus6 % 2) == 0) {
                                 Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_true).into(braillebtn6);
@@ -427,26 +427,38 @@ public class braillestudyActivity extends BaseActivity implements TextToSpeech.O
             @Override
             public boolean onTouch(View v, MotionEvent event) {
 
+                Rect r = new Rect();
 
-                rect12_1.set(braillebtn1_12.getLeft() + linear_touch2_left.getLeft(), braillebtn1_12.getTop() + linear_touch2_enter.getTop(), braillebtn1_12.getRight() + linear_touch2_left.getLeft(), braillebtn1_12.getBottom() + linear_touch2_enter.getTop());
-                rect12_2.set(braillebtn2_12.getLeft() + linear_touch2_left.getLeft(),  braillebtn2_12.getTop() + linear_touch2_2.getTop() + linear_touch2_enter.getTop(), braillebtn2_12.getRight() + linear_touch2_left.getLeft(), braillebtn2_12.getBottom() + linear_touch2_2.getTop() + linear_touch2_enter.getTop());
-                rect12_3.set(braillebtn3_12.getLeft() + linear_touch2_left.getLeft(), braillebtn3_12.getTop() + linear_touch2_3.getTop() + linear_touch2_enter.getTop(), braillebtn3_12.getRight() + linear_touch2_left.getLeft(), braillebtn3_12.getBottom() + linear_touch2_3.getTop() + linear_touch2_enter.getTop());
+                braillebtn1_12.getGlobalVisibleRect(r);
+                rect12_1.set(r);
+                braillebtn2_12.getGlobalVisibleRect(r);
+                rect12_2.set(r);
+                braillebtn3_12.getGlobalVisibleRect(r);
+                rect12_3.set(r);
+                braillebtn4_12.getGlobalVisibleRect(r);
+                rect12_4.set(r);
+                braillebtn5_12.getGlobalVisibleRect(r);
+                rect12_5.set(r);
+                braillebtn6_12.getGlobalVisibleRect(r);
+                rect12_6.set(r);
+                braillebtn7_12.getGlobalVisibleRect(r);
+                rect12_7.set(r);
+                braillebtn8_12.getGlobalVisibleRect(r);
+                rect12_8.set(r);
+                braillebtn9_12.getGlobalVisibleRect(r);
+                rect12_9.set(r);
+                braillebtn10_12.getGlobalVisibleRect(r);
+                rect12_10.set(r);
+                braillebtn11_12.getGlobalVisibleRect(r);
+                rect12_11.set(r);
+                braillebtn12_12.getGlobalVisibleRect(r);
+                rect12_12.set(r);
 
-                rect12_4.set(braillebtn4_12.getLeft() + linear_touch2_left.getLeft(), braillebtn4_12.getTop() + linear_touch2_enter.getTop(), braillebtn4_12.getRight() + linear_touch2_left.getLeft(), braillebtn4_12.getBottom() + + linear_touch2_enter.getTop());
-                rect12_5.set(braillebtn5_12.getLeft() + linear_touch2_left.getLeft(), braillebtn5_12.getTop() + linear_touch2_enter.getTop() + linear_touch2_2.getTop(), braillebtn5_12.getRight() + linear_touch2_left.getLeft(), braillebtn5_12.getBottom() + linear_touch2_2.getTop() + linear_touch2_enter.getTop());
-                rect12_6.set(braillebtn6_12.getLeft() + linear_touch2_left.getLeft(), braillebtn6_12.getTop() + linear_touch2_enter.getTop() + linear_touch2_3.getTop(), braillebtn6_12.getRight() + linear_touch2_left.getLeft(), braillebtn6_12.getBottom() + linear_touch2_3.getTop() + linear_touch2_enter.getTop());
-
-                rect12_7.set(braillebtn1_12.getLeft() + linear_touch2_right.getLeft(), braillebtn1_12.getTop() + linear_touch2_enter.getTop(), braillebtn1_12.getRight() + linear_touch2_right.getLeft(), braillebtn1_12.getBottom() + linear_touch2_enter.getTop());
-                rect12_8.set(braillebtn2_12.getLeft() + linear_touch2_right.getLeft(),  braillebtn2_12.getTop() + linear_touch2_2.getTop() + linear_touch2_enter.getTop(), braillebtn2_12.getRight() + linear_touch2_right.getLeft(), braillebtn2_12.getBottom() + linear_touch2_2.getTop() + linear_touch2_enter.getTop());
-                rect12_9.set(braillebtn3_12.getLeft() + linear_touch2_right.getLeft(), braillebtn3_12.getTop() + linear_touch2_3.getTop() + linear_touch2_enter.getTop(), braillebtn3_12.getRight() + linear_touch2_right.getLeft(), braillebtn3_12.getBottom() + linear_touch2_3.getTop() + linear_touch2_enter.getTop());
-
-                rect12_10.set(braillebtn4_12.getLeft() + linear_touch2_right.getLeft(), braillebtn4_12.getTop() + linear_touch2_enter.getTop(), braillebtn4_12.getRight() + linear_touch2_right.getLeft(), braillebtn4_12.getBottom() + + linear_touch2_enter.getTop());
-                rect12_11.set(braillebtn5_12.getLeft() + linear_touch2_right.getLeft(), braillebtn5_12.getTop() + linear_touch2_enter.getTop() + linear_touch2_2.getTop(), braillebtn5_12.getRight() + linear_touch2_right.getLeft(), braillebtn5_12.getBottom() + linear_touch2_2.getTop() + linear_touch2_enter.getTop());
-                rect12_12.set(braillebtn6_12.getLeft() + linear_touch2_right.getLeft(), braillebtn6_12.getTop() + linear_touch2_enter.getTop() + linear_touch2_3.getTop(), braillebtn6_12.getRight() + linear_touch2_right.getLeft(), braillebtn6_12.getBottom() + linear_touch2_3.getTop() + linear_touch2_enter.getTop());
+                linear_touch2.getGlobalVisibleRect(r);
 
                 if (event.getAction() == MotionEvent.ACTION_DOWN || event.getAction() == MotionEvent.ACTION_MOVE) {
 
-                    if (rect12_1.contains(event.getX(), event.getY())) {
+                    if (rect12_1.contains(event.getX()+r.left, event.getY()+r.top)) {
                         if (flag == 0) {
                             if ((btnstatus1_12 % 2) == 0) {
                                 Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_true).into(braillebtn1_12);
@@ -459,7 +471,7 @@ public class braillestudyActivity extends BaseActivity implements TextToSpeech.O
                             btnstatus1_12++;
                             flag = 1;
                         }
-                    } else if (rect12_2.contains(event.getX(), event.getY())) {
+                    } else if (rect12_2.contains(event.getX()+r.left, event.getY()+r.top)) {
                         if (flag == 0) {
                             if ((btnstatus2_12 % 2) == 0) {
                                 Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_true).into(braillebtn2_12);
@@ -472,7 +484,7 @@ public class braillestudyActivity extends BaseActivity implements TextToSpeech.O
                             btnstatus2_12++;
                             flag = 1;
                         }
-                    } else if (rect12_3.contains(event.getX(), event.getY())) {
+                    } else if (rect12_3.contains(event.getX()+r.left, event.getY()+r.top)) {
                         if (flag == 0) {
                             if ((btnstatus3_12 % 2) == 0) {
                                 Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_true).into(braillebtn3_12);
@@ -485,7 +497,7 @@ public class braillestudyActivity extends BaseActivity implements TextToSpeech.O
                             btnstatus3_12++;
                             flag = 1;
                         }
-                    } else if (rect12_4.contains(event.getX(), event.getY())) {
+                    } else if (rect12_4.contains(event.getX()+r.left, event.getY()+r.top)) {
                         if (flag == 0) {
                             if ((btnstatus4_12 % 2) == 0) {
                                 Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_true).into(braillebtn4_12);
@@ -498,7 +510,7 @@ public class braillestudyActivity extends BaseActivity implements TextToSpeech.O
                             btnstatus4_12++;
                             flag = 1;
                         }
-                    } else if (rect12_5.contains(event.getX(), event.getY())) {
+                    } else if (rect12_5.contains(event.getX()+r.left, event.getY()+r.top)) {
                         if (flag == 0) {
                             if ((btnstatus5_12 % 2) == 0) {
                                 Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_true).into(braillebtn5_12);
@@ -511,7 +523,7 @@ public class braillestudyActivity extends BaseActivity implements TextToSpeech.O
                             btnstatus5_12++;
                             flag = 1;
                         }
-                    } else if (rect12_6.contains(event.getX(), event.getY())) {
+                    } else if (rect12_6.contains(event.getX()+r.left, event.getY()+r.top)) {
                         if (flag == 0) {
                             if ((btnstatus6_12 % 2) == 0) {
                                 Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_true).into(braillebtn6_12);
@@ -524,7 +536,7 @@ public class braillestudyActivity extends BaseActivity implements TextToSpeech.O
                             btnstatus6_12++;
                             flag = 1;
                         }
-                    } else if (rect12_7.contains(event.getX(), event.getY())) {
+                    } else if (rect12_7.contains(event.getX()+r.left, event.getY()+r.top)) {
                         if (flag == 0) {
                             if ((btnstatus7_12 % 2) == 0) {
                                 Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_true).into(braillebtn7_12);
@@ -537,7 +549,7 @@ public class braillestudyActivity extends BaseActivity implements TextToSpeech.O
                             btnstatus7_12++;
                             flag = 1;
                         }
-                    } else if (rect12_8.contains(event.getX(), event.getY())) {
+                    } else if (rect12_8.contains(event.getX()+r.left, event.getY()+r.top)) {
                         if (flag == 0) {
                             if ((btnstatus8_12 % 2) == 0) {
                                 Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_true).into(braillebtn8_12);
@@ -550,7 +562,7 @@ public class braillestudyActivity extends BaseActivity implements TextToSpeech.O
                             btnstatus8_12++;
                             flag = 1;
                         }
-                    } else if (rect12_9.contains(event.getX(), event.getY())) {
+                    } else if (rect12_9.contains(event.getX()+r.left, event.getY()+r.top)) {
                         if (flag == 0) {
                             if ((btnstatus9_12 % 2) == 0) {
                                 Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_true).into(braillebtn9_12);
@@ -563,7 +575,7 @@ public class braillestudyActivity extends BaseActivity implements TextToSpeech.O
                             btnstatus9_12++;
                             flag = 1;
                         }
-                    } else if (rect12_10.contains(event.getX(), event.getY())) {
+                    } else if (rect12_10.contains(event.getX()+r.left, event.getY()+r.top)) {
                         if (flag == 0) {
                             if ((btnstatus10_12 % 2) == 0) {
                                 Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_true).into(braillebtn10_12);
@@ -576,7 +588,7 @@ public class braillestudyActivity extends BaseActivity implements TextToSpeech.O
                             btnstatus10_12++;
                             flag = 1;
                         }
-                    } else if (rect12_11.contains(event.getX(), event.getY())) {
+                    } else if (rect12_11.contains(event.getX()+r.left, event.getY()+r.top)) {
                         if (flag == 0) {
                             if ((btnstatus11_12 % 2) == 0) {
                                 Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_true).into(braillebtn11_12);
@@ -589,7 +601,7 @@ public class braillestudyActivity extends BaseActivity implements TextToSpeech.O
                             btnstatus11_12++;
                             flag = 1;
                         }
-                    } else if (rect12_12.contains(event.getX(), event.getY())) {
+                    } else if (rect12_12.contains(event.getX()+r.left, event.getY()+r.top)) {
                         if (flag == 0) {
                             if ((btnstatus12_12 % 2) == 0) {
                                 Glide.with(braillestudyActivity.this).load(R.drawable.braillebtn_true).into(braillebtn12_12);

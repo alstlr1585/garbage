@@ -263,6 +263,7 @@
                                android:layout_height="wrap_content"
                                android:gravity="center"
                                android:background="@android:color/transparent"
+                               android:layout_marginRight="5dp"
                                android:id="@+id/quiz_braillebtn1"
                                android:layout_gravity="center"
                                android:layout_weight="1"/>
@@ -271,6 +272,7 @@
                                android:layout_width="match_parent"
                                android:layout_height="wrap_content"
                                android:gravity="center"
+                               android:layout_marginLeft="5dp"
                                android:id="@+id/quiz_braillebtn4"
                                android:background="@android:color/transparent"
                                android:layout_gravity="center"
@@ -295,7 +297,9 @@
                                android:layout_width="match_parent"
                                android:layout_height="wrap_content"
                                android:gravity="center"
+                               android:layout_marginRight="5dp"
                                android:id="@+id/quiz_braillebtn2"
+
                                android:background="@android:color/transparent"
                                android:layout_gravity="center"
                                android:layout_weight="1"/>
@@ -305,6 +309,7 @@
                                android:layout_height="wrap_content"
                                android:gravity="center"
                                android:background="@android:color/transparent"
+                               android:layout_marginLeft="5dp"
                                android:id="@+id/quiz_braillebtn5"
                                android:layout_gravity="center"
                                android:layout_weight="1"/>
@@ -325,6 +330,7 @@
                                android:layout_width="match_parent"
                                android:layout_height="wrap_content"
                                android:gravity="center"
+                               android:layout_marginRight="5dp"
                                android:background="@android:color/transparent"
                                android:id="@+id/quiz_braillebtn3"
                                android:layout_gravity="center"
@@ -334,6 +340,7 @@
                                android:layout_width="match_parent"
                                android:layout_height="wrap_content"
                                android:gravity="center"
+                               android:layout_marginLeft="5dp"
                                android:background="@android:color/transparent"
                                android:id="@+id/quiz_braillebtn6"
                                android:layout_gravity="center"

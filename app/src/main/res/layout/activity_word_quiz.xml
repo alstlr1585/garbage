@@ -97,10 +97,9 @@
     </LinearLayout>
 
 
-    <ImageView
+    <LinearLayout
         android:layout_weight="1"
         android:layout_width="match_parent"
-        android:height="80dp"
         android:layout_marginRight="15dp"
         android:layout_marginLeft="15dp"
         android:layout_marginBottom="15dp"
@@ -108,10 +107,25 @@
         android:paddingBottom="10dp"
         android:paddingRight="10dp"
         android:paddingLeft="10dp"
-        android:textSize="15dp"
         android:background="@drawable/deepen_line"
-        android:layout_height="wrap_content"
-        android:id="@+id/quiz_word_problem"/>
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            android:background="@android:color/transparent"
+            android:layout_height="90dp"
+            android:id="@+id/quiz_word_problem"/>
+
+
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_weight="1"
